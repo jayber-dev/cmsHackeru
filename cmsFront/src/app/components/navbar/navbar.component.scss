@@ -1,0 +1,44 @@
+$backColor: rgba(235, 11, 56, 0.616);
+$hover: rgba(59, 6, 16, 0.616);
+$textColor: rgba(255, 255, 255);
+
+.navbar {
+    color:$textColor;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $backColor;
+    
+    ul {
+        margin:0px;
+        padding: 0px;
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        list-style-type: none;
+        li {
+            
+            padding:20px;
+            a{
+                color: $textColor;
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+            a:visited {
+                color: $textColor;
+                text-decoration: none;
+            }
+        }
+        .chosen-container {
+            background-color: $hover;
+        }
+
+        li:hover {
+            background-color: $hover ;
+        }
+    }
+
+    
+}

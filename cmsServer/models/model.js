@@ -12,7 +12,10 @@ const conn = mysql.createConnection({
     password: process.env.PASSWORD,
     // insecureAuth: true,
 })
-conn.connect()
+conn.connect((err, result) => {
+    if (err) throw err;
+    console.log('db connected successfully');
+})
 
 conn.query(`create table IF NOT EXISTS users (id int,email varchar(255),password varchar(255))`); 
 

@@ -3,7 +3,7 @@ const mysql = require('mysql2/promise');
 // require('dotenv').config();
 
 // console.log('im in models');
-// // console.log(dotenv.config({path:'./'}));
+
 
 
 function connect() {

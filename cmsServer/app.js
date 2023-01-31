@@ -5,26 +5,27 @@ const app = express()
 const auth = require('./routes/auth/auth')
 const costumers = require('./routes/costumers/costumers')
 require('./sqlConnect');
+const cookieParser = require('cookie-parser') 
 const session = require('express-session')
 const MemoryStore = require('memorystore')(session)
 const port = 3000
 
+// app.use(cookieParser())
 app.use(session({
-  cookie: { maxAge: 86400000 },
-    store: new MemoryStore({
-      checkPeriod: 86400000 // prune expired entries every 24h
-  }),
-  secret: 'some-key',
-  name: 'cms',
+  secret: 'my-secret',
+  name: 'mySession',
   resave: false,
   saveUninitialized: false,
-}))
+  maxAge: 3600 * 24 * 60,
+}));
 
 app.use(cors({
-  "origin": "*",
-  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-  "preflightContinue": false,
-  "optionsSuccessStatus": 204
+  origin: true,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  credentials: true,
+  allowedHeaders: 'content-type, accept',
 }))
 
 app.use(express.json())
@@ -37,6 +38,7 @@ app.use('/costumers', costumers)
 app.get('/', (req, res) => {
   console.log('hello from login');
   res.send('Hello World!')
+  
 })
 
 app.listen(port, () => {

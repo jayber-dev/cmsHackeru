@@ -9,7 +9,8 @@ export class LoginService {
         ){}
 
     login(email:string,password:string){
-        return this.http.post('http://127.0.0.1:3000/auth/login', {"email":email,"password":password})
+        
+        return this.http.post('http://127.0.0.1:3000/auth/login', {"email":email,"password":password},{ withCredentials:true})
     }
 
     register(){

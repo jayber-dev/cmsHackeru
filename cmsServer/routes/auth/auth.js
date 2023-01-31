@@ -10,9 +10,10 @@ auth.use((req, res, next) => {
 
 
 
-auth.post('/login',util.login,(req,res) => {})
+auth.post('/login',util.login,(req,res) => {console.log(req.session.user);})
 
 auth.post('/register',(req,res) => {
+    
     console.log('im in register');
 })
 

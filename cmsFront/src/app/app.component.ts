@@ -18,7 +18,7 @@ export class AppComponent implements OnInit{
     this.auth.auth().subscribe(data => {
       console.log(data);
       console.log(data['logged']);
-      if(data['logged'] == false) {
+      if(data['isLogged'] == false) {
         this.router.navigateByUrl('/login')
       }
     })

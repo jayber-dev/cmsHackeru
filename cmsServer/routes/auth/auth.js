@@ -16,8 +16,9 @@ auth.post('/register',(req,res) => {
     console.log('im in register');
 })
 
-auth.post('/auth',util., (req,res) => {
-    res.json({logged:true})
+auth.post('/auth',util.isAuthenticated, (req,res) => {
+   console.log('im in auth');
+   
 })
 
 auth.post('/logout',util.logout,(req,res) => {

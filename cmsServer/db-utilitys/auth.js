@@ -15,7 +15,7 @@ function login (req,res){
     conn.then((conn) => {
         conn.execute('select id,email,password FROM users where email=?',[req.body.email]).then((err,data,some) => {
             if(err[0][0]['password'] == req.body.password) {
-                req.session.user = req.body.email
+                res.session.user = req.body.email
                 console.log(req.session);
                 return res.json({
                     "isLogged":true,
@@ -40,12 +40,13 @@ function logout(req,res,next){
 }
 
 function isAuthenticated (req, res, next) {
-    if (req.session.user) {
-        res.json({"isLogged": true}) 
-        next()
-    }
-
-    else next('route')
+    // console.log(req);
+    console.log(req.session.user)
+    // if (req.session.user) {
+    //     res.json({"isLogged": true}) 
+       
+    // }
+    // else res.json({"isLogged": false})
   }
 
 exports.isAuthenticated = isAuthenticated

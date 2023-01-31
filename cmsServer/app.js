@@ -1,9 +1,24 @@
 const express = require('express')
 const cors = require('cors')
+require('dotenv').config();
 const app = express()
-const auth = require('./auth/auth')
-
+const auth = require('./routes/auth/auth')
+const costumers = require('./routes/costumers/costumers')
+require('./sqlConnect');
+const session = require('express-session')
+const MemoryStore = require('memorystore')(session)
 const port = 3000
+
+app.use(session({
+  cookie: { maxAge: 86400000 },
+    store: new MemoryStore({
+      checkPeriod: 86400000 // prune expired entries every 24h
+  }),
+  secret: 'some-key',
+  name: 'cms',
+  resave: false,
+  saveUninitialized: false,
+}))
 
 app.use(cors({
   "origin": "*",
@@ -12,13 +27,14 @@ app.use(cors({
   "optionsSuccessStatus": 204
 }))
 
-
-
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use('/auth', auth)
+app.use('/costumers', costumers)
 
-app.post('/', (req, res) => {
+// console.log(conn);
+
+app.get('/', (req, res) => {
   console.log('hello from login');
   res.send('Hello World!')
 })

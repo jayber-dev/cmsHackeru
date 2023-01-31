@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './components/signupComponents/signup.component';
 import { SignupFormComponent } from './components/signupComponents/signup-form/signup-form.component';
 import { signupService } from './services/registerService/signup.service';
+import { AuthService } from './services/authService/auth.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { signupService } from './services/registerService/signup.service';
     HttpClientModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [LoginService,signupService],
+  providers: [LoginService,signupService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,21 @@
+.sidenav {
+    background-color: red;
+    position: fixed;
+    width: 150px;
+    text-align: center;
+        li{
+           list-style: none;
+           padding:10px;
+           
+           a{
+            text-decoration: none;
+            color:white;
+        }
+    
+        a:visited{
+            color:white;
+        }
+        
+    }
+   
+}

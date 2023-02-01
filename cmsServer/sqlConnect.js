@@ -4,8 +4,6 @@ const mysql = require('mysql2/promise');
 
 // console.log('im in models');
 
-
-
 function connect() {
     conn = mysql.createConnection({
         host: process.env.HOST,

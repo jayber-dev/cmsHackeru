@@ -1,3 +1,32 @@
+// const costumers = require('./costumers.json')
+// const mysql = require('mysql2/promise');
+// require('dotenv').config({path:'C:\\Users\\evgenyber\\Desktop\\development folder\\myProjects\\cmsHackeruFront\\cmsServer\\.env'});
+
+// // require('dotenv').config();
+
+// // console.log('im in models');
+
+
+
+// const conn = mysql.createConnection({
+//         host: process.env.HOST,
+//         user: process.env.USER,
+//         database: process.env.DATABASE,
+//         password: process.env.PASSWORD,
+        
+//         // insecureAuth: true,
+//     })
+
+// for(let i of costumers) {
+//     console.log(i);
+    
+//     conn.then(conn => {
+//         conn.execute(`INSERT INTO costumers (last_name,first_name,email,phone,state,country,city,street,house_number,zip_code,notes) VALUES ('${i.first_name}','${i.last_name}','${i.email}','${i.phone}','${i.state}','${i.country}','${i.city}','${i.street}','${i.house_number}','${i.zip_code}','${i.notes}')`)     
+//     })
+//     console.log('im done');
+    
+// }
+
 
 // conn.query(`create table IF NOT EXISTS users (id int,email varchar(255),password varchar(255))`); 
 

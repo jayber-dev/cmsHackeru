@@ -1,3 +1,3 @@
-<app-navbar></app-navbar>
-
+<app-navbar [isLogged]="isLogged" ></app-navbar>
+<app-sidenav *ngIf="isLogged"></app-sidenav>
 <router-outlet></router-outlet>

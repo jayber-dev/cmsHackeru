@@ -10,20 +10,12 @@ auth.use((req, res, next) => {
 
 
 
-auth.post('/login',util.login,(req,res) => {console.log(req.session.user);})
+auth.post('/login',util.login,(req,res) => {})
 
-auth.post('/register',(req,res) => {
-    
-    console.log('im in register');
-})
+auth.post('/register',util.signup,(req,res) => {})
 
-auth.post('/auth',util.isAuthenticated, (req,res) => {
-   console.log('im in auth');
-   
-})
+auth.post('/auth',util.isAuthenticated, (req,res) => {})
 
-auth.post('/logout',util.logout,(req,res) => {
-
-})
+auth.post('/logout',util.logout,(req,res) => {})
 
 module.exports = auth;

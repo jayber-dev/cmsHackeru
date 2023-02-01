@@ -38,6 +38,12 @@ $textColor: rgba(255, 255, 255);
         li:hover {
             background-color: $hover ;
         }
+        button{
+            background-color: transparent;
+            border: 0px;
+            color: $textColor;
+            cursor: pointer;
+        }
     }
 
     

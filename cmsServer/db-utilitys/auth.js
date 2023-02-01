@@ -1,9 +1,18 @@
 const connect = require('../sqlConnect').connect
+const mysql = require('mysql2/promise');
+
 
 function login (req,res,next){
     // connection to remote db server with connection timeout have to connect for each request
     // will use pooling in the future
-    const conn = connect()
+    const conn = mysql.createConnection({
+        host: process.env.HOST,
+        user: process.env.USER,
+        database: process.env.DATABASE,
+        password: process.env.PASSWORD,
+        
+        // insecureAuth: true,
+    })
     conn.then((conn) => {
         console.log('in login');
         conn.execute('select id,email,password FROM users where email=?',[req.body.email]).then((data) => {
@@ -16,7 +25,9 @@ function login (req,res,next){
             } else {
                 return res.json({"isLogged":false})                
             }
+            
         })
+        conn.end()
     })
     
 }

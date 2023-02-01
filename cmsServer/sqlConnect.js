@@ -4,8 +4,8 @@ const mysql = require('mysql2/promise');
 
 // console.log('im in models');
 
-function connect() {
-    conn = mysql.createConnection({
+
+conn = mysql.createConnection({
         host: process.env.HOST,
         user: process.env.USER,
         database: process.env.DATABASE,
@@ -13,6 +13,6 @@ function connect() {
         
         // insecureAuth: true,
     })
-    return conn
-}
-exports.connect = connect
+    
+
+exports.connect = conn

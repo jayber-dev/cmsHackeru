@@ -11,11 +11,12 @@ export class CostumerDetailsComponent implements OnInit{
     private costumers:CostumerService
   ){}
 
+  data:any
   costumersData:string[]
   
   ngOnInit(): void {
     this.costumers.getCostumers().subscribe(data => {
-      console.log(data);
+      this.data = data
       
     })
   }

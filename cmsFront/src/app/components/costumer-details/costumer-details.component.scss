@@ -1,4 +1,20 @@
 .costumers-container{
-    display: flex;
-    justify-content: center;
+    td{
+        width: 200px;
+    }
+    table {
+        thead{
+            tr{
+                td{
+                    width:100px;
+                    background-color: red;
+                }
+            }
+        }
+        tbody{
+            tr{
+                
+            }
+        }
+    }
 }

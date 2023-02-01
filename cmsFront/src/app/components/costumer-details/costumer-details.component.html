@@ -1,3 +1,39 @@
-<div class="costumers-container">
+<div *ngIf="data" class="costumers-container">
     <h1>im here hello</h1>
+    
+
+    <table>
+        <thead>
+            <th>
+                <tr>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Email</td>
+                    <td>Phone</td>
+                    <td>State</td>
+                    <td>Country</td>
+                    <td>City</td>
+                    <td>Street</td>
+                    <td>House #</td>
+                    <td>Zip Code</td>
+                    
+                </tr>
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of data">
+                <td>{{i.first_name}}</td>
+                <td>{{i.last_name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.phone}}</td>
+                <td>{{i.state}}</td>
+                <td>{{i.country}}</td>
+                <td>{{i.city}}</td>
+                <td>{{i.street}}</td>
+                <td>{{i.house_number}}</td>
+                <td>{{i.zip_code}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
 </div>

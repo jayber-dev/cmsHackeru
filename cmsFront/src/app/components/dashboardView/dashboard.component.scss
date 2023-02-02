@@ -1,0 +1,17 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: row;
+    .side-nav {
+        width: 10vw;
+        app-sidenav{
+            
+            margin: 0;
+        }
+    }
+    .content {
+        width: 90vw;
+    }
+    
+
+    
+}

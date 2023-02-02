@@ -24,7 +24,7 @@ export class AppComponent implements OnInit, OnDestroy{
       // console.log(data);
       // console.log(data['isLogged']);
       if(!data['isLogged']) {
-        this.router.navigateByUrl('/login')
+        this.router.navigateByUrl('about')
       }
       if(data['isLogged']) {
         this.util.setLoggedTrue()

@@ -10,7 +10,7 @@ export class CostumerService {
         private http:HttpClient
     ){}
 
-    getCostumers(){
-        return this.http.get('http://127.0.0.1:3000/costumers')
+    getCostumers(from){
+        return this.http.get(`http://127.0.0.1:3000/costumers/`,{params:{"from":from}})
     }
 }

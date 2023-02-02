@@ -14,11 +14,14 @@ import { SignupFormComponent } from './components/signupComponents/signup-form/s
 import { AuthService } from './services/authService/auth.service';
 import { UtilService } from './services/utilService/util.service';
 import { AboutCardComponent } from './components/about-card/about-card.component';
-import { SidenavComponent } from './components/dashboardComponents/sidenav/sidenav.component';
+import { SidenavComponent } from './components/dashboardView/sidenav/sidenav.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { CostumerDetailsComponent } from './components/dashboardView/costumer-details/costumer-details.component';
 import { CostumerService } from './services/costumersService/cosutmers.service';
 import { DashboardComponent } from './components/dashboardView/dashboard.component';
+import { ContactViewComponent } from './components/dashboardView/contact-view/contact-view.component';
+import { CostumersViewComponent } from './components/dashboardView/costumers-view/costumers-view.component';
+import { UsersTableComponent } from './components/dashboardView/costumers-view/users-table/users-table.component';
+import { UsersFoldersComponent } from './components/dashboardView/costumers-view/users-folders/users-folders.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +35,11 @@ import { DashboardComponent } from './components/dashboardView/dashboard.compone
     AboutCardComponent,
     SidenavComponent,
     NotFoundComponent,
-    CostumerDetailsComponent,
     DashboardComponent,
+    ContactViewComponent,
+    CostumersViewComponent,
+    UsersTableComponent,
+    UsersFoldersComponent,
     
   ],
   imports: [

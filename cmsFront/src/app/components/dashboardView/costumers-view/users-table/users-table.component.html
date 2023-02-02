@@ -1,10 +1,8 @@
 <div *ngIf="data" class="costumers-container">
-    <h1>im here hello</h1>
-    
 
-    <table>
-        
+    <table >  
                 <tr>
+                    <td>id</td>
                     <td>First Name</td>
                     <td>Last Name</td>
                     <td>Email</td>
@@ -16,7 +14,8 @@
                     <td>House #</td>
                     <td>Zip Code</td>                
                 </tr>    
-            <tr *ngFor="let i of data">
+            <tr *ngFor="let i of data['costumersData']">
+                <td>{{i.id}}</td>
                 <td>{{i.first_name}}</td>
                 <td>{{i.last_name}}</td>
                 <td>{{i.email}}</td>
@@ -30,4 +29,9 @@
             </tr>
         
     </table>
+    <div class="pagination">
+        <button (click)="perv()">perv</button>
+        <button (click)="next()">next</button>
+    </div>
 </div>
+

@@ -35,7 +35,7 @@ export class LoginFormComponent {
       console.log(data['isLogged']);
       if(data['isLogged']){
         this.util.setLoggedTrue()
-        this.router.navigateByUrl('/')
+        this.router.navigateByUrl('dashboard/costumers')
       } else {
         console.log('poop on you from login');
         

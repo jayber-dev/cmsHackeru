@@ -4,10 +4,15 @@ $textColor: rgba(255, 255, 255);
 
 
 .costumers-container{
+    border:1px solid rgba(128, 128, 128, 0.568);
     padding:20px;
     display: flex;
     flex-direction: column;
-    
+    justify-content: center;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    align-items: center;
+    // width: 90vw;
     table {
         border: 1px solid grey;
         border-collapse: collapse;
@@ -19,10 +24,13 @@ $textColor: rgba(255, 255, 255);
             td {
                 padding:10px;
             }
-            td:nth-child(3) {
-                width: 200px;
+            td:nth-child(3){
+                width: 80px;
             }
             td:nth-child(4) {
+                width: 200px;
+            }
+            td:nth-child(5) {
                 width: 100px;
                 
             }
@@ -48,5 +56,20 @@ $textColor: rgba(255, 255, 255);
             background-color: rgb(184, 183, 183);
         }
         
+    }
+
+    .pagination {
+        button {
+            margin-top: 20px;
+            padding:10px;
+            background-color: $backColor;
+            color: $textColor;
+            border: 0px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: $hover;
+        }
     }
 }

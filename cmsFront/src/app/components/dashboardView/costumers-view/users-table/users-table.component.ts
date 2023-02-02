@@ -14,24 +14,29 @@ export class UsersTableComponent implements OnInit{
   costumersData:string[]
   from:number = 0 
   
-
+    // TODO:fix the perv next btn
   perv(){
-    if(this.from > 0){
-      this.from = this.from - 20
+    if(this.from >= 0){
+      
       console.log(this.from);
       this.serverCall()
+      this.from = this.from - 15
     } 
   }
   next(){  
     if(this.from < this.data['rowCount']['countNumber']){
-      this.from = this.from + 20
+      this.from = this.from + 15
+      this.serverCall()
+      
     console.log(this.from);
-    this.serverCall()
+    
     }
     
   }
 
   serverCall(){
+    console.log(this.from);
+    
     this.data = []
     this.costumers.getCostumers(this.from).subscribe(data => {
       console.log(data);

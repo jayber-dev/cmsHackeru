@@ -21,6 +21,8 @@ function getCostumers(req,res){
         
         if (err) console.log(err);
         // console.log(row);
+        console.log(row);
+        
         costumersData = row
         // console.log(costumersData);
         

@@ -6,7 +6,7 @@ import { LoginComponent } from './components/loginComponents/login.component'
 import { SignupComponent } from './components/signupComponents/signup.component'
 import { AboutCardComponent } from './components/about-card/about-card.component'
 import { NotFoundComponent } from './components/not-found/not-found.component'
-import { CostumerDetailsComponent } from './components/costumer-details/costumer-details.component'
+import { CostumerDetailsComponent } from './components/dashboardView/costumer-details/costumer-details.component'
 
 export const routes:Routes =  [
     {path: 'login', component: LoginComponent},

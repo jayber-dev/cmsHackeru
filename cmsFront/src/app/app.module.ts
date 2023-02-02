@@ -14,10 +14,11 @@ import { SignupFormComponent } from './components/signupComponents/signup-form/s
 import { AuthService } from './services/authService/auth.service';
 import { UtilService } from './services/utilService/util.service';
 import { AboutCardComponent } from './components/about-card/about-card.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { SidenavComponent } from './components/dashboardComponents/sidenav/sidenav.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { CostumerDetailsComponent } from './components/costumer-details/costumer-details.component';
+import { CostumerDetailsComponent } from './components/dashboardView/costumer-details/costumer-details.component';
 import { CostumerService } from './services/costumersService/cosutmers.service';
+import { DashboardComponent } from './components/dashboardView/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CostumerService } from './services/costumersService/cosutmers.service';
     SidenavComponent,
     NotFoundComponent,
     CostumerDetailsComponent,
+    DashboardComponent,
     
   ],
   imports: [

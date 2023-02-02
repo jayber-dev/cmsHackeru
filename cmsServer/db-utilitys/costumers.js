@@ -4,6 +4,7 @@ const mysql = require('mysql2');
 
 
 function getCostumers(req,res){
+    console.log(req.params)
     const conn = mysql.createConnection({
         host: process.env.HOST,
         user: process.env.USER,
@@ -13,11 +14,10 @@ function getCostumers(req,res){
         // insecureAuth: true,
     })
 
-    data = conn.execute('select * FROM costumers', (err,row,fields) => {
+    data = conn.execute('select * FROM costumers ORDER BY first_name LIMIT 20 OFFSET 20', (err,row,fields) => {
         if (err) console.log(err);
         res.json(row)
         conn.end()
-        
     })
     
     

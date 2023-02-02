@@ -3,8 +3,7 @@
     
 
     <table>
-        <thead>
-            <th>
+        
                 <tr>
                     <td>First Name</td>
                     <td>Last Name</td>
@@ -15,12 +14,8 @@
                     <td>City</td>
                     <td>Street</td>
                     <td>House #</td>
-                    <td>Zip Code</td>
-                    
-                </tr>
-            </th>
-        </thead>
-        <tbody>
+                    <td>Zip Code</td>                
+                </tr>    
             <tr *ngFor="let i of data">
                 <td>{{i.first_name}}</td>
                 <td>{{i.last_name}}</td>
@@ -31,9 +26,8 @@
                 <td>{{i.city}}</td>
                 <td>{{i.street}}</td>
                 <td>{{i.house_number}}</td>
-                <td>{{i.zip_code}}</td>
-                
+                <td>{{i.zip_code}}</td>      
             </tr>
-        </tbody>
+        
     </table>
 </div>

@@ -1,1 +1,26 @@
-<p>search-results works!</p>
+<div *ngIf="data" class="costumers-container">
+    
+    <table >  
+                <tr>
+                    <td>View Details</td>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Email</td>
+                    <td>Phone</td>
+                    
+                </tr>    
+            <tr *ngFor="let i of data">   
+                <td><a routerLink="/dashboard/costumers/table/{{i.id}}"><img src="../../../../../assets/images/icons/overview-icon.svg" alt=""></a></td>  
+                <td>{{i.first_name}}</td>
+                <td>{{i.last_name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.phone}}</td> 
+                    
+            </tr>
+        
+    </table>
+    <div class="pagination">
+        <button (click)="perv()">perv</button>
+        <button (click)="next()">next</button>
+    </div>
+</div>

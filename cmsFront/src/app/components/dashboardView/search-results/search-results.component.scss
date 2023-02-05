@@ -1,0 +1,93 @@
+$backColor: rgba(235, 11, 56, 0.616);
+$hover: rgba(59, 6, 16, 0.616);
+$textColor: rgba(255, 255, 255);
+
+
+.costumers-container{
+    border:1px solid rgba(128, 128, 128, 0.568);
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    font-size: calc(4px + 00.5433vw);
+    // width: 90vw;
+    table {
+        flex-wrap: wrap;
+        
+        border: 1px solid grey;
+        border-collapse: collapse;
+        background-color: whitesmoke;
+        text-align: center;
+        tr:first-child{
+            
+            background-color: $backColor;
+            td {
+                padding:10px;
+            }
+            td:nth-child(3){
+                width: 80px;
+            }
+            td:nth-child(4) {
+                width: 200px;
+            }
+            td:nth-child(5) {
+                width: 100px;
+                
+            }
+
+            td:last-child {
+                width: 80px;
+                
+                
+            }
+        }
+        tr{  
+            border: 1px solid grey;
+            td{
+                padding: 5px;
+                border: 1px solid grey;
+                img{
+                    height: 20px;
+                }
+            }
+            td:first-child{
+                width: 20px;
+            }
+            td:last-child{
+                width: 150px;
+            }
+            
+        }
+        tr:first-child:hover {
+            background-color: $backColor;;
+        }
+
+        tr:hover {
+            background-color: rgb(184, 183, 183);
+        }
+        
+    }
+
+    .pagination {
+        button {
+            cursor: pointer;
+            margin-top: 20px;
+            padding:10px;
+            background-color: $backColor;
+            color: $textColor;
+            border: 0px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: $hover;
+        }
+    }
+}
+
+

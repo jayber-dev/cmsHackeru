@@ -44,13 +44,13 @@ function findCostumer(req,res){
         password: process.env.PASSWORD,
     })
     console.log(req.params.query);
-    
-    query = `select id,first_name,last_name FROM costumers WHERE first_name LIKE '%${req.params.query}%'`
+    console.log(req.query.from);
+    query = `select * FROM costumers WHERE first_name LIKE '%${req.params.query}%' ORDER BY first_name LIMIT 15 OFFSET ${req.query.from}`
     conn.execute(query, (err,row,fields) => {      
         if (err) console.log(err);       
         console.log(row);
         
-        // res.json(row)   
+        res.json(row)   
     })
     conn.end() 
 }

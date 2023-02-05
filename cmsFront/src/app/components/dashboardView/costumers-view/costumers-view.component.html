@@ -6,11 +6,8 @@
         
     </div>
     <div class="search ">
-        <form action="">
             <label for="">search</label>
-            <input type="text">
-        </form>
-        
+            <input (keydown.enter)="search($event)" type="text">
     </div>
 </div>
 

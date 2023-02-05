@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-costumers-view',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./costumers-view.component.scss']
 })
 export class CostumersViewComponent {
+  constructor(
+    private router:Router,
 
+  ){}
+
+  search(e){
+    console.log();
+    
+    this.router.navigateByUrl(`dashboard/costumers/searchResults/${e.target.value}`)
+  }
 }

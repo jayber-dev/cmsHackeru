@@ -1,1 +1,20 @@
-<p>users-folders works!</p>
+<div class="folder-container">
+    <div class="costumers-folders-container">
+        <div *ngFor="let i of data" class="folder">
+            <a [routerLink]="i.id" >
+                <p>{{i.first_name}} {{ i.last_name}}</p>
+                <img src="../../../../../assets/images/icons/folder.svg" alt="">
+            </a>
+            
+            
+        </div>
+        
+    </div>
+    <div class="pagination">
+        <button (click)="perv()">perv</button>
+        <button (click)="next()">next</button>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+

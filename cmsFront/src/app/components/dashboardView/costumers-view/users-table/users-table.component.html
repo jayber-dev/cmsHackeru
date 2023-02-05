@@ -1,31 +1,22 @@
 <div *ngIf="data" class="costumers-container">
-
+    
     <table >  
                 <tr>
-                    <td>id</td>
                     <td>First Name</td>
                     <td>Last Name</td>
                     <td>Email</td>
                     <td>Phone</td>
-                    <td>State</td>
-                    <td>Country</td>
-                    <td>City</td>
-                    <td>Street</td>
-                    <td>House #</td>
-                    <td>Zip Code</td>                
+                                  
                 </tr>    
-            <tr *ngFor="let i of data['costumersData']">
-                <td>{{i.id}}</td>
-                <td>{{i.first_name}}</td>
+            <tr *ngFor="let i of data">
+               
+                    <td>{{i.first_name}}</td>
                 <td>{{i.last_name}}</td>
                 <td>{{i.email}}</td>
                 <td>{{i.phone}}</td>
-                <td>{{i.state}}</td>
-                <td>{{i.country}}</td>
-                <td>{{i.city}}</td>
-                <td>{{i.street}}</td>
-                <td>{{i.house_number}}</td>
-                <td>{{i.zip_code}}</td>      
+                
+                
+                  
             </tr>
         
     </table>

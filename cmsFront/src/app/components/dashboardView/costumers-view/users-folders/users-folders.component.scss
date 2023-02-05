@@ -1,0 +1,57 @@
+$backColor: rgba(235, 11, 56, 0.616);
+$hover: rgba(59, 6, 16, 0.616);
+$textColor: rgba(255, 255, 255);
+
+.folder-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .costumers-folders-container{
+       
+        display: flex;
+        flex-direction: row;
+        background-color: whitesmoke;
+        border: 1px solid rgba(128, 128, 128, 0.377);
+        flex-wrap: wrap;
+        .folder{
+            border: 1px solid rgba(128, 128, 128, 0.295);
+            display: flex;
+            flex: 1 15vw;
+            flex-direction: column;
+            align-items: center;
+            a{
+                color: black;
+                text-decoration: none;
+            }
+
+            a:visited{
+                color: black;
+            }
+            img {
+                margin: 0px;
+                height: 100px;
+                
+            }
+            p {
+                margin: 0px;
+            }
+    
+        }
+        
+    }
+    
+    .pagination {
+        button {
+            margin-top: 20px;
+            padding:10px;
+            background-color: $backColor;
+            color: $textColor;
+            border: 0px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: $hover;
+        }
+    }
+}

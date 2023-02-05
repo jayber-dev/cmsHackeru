@@ -5,13 +5,11 @@ const costumers = express.Router()
 costumers.use((req, res, next) => {
     next()
 })
-costumers.get('/',costumersUtil.getCostumers, (req,res) => {
-    console.log('in costumers');
-    
-    
+costumers.get('/',costumersUtil.getCostumers, (req,res) => {  
     return res.json(req.body)
 })
 
+costumers.get('/costumer/:id', costumersUtil.getSingleCostumer,(req,res,next) =>{})
 
 
 module.exports = costumers;

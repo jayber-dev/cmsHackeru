@@ -22,6 +22,7 @@ import { ContactViewComponent } from './components/dashboardView/contact-view/co
 import { CostumersViewComponent } from './components/dashboardView/costumers-view/costumers-view.component';
 import { UsersTableComponent } from './components/dashboardView/costumers-view/users-table/users-table.component';
 import { UsersFoldersComponent } from './components/dashboardView/costumers-view/users-folders/users-folders.component';
+import { CostumerCardComponent } from './components/dashboardView/costumers-view/costumer-card/costumer-card.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { UsersFoldersComponent } from './components/dashboardView/costumers-view
     CostumersViewComponent,
     UsersTableComponent,
     UsersFoldersComponent,
+    CostumerCardComponent,
     
   ],
   imports: [

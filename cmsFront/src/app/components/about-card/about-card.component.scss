@@ -8,6 +8,7 @@ $textColor: rgba(255, 255, 255);
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding:20px;
     p{
         display: flex;
         flex-direction: column;
@@ -17,12 +18,15 @@ $textColor: rgba(255, 255, 255);
         box-shadow: 0 0 10px 2px grey;
         display: flex;
         align-items: center;
-        width: 500px;
-        height: 50vh;
+        min-width:100px;
+        max-width: 500px;
+        margin: 20px;
+        
+        min-height: 300px;
         text-align: justify;
         margin: 0px;
         color: $backColor ;
-        font-size: large;
+        font-size: calc(10px + 0.5324vw);
         text-shadow: 0px 0px 1px grey;
         
         a{

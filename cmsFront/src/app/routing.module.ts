@@ -11,6 +11,7 @@ import { ContactViewComponent } from './components/dashboardView/contact-view/co
 import { CostumersViewComponent } from './components/dashboardView/costumers-view/costumers-view.component'
 import { UsersTableComponent } from './components/dashboardView/costumers-view/users-table/users-table.component'
 import { UsersFoldersComponent } from './components/dashboardView/costumers-view/users-folders/users-folders.component'
+import { CostumerCardComponent } from './components/dashboardView/costumers-view/costumer-card/costumer-card.component'
 
 export const routes:Routes =  [
     {path: 'login', component: LoginComponent},
@@ -21,7 +22,8 @@ export const routes:Routes =  [
             {path: 'costumers', component:CostumersViewComponent,
                 children:[
                     {path:'table', component:UsersTableComponent},
-                    {path:'folders', component:UsersFoldersComponent}
+                    {path:'folders', component:UsersFoldersComponent},
+                    {path:'folders/:id', component:CostumerCardComponent}            
                 ]},
             {path: 'contacts', component:ContactViewComponent}
         ]},

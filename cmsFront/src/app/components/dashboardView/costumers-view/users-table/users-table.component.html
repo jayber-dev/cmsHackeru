@@ -2,21 +2,20 @@
     
     <table >  
                 <tr>
+                    <td>View Details</td>
                     <td>First Name</td>
                     <td>Last Name</td>
                     <td>Email</td>
                     <td>Phone</td>
-                                  
+                    
                 </tr>    
-            <tr *ngFor="let i of data">
-               
-                    <td>{{i.first_name}}</td>
+            <tr *ngFor="let i of data">   
+                <td><a routerLink="{{i.id}}"><img src="../../../../../assets/images/icons/overview-icon.svg" alt=""></a></td>  
+                <td>{{i.first_name}}</td>
                 <td>{{i.last_name}}</td>
                 <td>{{i.email}}</td>
-                <td>{{i.phone}}</td>
-                
-                
-                  
+                <td>{{i.phone}}</td> 
+                    
             </tr>
         
     </table>

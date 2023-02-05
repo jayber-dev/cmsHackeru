@@ -11,5 +11,10 @@ costumers.get('/',costumersUtil.getCostumers, (req,res) => {
 
 costumers.get('/costumer/:id', costumersUtil.getSingleCostumer,(req,res,next) =>{})
 
+costumers.get('/search/:query',costumersUtil.findCostumer, (req,res) => {
+    // console.log('im in search');
+    // console.log(req.params);
+    
+})
 
 module.exports = costumers;

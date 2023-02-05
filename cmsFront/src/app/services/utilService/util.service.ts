@@ -18,10 +18,4 @@ export class UtilService {
         this.updateIsLogged.emit(this.isLogged)
     }
 
-    // getIsLogged(){
-    //     console.log('im in get');
-        
-    //     return this.isLogged
-    // }
-
 }

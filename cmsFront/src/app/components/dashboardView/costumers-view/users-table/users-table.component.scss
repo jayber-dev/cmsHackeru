@@ -42,6 +42,8 @@ $textColor: rgba(255, 255, 255);
 
             td:last-child {
                 width: 80px;
+                
+                
             }
         }
         tr{  
@@ -49,7 +51,15 @@ $textColor: rgba(255, 255, 255);
             td{
                 padding: 5px;
                 border: 1px solid grey;
-                
+                img{
+                    height: 20px;
+                }
+            }
+            td:first-child{
+                width: 20px;
+            }
+            td:last-child{
+                width: 150px;
             }
             
         }
@@ -65,6 +75,7 @@ $textColor: rgba(255, 255, 255);
 
     .pagination {
         button {
+            cursor: pointer;
             margin-top: 20px;
             padding:10px;
             background-color: $backColor;
@@ -78,3 +89,5 @@ $textColor: rgba(255, 255, 255);
         }
     }
 }
+
+

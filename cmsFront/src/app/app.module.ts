@@ -23,6 +23,7 @@ import { CostumersViewComponent } from './components/dashboardView/costumers-vie
 import { UsersTableComponent } from './components/dashboardView/costumers-view/users-table/users-table.component';
 import { UsersFoldersComponent } from './components/dashboardView/costumers-view/users-folders/users-folders.component';
 import { CostumerCardComponent } from './components/dashboardView/costumers-view/costumer-card/costumer-card.component';
+import { SearchResultsComponent } from './components/dashboardView/search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { CostumerCardComponent } from './components/dashboardView/costumers-view
     UsersTableComponent,
     UsersFoldersComponent,
     CostumerCardComponent,
+    SearchResultsComponent,
     
   ],
   imports: [

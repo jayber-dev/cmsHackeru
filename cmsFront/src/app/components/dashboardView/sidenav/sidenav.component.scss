@@ -6,13 +6,13 @@ $textColor: rgba(255, 255, 255);
     border-top: 1px solid rgba(128, 128, 128, 0.541);
     border-right: 1px solid rgba(128, 128, 128, 0.541);
     background-color: $backColor;
-    width: 10vw;
-    height: 94vh;
+    // width: 10vw;
+    // height: 20vh;
     text-align: center;
         li{
            list-style: none;
            padding:10px;
-        border-bottom: 1px solid rgba(128, 128, 128, 0.541);
+            border-bottom: 1px solid rgba(128, 128, 128, 0.541);
            
            a{
             // font-size: calc(1px + 1.5243vw);
@@ -33,4 +33,19 @@ $textColor: rgba(255, 255, 255);
 
 li:hover {
     background-color: $hover ;
+}
+
+@media (max-width: 1000px) {
+    .sidenav{
+        
+        width: 5vw;
+        li{
+            margin-bottom: 50px;
+            transform: rotate(90deg);
+        }
+
+        li:hover{
+            background-color: $backColor;
+        }
+    }
 }

@@ -18,7 +18,7 @@ export class UsersTableComponent implements OnInit{
   costumersData:string[]
   from:number = 0
   makeCall:boolean = true
-    // TODO:fix the perv next btn
+    
   perv(){
     if(this.from > 0){
       

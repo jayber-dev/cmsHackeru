@@ -76,3 +76,5 @@ export class SearchResultsComponent  implements OnInit, OnChanges{
     
   }
 }
+
+// TODO: fix the search Results

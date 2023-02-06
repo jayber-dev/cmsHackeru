@@ -1,0 +1,15 @@
+<button (click)="openModal($event)" class="ham-menu">
+    <img src="../../../../assets/images/icons/ham-menu-icon.svg" alt="">
+    
+</button>
+<div class="modal" *ngIf="show">
+    <div class="over-layer">
+        
+    </div>
+    <ul>
+        <li><a routerLink="/dashboard/costumers">Costumers</a> </li>
+        <li><a routerLink="/dashboard//contacts">Contacts</a> </li>
+    </ul>
+    
+    
+</div>

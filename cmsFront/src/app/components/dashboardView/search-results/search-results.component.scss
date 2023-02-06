@@ -90,4 +90,139 @@ $textColor: rgba(255, 255, 255);
     }
 }
 
+@media screen and (max-width: 1000px) {
+    .costumers-container{
+        width: 100vw;
+    }
+}
+
+
+@media screen and (max-width:650px){
+    table {
+        flex-wrap: wrap;
+        
+        border: 1px solid grey;
+        border-collapse: collapse;
+        background-color: whitesmoke;
+        text-align: center;
+        tr:first-child{
+            
+            background-color: $backColor;
+            td {
+                padding:10px;
+            }
+            td:nth-child(3){
+                width: 80px;
+            }
+            td:nth-child(4) {
+                width: 200px;
+            }
+            td:nth-child(5) {
+                width: 100px;
+                
+            }
+
+            td:last-child {
+                width: 80px;
+                
+                
+            }
+        }
+        tr{  
+            border: 1px solid grey;
+            td{
+                padding: 5px;
+                border: 1px solid grey;
+                img{
+                    height: 20px;
+                }
+            }
+            td:first-child{
+                width: 20px;
+            }
+
+            td:nth-child(4) {
+                display: none;
+            }
+            td:last-child{
+                
+                width: 150px;
+            }
+            
+        }
+        tr:first-child:hover {
+            background-color: $backColor;;
+        }
+
+        tr:hover {
+            background-color: rgb(184, 183, 183);
+        }
+        
+    }
+}
+
+@media screen and (max-width:420px){
+    table {
+        flex-wrap: wrap;
+        
+        border: 1px solid grey;
+        border-collapse: collapse;
+        background-color: whitesmoke;
+        text-align: center;
+        tr:first-child{
+            
+            background-color: $backColor;
+            td {
+                padding:10px;
+            }
+            td:nth-child(3){
+                width: 80px;
+            }
+            td:nth-child(4) {
+                width: 200px;
+            }
+            td:nth-child(5) {
+                width: 100px;
+                
+            }
+
+            td:last-child {
+                width: 80px;
+               
+                
+            }
+        }
+        tr{  
+            border: 1px solid grey;
+            td{
+                padding: 5px;
+                border: 1px solid grey;
+                img{
+                    height: 20px;
+                }
+            }
+            td:first-child{
+                width: 20px;
+            }
+
+            td:nth-child(4) {
+                display: none;
+            }
+            td:last-child{
+                display: none;
+                width: 150px;
+            }
+            
+        }
+        tr:first-child:hover {
+            background-color: $backColor;;
+        }
+
+        tr:hover {
+            background-color: rgb(184, 183, 183);
+        }
+        
+    }
+}
+
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CostumerService } from 'src/app/services/costumersService/cosutmers.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { CostumerService } from 'src/app/services/costumersService/cosutmers.ser
 })
 export class UsersFoldersComponent implements OnInit{
   constructor(
+    private router:Router,
     private costumers:CostumerService
   ){}
 
@@ -50,10 +52,9 @@ export class UsersFoldersComponent implements OnInit{
 
   ngOnInit(): void {
     // this.data = this.serverCall(this.from)
+    console.log(this.router.routerState.snapshot.url)
     const retrive = this.costumers.getCostumers(this.from).subscribe(data => {    
       this.data = (data);
-      console.log(this.data);
-      
       retrive.unsubscribe()
     })
   }

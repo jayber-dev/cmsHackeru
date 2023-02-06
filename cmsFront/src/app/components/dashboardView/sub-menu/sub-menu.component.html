@@ -1,0 +1,13 @@
+<div class="submenu-container">
+    
+    <div class="options">
+        <app-mini-nav></app-mini-nav>
+        <a routerLink="table"><img src="../../../../assets/images/icons/table.svg" alt=""></a>
+        <a routerLink="folders"><img src="../../../../assets/images/icons/folder.svg" alt=""></a>
+        
+    </div>
+    <div class="search ">
+            <label for="">Search</label>
+            <input (keydown.enter)="search($event)" type="text">
+    </div>
+</div>

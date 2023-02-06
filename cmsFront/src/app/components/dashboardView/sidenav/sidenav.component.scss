@@ -37,15 +37,6 @@ li:hover {
 
 @media (max-width: 1000px) {
     .sidenav{
-        
-        width: 5vw;
-        li{
-            margin-bottom: 50px;
-            transform: rotate(90deg);
-        }
-
-        li:hover{
-            background-color: $backColor;
-        }
+        display: none;
     }
 }

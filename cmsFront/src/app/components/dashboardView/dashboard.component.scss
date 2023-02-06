@@ -17,11 +17,12 @@
 
 @media screen and (max-width: 1000px) {
     .side-nav{
+        display: none;
         width: 5vw;
     }
 
     .content{
         
-        width: (100vw);
+        width: 100vw;
     }
 }

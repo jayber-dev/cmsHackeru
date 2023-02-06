@@ -83,12 +83,21 @@ $textColor: rgba(255, 255, 255);
             border: 0px;
             margin-left: 10px;
             margin-right: 10px;
+            margin-bottom: 20px;
         }
         button:hover {
             background-color: $hover;
         }
     }
 }
+
+
+@media screen and (max-width: 1000px) {
+    .costumers-container{
+        width: 100vw;
+    }
+}
+
 
 @media screen and (max-width:650px){
     table {

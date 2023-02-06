@@ -1,5 +1,3 @@
-const connect = require('../sqlConnect')
-
 const mysql = require('mysql2');
 
 function getCostumers(req,res){

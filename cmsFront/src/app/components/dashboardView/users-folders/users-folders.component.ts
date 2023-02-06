@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ContactService } from 'src/app/services/contactService/contact.service';
 import { CostumerService } from 'src/app/services/costumersService/cosutmers.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { CostumerService } from 'src/app/services/costumersService/cosutmers.ser
 export class UsersFoldersComponent implements OnInit{
   constructor(
     private router:Router,
-    private costumers:CostumerService
+    private costumers:CostumerService,
+    private contacts:ContactService
   ){}
 
   data:any
@@ -52,11 +54,23 @@ export class UsersFoldersComponent implements OnInit{
 
   ngOnInit(): void {
     // this.data = this.serverCall(this.from)
-    console.log(this.router.routerState.snapshot.url)
-    const retrive = this.costumers.getCostumers(this.from).subscribe(data => {    
-      this.data = (data);
-      retrive.unsubscribe()
-    })
+    console.log(this.router.url)
+    if(this.router.url == '/dashboard/costumers/folders') {
+      const retrive = this.costumers.getCostumers(this.from).subscribe(data => {    
+        this.data = (data);
+        retrive.unsubscribe()
+      })
+    }
+
+    if(this.router.url == '/dashboard/contacts/folders'){
+      const retrive = this.contacts.getContacts(this.from).subscribe(data => {  
+        // console.log(data);
+          
+        this.data = data;
+        // retrive.unsubscribe()
+      })
+    }
+    
   }
   
 }

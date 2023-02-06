@@ -4,6 +4,7 @@ require('dotenv').config();
 const app = express()
 const auth = require('./routes/auth/auth')
 const costumers = require('./routes/costumers/costumers')
+const contacts = require('./routes/contacts/contacts')
 require('./sqlConnect');
 const session = require('express-session')
 const MemoryStore = require('memorystore')(session)
@@ -33,6 +34,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use('/auth', auth)
 app.use('/costumers', costumers)
+app.use('/contacts', contacts)
 
 // console.log(conn);
 

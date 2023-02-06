@@ -12,9 +12,5 @@ export class CostumersViewComponent {
 
   ){}
 
-  search(e){
-    console.log();
-    
-    this.router.navigateByUrl(`dashboard/costumers/searchResults/${e.target.value}`)
-  }
+  
 }

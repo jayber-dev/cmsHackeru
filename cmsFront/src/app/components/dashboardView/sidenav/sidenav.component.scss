@@ -35,6 +35,10 @@ li:hover {
     background-color: $hover ;
 }
 
+.chosen-container {
+    background-color: $hover;
+}
+
 @media (max-width: 1000px) {
     .sidenav{
         display: none;

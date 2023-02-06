@@ -20,10 +20,14 @@ import { CostumerService } from './services/costumersService/cosutmers.service';
 import { DashboardComponent } from './components/dashboardView/dashboard.component';
 import { ContactViewComponent } from './components/dashboardView/contact-view/contact-view.component';
 import { CostumersViewComponent } from './components/dashboardView/costumers-view/costumers-view.component';
-import { UsersTableComponent } from './components/dashboardView/costumers-view/users-table/users-table.component';
-import { UsersFoldersComponent } from './components/dashboardView/costumers-view/users-folders/users-folders.component';
+import { UsersTableComponent } from './components/dashboardView/users-table/users-table.component';
+import { UsersFoldersComponent } from './components/dashboardView/users-folders/users-folders.component';
 import { CostumerCardComponent } from './components/dashboardView/costumers-view/costumer-card/costumer-card.component';
 import { SearchResultsComponent } from './components/dashboardView/search-results/search-results.component';
+import { MiniNavComponent } from './components/dashboardView/mini-nav/mini-nav.component';
+import { SubMenuComponent } from './components/dashboardView/sub-menu/sub-menu.component';
+import { ContactService } from './services/contactService/contact.service';
+import { ContactCardComponent } from './components/dashboardView/contact-view/contact-card/contact-card.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,9 @@ import { SearchResultsComponent } from './components/dashboardView/search-result
     UsersFoldersComponent,
     CostumerCardComponent,
     SearchResultsComponent,
+    MiniNavComponent,
+    SubMenuComponent,
+    ContactCardComponent,
     
   ],
   imports: [
@@ -53,7 +60,7 @@ import { SearchResultsComponent } from './components/dashboardView/search-result
     HttpClientModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [AuthService,UtilService,CostumerService],
+  providers: [AuthService,UtilService,CostumerService,ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

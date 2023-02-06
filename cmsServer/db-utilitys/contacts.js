@@ -17,4 +17,42 @@ function getContacts(req,res){
     conn.end()  
 }
 
+function getSingleContact(req,res){
+       
+    const conn = mysql.createConnection({
+        host: process.env.HOST,
+        user: process.env.USER,
+        database: process.env.DATABASE,
+        password: process.env.PASSWORD,
+    })
+    
+    query = `select * FROM contacts WHERE id=${req.params.id}`
+    conn.execute(query, (err,row,fields) => {      
+        if (err) console.log(err);       
+        res.json(row[0])   
+    })
+    conn.end() 
+}
+
+function findcontact(req,res){
+    const conn = mysql.createConnection({
+        host: process.env.HOST,
+        user: process.env.USER,
+        database: process.env.DATABASE,
+        password: process.env.PASSWORD,
+    })
+    console.log(req.params.query);
+    console.log(req.query.from);
+    query = `select * FROM contacts WHERE first_name LIKE '%${req.params.query}%' ORDER BY first_name LIMIT 15 OFFSET ${req.query.from}`
+    conn.execute(query, (err,row,fields) => {      
+        if (err) console.log(err);       
+        console.log(row);
+        
+        res.json(row)   
+    })
+    conn.end() 
+}
+
 exports.getContacts = getContacts
+exports.getSingleContact = getSingleContact
+exports.findcontact = findcontact

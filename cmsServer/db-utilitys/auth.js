@@ -19,11 +19,10 @@ function login (req,res,next){
            
             if(data[0][0]['password'] == req.body.password) {
                 req.session.user = data[0][0]       
-                return res.json({
-                    "isLogged":true,})
+                return res.json({"isLogged":true,})
                     
             } else {
-                return res.json({"isLogged":false})                
+                return res.json({"isLogged":false,"message":"wrong password"})                
             }
             
         })

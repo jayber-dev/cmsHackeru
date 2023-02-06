@@ -6,10 +6,10 @@ contacts.use((req, res, next) => {
     next()
 })
 
-contacts.get('/',contactsUtil.getContacts, (req,res) => {  
-    console.log('im in contacts');
-    
-    return res.json(req.body)
-})
+contacts.get('/',contactsUtil.getContacts, (req,res) => {})
+
+contacts.get('/contact/:id', contactsUtil.getSingleContact,(req,res,next) =>{})
+
+contacts.get('/search/:query',contactsUtil.findcontact, (req,res) => {})
 
 module.exports = contacts

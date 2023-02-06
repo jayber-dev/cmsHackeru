@@ -39,17 +39,35 @@ export class UsersFoldersComponent implements OnInit{
 
   serverCall(from){
     console.log(from);
-    this.costumers.getCostumers(from).subscribe(data => {
-      console.log(data);
-      this.data = data
-      console.log(this.data.length);
+    if(this.router.url == '/dashboard/costumers/folders'){
+      this.costumers.getCostumers(from).subscribe(data => {
+        console.log(data);
+        this.data = data
+        console.log(this.data.length);
+        
+        if(this.data.length != 15){
+          this.makeCall = false
+        } else {
+          this.makeCall = true
+        }
       
-      if(this.data.length != 15){
-        this.makeCall = false
-      } else {
-        this.makeCall = true
-      }
-    })
+      })
+    }
+
+    if(this.router.url == '/dashboard/contacts/folders'){
+      this.contacts.getContacts(from).subscribe(data => {
+        console.log(data);
+        this.data = data
+        console.log(this.data.length);
+        
+        if(this.data.length != 15){
+          this.makeCall = false
+        } else {
+          this.makeCall = true
+        }
+      
+      })
+    }
   }
 
   ngOnInit(): void {

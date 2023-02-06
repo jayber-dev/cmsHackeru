@@ -4,7 +4,7 @@
         <h1>Login</h1>
         <input autocomplete="email" type="email" name="email"  placeholder="Email" formControlName="email">
         <input autocomplete="current-password" type="password" name="password" placeholder="Password" formControlName="password">
-        
+        <small *ngIf="message">{{message}}</small>
         <p>Did not Signup yet ? <a routerLink="../signup">Click Here...</a></p>
         
         <button> Login </button>

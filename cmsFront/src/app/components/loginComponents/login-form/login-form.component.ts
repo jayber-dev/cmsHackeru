@@ -23,7 +23,7 @@ export class LoginFormComponent {
   }
 
   loginForm: FormGroup;
-  
+  message:string
   googleLogin(){
     console.log('will be logged with google');
   }
@@ -35,9 +35,9 @@ export class LoginFormComponent {
       console.log(data['isLogged']);
       if(data['isLogged']){
         this.util.setLoggedTrue()
-        this.router.navigateByUrl('dashboard/costumers')
+        this.router.navigateByUrl('dashboard/costumers/table')
       } else {
-        console.log('poop on you from login');
+        this.message = data['message']
         
       }
       login.unsubscribe()

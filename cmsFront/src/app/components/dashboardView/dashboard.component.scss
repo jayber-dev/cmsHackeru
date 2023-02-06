@@ -1,6 +1,7 @@
 .dashboard-container {
     display: flex;
     flex-direction: row;
+    width: 100vw;
     .side-nav {
         
         app-sidenav{
@@ -18,7 +19,7 @@
 @media screen and (max-width: 1000px) {
     .side-nav{
         display: none;
-        width: 5vw;
+        // width: 5vw;
     }
 
     .content{

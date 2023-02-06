@@ -6,6 +6,7 @@ $textColor: rgba(255, 255, 255);
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     .costumers-folders-container{
        
         display: flex;
@@ -55,5 +56,11 @@ $textColor: rgba(255, 255, 255);
         button:hover {
             background-color: $hover;
         }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .folder-container{
+        width: 100vw;
     }
 }

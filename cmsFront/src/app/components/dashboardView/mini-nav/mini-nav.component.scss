@@ -22,10 +22,10 @@ $textColor: rgba(255, 255, 255);
         z-index: 10;
         background-color: whitesmoke;
         height: 100%;
-        width: 100px;
+        width: 120px;
         position: absolute;
         animation-name: open;
-        animation-duration: 1s;
+        animation-duration: 0.3s;
         animation-fill-mode: forwards;
     }
     ul{

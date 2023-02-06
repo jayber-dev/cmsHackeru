@@ -2,11 +2,12 @@
 body {
     background-image: url('./assets/images/background/map-of-the-world-2401458_1920.jpg');
     background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size: auto;
+    
+    // background-repeat: no-repeat;
     margin: 0px;
     box-sizing: border-box;
-    height: 100vh;
+    // height: 100vh;
     font-size: calc(10px + 0.5433vw);
 }
 

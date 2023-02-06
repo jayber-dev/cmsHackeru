@@ -17,7 +17,7 @@ export class ContactService{
     getContact(id){
         console.log(id);
         
-        return this.http.get(`http://127.0.0.1:3000/contact/contact/${id}`)
+        return this.http.get(`http://127.0.0.1:3000/contacts/contact/${id}`)
     }
 
     searchContacts(query,from){

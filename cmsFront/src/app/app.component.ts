@@ -14,7 +14,7 @@ export class AppComponent implements OnInit, OnDestroy{
     private auth:AuthService,
     private router:Router
   ){}
-  title = 'cmsFront';
+  title = 'CRM-HackerU';
   isLogged:boolean
 
   

@@ -8,7 +8,7 @@ import { CostumerService } from 'src/app/services/costumersService/cosutmers.ser
   templateUrl: './users-table.component.html',
   styleUrls: ['./users-table.component.scss']
 })
-export class UsersTableComponent implements OnInit, OnChanges{
+export class UsersTableComponent implements OnInit{
   constructor(
     private costumers:CostumerService,
     private router:Router,
@@ -34,10 +34,6 @@ export class UsersTableComponent implements OnInit, OnChanges{
     this.serverCall(this.from)
     }
     // console.log(this.from);  
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    
   }
 
   serverCall(from){

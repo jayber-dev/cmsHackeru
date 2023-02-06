@@ -13,6 +13,7 @@ import { UsersTableComponent } from './components/dashboardView/users-table/user
 import { UsersFoldersComponent } from './components/dashboardView/users-folders/users-folders.component'
 import { CostumerCardComponent } from './components/dashboardView/costumers-view/costumer-card/costumer-card.component'
 import { SearchResultsComponent } from './components/dashboardView/search-results/search-results.component'
+import { ContactCardComponent } from './components/dashboardView/contact-view/contact-card/contact-card.component'
 
 export const routes:Routes =  [
     {path: 'login', component: LoginComponent},
@@ -30,7 +31,9 @@ export const routes:Routes =  [
                 ]},
             {path: 'contacts', component:ContactViewComponent,children:[
                 {path:'table',component:UsersTableComponent},
-                {path:'folders',component:UsersFoldersComponent}
+                {path:'folders',component:UsersFoldersComponent},
+                {path:'folders/:id', component:ContactCardComponent},            
+                {path:'table/:id', component:ContactCardComponent},
             ]}
         ]},
     {path: '**', component:NotFoundComponent},

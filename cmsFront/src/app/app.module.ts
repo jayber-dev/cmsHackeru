@@ -28,6 +28,7 @@ import { MiniNavComponent } from './components/dashboardView/mini-nav/mini-nav.c
 import { SubMenuComponent } from './components/dashboardView/sub-menu/sub-menu.component';
 import { ContactService } from './services/contactService/contact.service';
 import { ContactCardComponent } from './components/dashboardView/contact-view/contact-card/contact-card.component';
+import { AgeCalc } from './pipes/ageCalc.pipe';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ContactCardComponent } from './components/dashboardView/contact-view/co
     MiniNavComponent,
     SubMenuComponent,
     ContactCardComponent,
+    AgeCalc,
     
   ],
   imports: [

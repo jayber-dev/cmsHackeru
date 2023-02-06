@@ -1,19 +1,20 @@
 <div *ngIf="data" class="costumer-card-container" >
     <div class="details">
-        <h1>Costumer Details</h1>
+        <h1>Contact Details</h1>
         <p>First Name: {{data.first_name}}</p>
         <p>Last Name: {{data.last_name}}</p>
         <p>Email :{{data.email}}</p>
         <p>Phone Number: {{data.phone}}</p>
-        <p>State: {{data.state}}</p>
+        <p>Birthday: {{data.birthday | date}}</p>
+        <p>age: {{data.birthday | ageCalc}}</p>     
+    </div>
+    <div class="notes">
+        <h1>Address</h1>
         <p>Country: {{data.country}}</p>
+        <p>State: {{data.state}}</p>
         <p>City: {{data.city}}</p>
         <p>Street: {{data.street}}</p>
         <p>House Number: {{data.house_number}}</p>
         <p>Zip Code: {{data.zip_code}}</p>
-    </div>
-    <div class="notes">
-        <h1>Notes</h1>
-        <p>{{data.notes}}</p>
     </div>
 </div>

@@ -6,8 +6,8 @@ $textColor: rgba(255, 255, 255);
     border-top: 1px solid rgba(128, 128, 128, 0.541);
     border-right: 1px solid rgba(128, 128, 128, 0.541);
     background-color: $backColor;
-    // width: 10vw;
-    // height: 20vh;
+    
+    
     text-align: center;
         li{
            list-style: none;
@@ -35,12 +35,17 @@ li:hover {
     background-color: $hover ;
 }
 
-.chosen-container {
-    background-color: $hover;
-}
-
 @media (max-width: 1000px) {
     .sidenav{
-        display: none;
+        
+        width: 5vw;
+        li{
+            margin-bottom: 50px;
+            transform: rotate(90deg);
+        }
+
+        li:hover{
+            background-color: $backColor;
+        }
     }
 }

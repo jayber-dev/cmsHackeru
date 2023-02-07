@@ -29,6 +29,8 @@ import { SubMenuComponent } from './components/dashboardView/sub-menu/sub-menu.c
 import { ContactService } from './services/contactService/contact.service';
 import { ContactCardComponent } from './components/dashboardView/contact-view/contact-card/contact-card.component';
 import { AgeCalc } from './pipes/ageCalc.pipe';
+import { AddCostumerComponent } from './components/dashboardView/add-costumer/add-costumer.component';
+import { AddContactsComponent } from './components/dashboardView/add-contacts/add-contacts.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { AgeCalc } from './pipes/ageCalc.pipe';
     SubMenuComponent,
     ContactCardComponent,
     AgeCalc,
+    AddCostumerComponent,
+    AddContactsComponent,
     
   ],
   imports: [

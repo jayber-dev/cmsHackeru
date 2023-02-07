@@ -200,59 +200,66 @@ $textColor: rgba(255, 255, 255);
         border-collapse: collapse;
         background-color: whitesmoke;
         text-align: center;
-        tr:first-child{
-            
-            background-color: $backColor;
-            td {
-                padding:10px;
-            }
-            td:nth-child(3){
-                width: 80px;
-            }
-            td:nth-child(4) {
-                width: 200px;
-            }
-            td:nth-child(5) {
-                width: 100px;
-                
-            }
 
-            td:last-child {
-                width: 40px;
-               
-                
-            }
-        }
-        tr{  
-            border: 1px solid grey;
-            td{
-                padding: 5px;
-                border: 1px solid grey;
-                img{
-                    height: 20px;
+        thead{
+            tr:first-child{
+            
+                background-color: $backColor;
+                td {
+                    padding:10px;
+                }
+                td:nth-child(3){
+                    width: 80px;
+                }
+                td:nth-child(4) {
+                    width: 200px;
+                }
+                td:nth-child(5) {
+                    display: none;
+                    width: 100px;
+                    
+                }
+    
+                td:last-child {
+                    width: 40px;
+                   
+                    
                 }
             }
-            td:first-child{
-                width: 20px;
+        }
+        tbody{
+            tr{  
+                border: 1px solid grey;
+                td{
+                    padding: 5px;
+                    border: 1px solid grey;
+                    img{
+                        height: 20px;
+                    }
+                }
+                td:first-child{
+                    width: 20px;
+                }
+    
+                td:nth-child(5) {
+                    display: none;
+                }
+                td:last-child{
+                    width: 40px;
+                }
+                
             }
-
-            td:nth-child(5) {
-                display: none;
+            tr:first-child:hover {
+                background-color: $backColor;;
             }
-            td:last-child{
-                width: 40px;
+    
+            tr:hover {
+                background-color: rgb(184, 183, 183);
             }
             
         }
-        tr:first-child:hover {
-            background-color: $backColor;;
-        }
-
-        tr:hover {
-            background-color: rgb(184, 183, 183);
-        }
-        
     }
+        
 }
 
 

@@ -7,24 +7,21 @@ $textColor: rgba(255, 255, 255);
     // flex-direction: column;
     // align-items: center;
     // display: inline;
-    
+    margin-bottom: 15vh;
     .costumers-folders-container{
         display: grid;
         grid: auto-flow / 1fr 1fr 1fr 1fr 1fr;
         background-color: whitesmoke;
         border: 1px solid rgba(128, 128, 128, 0.377);
-        width: 100%;
-        .wrapper {
         
-            // border: 1px solid rgba(128, 128, 128, 0.295);
-            //     display: flex;
-            //     flex-direction: column;
-            //     align-items: center;
-            .folder{
-                
+        .wrapper {
+            border: 1px solid rgba(128, 128, 128, 0.295);
+            .folder{   
+                padding: 10px;
                 .name-tag {
                     display: flex;
                     flex-direction: row;
+                    justify-content: space-between;
                     button{
                         background-color: transparent;
                         border: 0px;
@@ -32,8 +29,7 @@ $textColor: rgba(255, 255, 255);
                             height: 20px;
                         }
                     }
-                }
-                
+                } 
                 a{
                     color: black;
                     text-decoration: none;
@@ -77,17 +73,13 @@ $textColor: rgba(255, 255, 255);
 
 @media screen and (max-width: 1000px) {
     .folder-container{
-        width: 100%;
+      
         .costumers-folders-container{
             display: grid;
             grid: auto-flow / 1fr 1fr 1fr ;
             background-color: whitesmoke;
             border: 1px solid rgba(128, 128, 128, 0.377);
-            width: 107%;
-            .folder-container{
-            // width: 100%;
-          
-            }
+            width: 100vw;
         }
     }
     
@@ -101,11 +93,6 @@ $textColor: rgba(255, 255, 255);
             grid: auto-flow / 1fr 1fr ;
             background-color: whitesmoke;
             border: 1px solid rgba(128, 128, 128, 0.377);
-            width: 106%;
-            .folder-container{
-            // width: 100%;
-          
-            }
         }
     }
     

@@ -33,7 +33,11 @@ $textColor: rgba(255, 255, 255);
             text-decoration: none;
         }
     }
-    
+}
 
-    
+
+@media screen and (max-width: 1000px) {
+    .card-container {
+        justify-content: flex-start;
+    }
 }

@@ -23,9 +23,6 @@ export class ContactCardComponent {
 
     this.contacts.getContact(this.param).subscribe(data => {
       this.data = (data);
-      console.log(this.data);
-      
-      
     })
   }
 }

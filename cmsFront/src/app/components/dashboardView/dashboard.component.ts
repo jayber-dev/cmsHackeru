@@ -13,9 +13,7 @@ export class DashboardComponent implements OnInit{
 
   isLogged:boolean
   ngOnInit(): void {
-    this.util.updateIsLogged.subscribe(data => {
-      console.log(data);
-      
+    this.util.updateIsLogged.subscribe(data => {     
       this.isLogged = data
     })
   }

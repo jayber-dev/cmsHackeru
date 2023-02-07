@@ -1,22 +1,28 @@
 <div *ngIf="data" class="costumers-container">
     
     <table >  
-                <tr>
-                    <td>View Details</td>
-                    <td>First Name</td>
-                    <td>Last Name</td>
-                    <td>Email</td>
-                    <td>Phone</td>
-                    
-                </tr>    
-            <tr *ngFor="let i of data">   
-                <td><a routerLink="{{i.id}}"><img src="../../../../../assets/images/icons/overview-icon.svg" alt=""></a></td>  
+        <thead>
+            <tr>
+                <td>View Details</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td>Delete</td>
+            </tr> 
+        </thead>
+        <tbody *ngFor="let i of data; index as index">
+            <tr *ngIf="i?.id">   
+                <td ><a routerLink="{{i.id}}"><img src="../../../../../assets/images/icons/overview-icon.svg" alt=""></a></td>  
                 <td>{{i.first_name}}</td>
                 <td>{{i.last_name}}</td>
                 <td>{{i.email}}</td>
                 <td>{{i.phone}}</td> 
+                <td ><button (click)="deleteRegistry(i.id,index)"><img src="../../../../assets/images/icons/trash.svg" alt=""></button></td>
                     
             </tr>
+        </tbody>    
+            
         
     </table>
     <div class="pagination">

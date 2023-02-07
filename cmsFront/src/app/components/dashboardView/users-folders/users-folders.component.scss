@@ -3,41 +3,57 @@ $hover: rgba(59, 6, 16, 0.616);
 $textColor: rgba(255, 255, 255);
 
 .folder-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // display: inline;
     
     .costumers-folders-container{
-       
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid: auto-flow / 1fr 1fr 1fr 1fr 1fr;
         background-color: whitesmoke;
         border: 1px solid rgba(128, 128, 128, 0.377);
-        flex-wrap: wrap;
-        .folder{
-            border: 1px solid rgba(128, 128, 128, 0.295);
-            display: flex;
-            flex: 1 15vw;
-            flex-direction: column;
-            align-items: center;
-            a{
-                color: black;
-                text-decoration: none;
-            }
-
-            a:visited{
-                color: black;
-            }
-            img {
-                margin: 0px;
-                height: 100px;
+        width: 100%;
+        .wrapper {
+        
+            // border: 1px solid rgba(128, 128, 128, 0.295);
+            //     display: flex;
+            //     flex-direction: column;
+            //     align-items: center;
+            .folder{
                 
-            }
-            p {
-                margin: 0px;
-            }
+                .name-tag {
+                    display: flex;
+                    flex-direction: row;
+                    button{
+                        background-color: transparent;
+                        border: 0px;
+                        img{
+                            height: 20px;
+                        }
+                    }
+                }
+                
+                a{
+                    color: black;
+                    text-decoration: none;
+                }
     
+                a:visited{
+                    color: black;
+                }
+                img {
+                    margin: 0px;
+                    height: 100px;
+                    
+                }
+                p {
+                    margin: 0px;
+                }
+        
+            }
         }
+        
         
     }
     
@@ -61,6 +77,38 @@ $textColor: rgba(255, 255, 255);
 
 @media screen and (max-width: 1000px) {
     .folder-container{
-        width: 100vw;
+        width: 100%;
+        .costumers-folders-container{
+            display: grid;
+            grid: auto-flow / 1fr 1fr 1fr ;
+            background-color: whitesmoke;
+            border: 1px solid rgba(128, 128, 128, 0.377);
+            width: 107%;
+            .folder-container{
+            // width: 100%;
+          
+            }
+        }
     }
+    
 }
+
+@media screen and (max-width: 600px) {
+    .folder-container{
+        width: 100%;
+        .costumers-folders-container{
+            display: grid;
+            grid: auto-flow / 1fr 1fr ;
+            background-color: whitesmoke;
+            border: 1px solid rgba(128, 128, 128, 0.377);
+            width: 106%;
+            .folder-container{
+            // width: 100%;
+          
+            }
+        }
+    }
+    
+}
+
+

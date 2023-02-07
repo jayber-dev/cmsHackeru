@@ -21,9 +21,7 @@ export class CostumerCardComponent implements OnInit{
     })
 
     this.costumers.getCostumer(this.param).subscribe(data => {
-      this.data = (data);
-      console.log(this.data);
-      
+      this.data = (data);   
     })
   }
 }

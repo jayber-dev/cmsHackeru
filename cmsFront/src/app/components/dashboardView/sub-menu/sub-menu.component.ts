@@ -12,7 +12,6 @@ export class SubMenuComponent {
   ){}
   search(e){
     
-    
     this.router.navigateByUrl(`dashboard/costumers/searchResults/${e.target.value}`)
   }
 }

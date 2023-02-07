@@ -9,7 +9,10 @@ $textColor: rgba(255, 255, 255);
     justify-content: space-between;
     align-items: center;
     background-color: $backColor;
-    
+    flex-wrap: wrap;
+    .s-about{
+        display: none;
+    }
     ul {
         margin:0px;
         padding: 0px;
@@ -17,9 +20,15 @@ $textColor: rgba(255, 255, 255);
         flex-direction: row;
         text-decoration: none;
         list-style-type: none;
+        align-items: center;
+        
+        
+        
         li {
-            
-            padding:20px;
+            padding: 20px;
+            img {
+                height: calc(19px + 0.5132vw);
+            }
             a{
                 color: $textColor;
                 cursor: pointer;
@@ -45,6 +54,47 @@ $textColor: rgba(255, 255, 255);
             cursor: pointer;
         }
     }
+}
 
+@media screen and (max-width: 450px) {
+    
+    
+
+   
+
+    .navbar{
+        
+        .b-about {
+            display: none;
+        }
+        .left-side{
+            display: flex;
+            justify-content: center;
+                width: 100vw;
+            ul:first-child{
+                
+                li:first-child{
+                    display: inline;
+                }
+                // li:last-child{
+                //     display: none;
+                // }
+            }
+        }
+        
+        .right-side{
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            ul:last-child{
+                
+                // display: flex;
+                li:last-child{
+                    display: block;
+                }
+            }
+        }
+        
+    }
     
 }

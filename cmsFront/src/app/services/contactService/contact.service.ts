@@ -10,17 +10,23 @@ export class ContactService{
         private http:HttpClient
     ){}
 
+    url:string = 'http://127.0.0.1:3000'
+
     getContacts(from){
-        return this.http.get(`http://127.0.0.1:3000/contacts/`,{params:{"from":from}})
+        return this.http.get(`${this.url}/contacts/`,{params:{"from":from}})
     }
 
     getContact(id){
         console.log(id);
         
-        return this.http.get(`http://127.0.0.1:3000/contacts/contact/${id}`)
+        return this.http.get(`${this.url}/contacts/contact/${id}`)
     }
 
     searchContacts(query,from){
-        return this.http.get(`http://127.0.0.1:3000/contacts/search/${query}`,{params:{"from":from}})
+        return this.http.get(`${this.url}/contacts/search/${query}`,{params:{"from":from}})
+    }
+
+    deleteCostumer(id){
+        return this.http.delete(`${this.url}/costumers/deleteCostumer/${id}`)
     }
 }

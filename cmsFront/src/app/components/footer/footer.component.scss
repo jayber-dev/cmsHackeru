@@ -1,0 +1,10 @@
+$backColor: rgba(235, 11, 56, 0.616);
+$hover: rgba(59, 6, 16, 0.616);
+$textColor: rgba(255, 255, 255);
+
+footer{
+    padding: 20px;
+    background-color: $backColor ;
+    text-align: center;
+    color: $textColor;
+}

@@ -1,11 +1,21 @@
 <div class="folder-container">
     <div class="costumers-folders-container">
-        <div *ngFor="let i of data" class="folder">
-            <a [routerLink]="i.id" >
-                <p>{{i.first_name}} {{ i.last_name}}</p>
-                <img src="../../../../../assets/images/icons/folder.svg" alt="">
-            </a>
-            
+        <div *ngFor="let i of data; index as index" class="wrapper">
+            <div *ngIf="i?.id" class="folder">
+                <div class="name-tag">
+                    <p>{{i.first_name}} {{ i.last_name}}</p>
+                    <button (click)="deleteRegistry(i.id,index)">
+                        <img src="../../../../assets/images/icons/trash.svg" alt="">
+                    </button>
+                </div>
+                
+                <a [routerLink]="i.id" >
+                    
+                    <img src="../../../../../assets/images/icons/folder.svg" alt="">
+                </a>
+                
+                
+            </div>
             
         </div>
         

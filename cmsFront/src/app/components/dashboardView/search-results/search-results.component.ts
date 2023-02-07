@@ -1,5 +1,5 @@
 import { query } from '@angular/animations';
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CostumerService } from 'src/app/services/costumersService/cosutmers.service';
 
@@ -8,7 +8,7 @@ import { CostumerService } from 'src/app/services/costumersService/cosutmers.ser
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss']
 })
-export class SearchResultsComponent  implements OnInit, OnChanges{
+export class SearchResultsComponent  implements OnInit{
   constructor(
     private router:ActivatedRoute,
     private costumers:CostumerService
@@ -52,17 +52,13 @@ export class SearchResultsComponent  implements OnInit, OnChanges{
     })
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-      console.log('in on change');
-  }
-
   ngOnInit():void {
-    console.log('im on init');
+    
     this.router.params.subscribe(param => {
-      console.log(param);
+      
       this.param = param['query'];  
       this.costumers.searchCostumer(this.param,this.from).subscribe(data=>{
-        console.log(data);
+        
         this.data = data
 
         if(this.data.length != 15){

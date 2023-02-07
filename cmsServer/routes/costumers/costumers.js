@@ -13,4 +13,7 @@ costumers.get('/costumer/:id', costumersUtil.getSingleCostumer,(req,res,next) =>
 
 costumers.get('/search/:query',costumersUtil.findCostumer, (req,res) => {})
 
+costumers.delete('/deleteCostumer/:id',costumersUtil.deleteCostumer, (req,res) =>{
+        
+})
 module.exports = costumers;

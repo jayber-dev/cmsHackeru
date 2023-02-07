@@ -39,7 +39,7 @@ $textColor: rgba(255, 255, 255);
         li{ 
             list-style: none;      
             margin: 0px;
-            padding: 0px;
+            padding: 2px;
             left: 20px;
             font-size: calc(10px + 0.5423vw);
             margin-left: 25px;
@@ -64,5 +64,5 @@ $textColor: rgba(255, 255, 255);
 }
 
 .chosen-container {
-    background-color: $hover;
+    border:1px solid $backColor;
 }

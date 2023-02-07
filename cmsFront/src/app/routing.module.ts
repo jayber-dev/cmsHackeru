@@ -27,13 +27,14 @@ export const routes:Routes =  [
                     {path:'folders', component:UsersFoldersComponent},
                     {path:'folders/:id', component:CostumerCardComponent},            
                     {path:'table/:id', component:CostumerCardComponent},
-                    {path:'searchResults/:query', component:SearchResultsComponent}            
+                    {path:'searchResults/:type/:query', component:SearchResultsComponent}            
                 ]},
             {path: 'contacts', component:ContactViewComponent,children:[
                 {path:'table',component:UsersTableComponent},
                 {path:'folders',component:UsersFoldersComponent},
                 {path:'folders/:id', component:ContactCardComponent},            
                 {path:'table/:id', component:ContactCardComponent},
+                {path:'searchResults/:type/:query', component:SearchResultsComponent}
             ]}
         ]},
     {path: '**', component:NotFoundComponent},

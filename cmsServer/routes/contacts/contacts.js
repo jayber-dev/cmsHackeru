@@ -12,4 +12,8 @@ contacts.get('/contact/:id', contactsUtil.getSingleContact,(req,res,next) =>{})
 
 contacts.get('/search/:query',contactsUtil.findcontact, (req,res) => {})
 
+contacts.delete('/deleteContact/:id',contactsUtil.deleteContact, (req,res) =>{
+        
+})
+
 module.exports = contacts

@@ -10,7 +10,7 @@
                     
                 </tr>    
             <tr *ngFor="let i of data">   
-                <td><a routerLink="/dashboard/costumers/table/{{i.id}}"><img src="../../../../../assets/images/icons/overview-icon.svg" alt=""></a></td>  
+                <td><a routerLink="/dashboard/{{type}}/table/{{i.id}}"><img src="../../../../../assets/images/icons/overview-icon.svg" alt=""></a></td>  
                 <td>{{i.first_name}}</td>
                 <td>{{i.last_name}}</td>
                 <td>{{i.email}}</td>

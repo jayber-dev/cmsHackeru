@@ -1,4 +1,7 @@
 <div class="sidenav">
-    <li routerLinkActive="chosen-container" ><a  routerLink="costumers/table">Costumers</a></li>
-    <li routerLinkActive="chosen-container"><a  routerLink="contacts/table">Contacts</a></li>
+    <li routerLinkActive="chosen-container" ><a (click)="setCategory($event)" routerLink="costumers/table">Costumers</a></li>
+    <li routerLinkActive="chosen-container"><a (click)="setCategory($event)"  routerLink="contacts/table">Contacts</a></li>
+    <li>
+        <a class="add-registry" routerLink="add{{category}}">Add {{category}}</a>
+    </li>
 </div>

@@ -37,6 +37,7 @@
             label{
                 margin-left: 20px;
                 font-size: larger;
+                text-align: center;
             }
             input {
     
@@ -71,7 +72,7 @@
 
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 690px) {
     .submenu-container{
         display: flex;
         width: 100vw;
@@ -79,7 +80,14 @@
         background-color: whitesmoke;
         border:1px solid rgba(128, 128, 128, 0.568);
         align-items: center;
+
+        .options{
+            margin-left: 60px;
+        }
+
         .search{
+            display: flex;
+            flex-direction: column;
             margin-bottom: 20px
         }
     }

@@ -60,15 +60,18 @@ export class UsersTableComponent implements OnInit {
 
   deleteRegistry(id,index){
     if(confirm('are you sure you want to delete ?')){
-      if (this.router.url == '/dashboard/costumers/table') {
+      if (this.router.url.match('costumers')) {
         const deleteUser = this.costumers.deleteCostumer(id).subscribe(() => {
           deleteUser.unsubscribe()
-          delete this.data[index]
+          
         })
       }
   
-      if (this.router.url == '/dashboard/contacts/table') {
-        const deleteUser = this.costumers.deleteCostumer(id).subscribe(() => {
+      if (this.router.url.match('contacts')) {
+        console.log('in contacts delete');
+        
+        const deleteUser = this.contacts.deleteContact(id).subscribe(() => {
+          delete this.data[index]
           deleteUser.unsubscribe()
         })
       }

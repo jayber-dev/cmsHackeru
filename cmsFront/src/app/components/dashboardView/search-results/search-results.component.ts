@@ -1,6 +1,7 @@
 import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ContactService } from 'src/app/services/contactService/contact.service';
 import { CostumerService } from 'src/app/services/costumersService/cosutmers.service';
 
 @Component({
@@ -11,14 +12,16 @@ import { CostumerService } from 'src/app/services/costumersService/cosutmers.ser
 export class SearchResultsComponent implements OnInit {
   constructor(
     private router: ActivatedRoute,
-    private costumers: CostumerService
+    private costumers: CostumerService,
+    private contacts: ContactService
   ) {}
 
   data: any;
   costumersData: string[];
   from: number = 0;
   makeCall: boolean = true;
-  param: string;
+  query: string;
+  type:string
 
   perv() {
     if (this.from > 0) {
@@ -34,7 +37,7 @@ export class SearchResultsComponent implements OnInit {
   }
 
   serverCall(from) {
-    this.costumers.searchCostumer(this.param, from).subscribe((data) => {
+    this.costumers.searchCostumer(this.query, from).subscribe((data) => {
       this.data = data;
 
       if (this.data.length != 15) {
@@ -47,16 +50,35 @@ export class SearchResultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.params.subscribe((param) => {
-      this.param = param['query'];
-      this.costumers.searchCostumer(this.param, this.from).subscribe((data) => {
-        this.data = data;
+      this.query = param['query'];
+      this.type = (param['type']);
+      
+      console.log(this.router.url);
+      if(this.type == 'costumers'){
+        this.costumers.searchCostumer(this.query, this.from).subscribe((data) => {
+          this.data = data;
+  
+          if (this.data.length != 15) {
+            this.makeCall = false;
+          } else {
+            this.makeCall = true;
+          }
+        });
+      }
 
-        if (this.data.length != 15) {
-          this.makeCall = false;
-        } else {
-          this.makeCall = true;
-        }
-      });
+      if(this.type == 'contacts'){
+        console.log('contacts search');
+        this.contacts.searchContacts(this.query, this.from).subscribe((data) => {
+          this.data = data;
+  
+          if (this.data.length != 15) {
+            this.makeCall = false;
+          } else {
+            this.makeCall = true;
+          }
+        });
+      }
+      
     });
   }
 }

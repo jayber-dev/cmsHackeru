@@ -18,6 +18,8 @@ export class NavbarComponent implements OnInit {
     
   }
   
+  category:string
+
   logout(){
     console.log('logout');
     this.auth.logout().subscribe()

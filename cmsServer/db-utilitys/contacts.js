@@ -53,6 +53,26 @@ function findcontact(req,res){
     conn.end() 
 }
 
+function deleteContact(req,res) {
+    console.log('in delete contact');
+    
+    const conn = mysql.createConnection({
+        host: process.env.HOST,
+        user: process.env.USER,
+        database: process.env.DATABASE,
+        password: process.env.PASSWORD,
+    })
+
+    query = `DELETE FROM contacts WHERE id=${req.params.id}`
+    conn.execute(query, (err,row,fields) => {      
+        if (err) console.log(err);       
+        res.json(row[0])   
+    })
+    conn.end() 
+
+}
+
+exports.deleteContact = deleteContact
 exports.getContacts = getContacts
 exports.getSingleContact = getSingleContact
 exports.findcontact = findcontact

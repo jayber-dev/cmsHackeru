@@ -26,7 +26,7 @@ export class ContactService{
         return this.http.get(`${this.url}/contacts/search/${query}`,{params:{"from":from}})
     }
 
-    deleteCostumer(id){
-        return this.http.delete(`${this.url}/costumers/deleteCostumer/${id}`)
+    deleteContact(id){
+        return this.http.delete(`${this.url}/contacts/deleteContact/${id}`)
     }
 }

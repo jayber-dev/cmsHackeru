@@ -14,8 +14,7 @@ $textColor: rgba(255, 255, 255);
     align-items: flex-start;
     flex-wrap: wrap;
     flex-shrink: 1;
-    font-size: calc(8px + 00.5433vw);
-    // width: 90vw;
+    font-size: calc(6px + 00.5433vw);
     table {
         flex-wrap: wrap;
         
@@ -123,6 +122,7 @@ $textColor: rgba(255, 255, 255);
     .costumers-container{
         width: 100vw;
         align-items: center;
+        font-size: calc(10px + 00.5433vw);
     }
 }
 

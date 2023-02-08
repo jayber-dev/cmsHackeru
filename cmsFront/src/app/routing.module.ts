@@ -14,8 +14,8 @@ import { UsersFoldersComponent } from './components/dashboardView/users-folders/
 import { CostumerCardComponent } from './components/dashboardView/costumers-view/costumer-card/costumer-card.component'
 import { SearchResultsComponent } from './components/dashboardView/search-results/search-results.component'
 import { ContactCardComponent } from './components/dashboardView/contact-view/contact-card/contact-card.component'
-import { AddCostumerComponent } from './components/dashboardView/add-costumer/add-costumer.component'
-import { AddContactsComponent } from './components/dashboardView/add-contacts/add-contacts.component'
+import { AddEditCostumerComponent } from './components/dashboardView/addEdit-costumer/add-costumer.component'
+import { AddEditContactsComponent } from './components/dashboardView/addEdit-contacts/add-contacts.component'
 
 export const routes:Routes =  [
     {path: 'login', component: LoginComponent},
@@ -30,7 +30,8 @@ export const routes:Routes =  [
                     {path:'folders/:id', component:CostumerCardComponent},            
                     {path:'table/:id', component:CostumerCardComponent},
                     {path:'searchResults/:type/:query', component:SearchResultsComponent} ,
-                    {path:'addCostumer', component:AddCostumerComponent},         
+                    {path:'addCostumer', component:AddEditCostumerComponent},  
+                    {path:'editCostumer', component:AddEditCostumerComponent}       
                 ]},
             {path: 'contacts', component:ContactViewComponent,
                 children:[
@@ -39,7 +40,8 @@ export const routes:Routes =  [
                     {path:'folders/:id', component:ContactCardComponent},            
                     {path:'table/:id', component:ContactCardComponent},
                     {path:'searchResults/:type/:query', component:SearchResultsComponent},
-                    {path:'addContact', component:AddContactsComponent}
+                    {path:'addContact', component:AddEditContactsComponent},
+                    {path: 'editContact', component:AddEditContactsComponent}
                 ]}
         ]},
     {path: '**', component:NotFoundComponent},

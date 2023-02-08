@@ -1,0 +1,50 @@
+<div class="form-container">
+  <form [formGroup]="addContact" (ngSubmit)="onSubmit()">
+    <div class="form-wrapper">
+        <div class="personal-details">
+            <h1>Personal</h1>
+            <label for="">First Name</label>
+            <input type="text" name="firstName" formControlName="firstName" />
+
+            <label for="">Last Name</label>
+            <input type="text" name="lastName" formControlName="lastName"/>
+
+            <label for="">Birthday</label>
+            <input type="date" name="birthday" formControlName="birthday"/>
+
+            <label for="">Email</label>
+            <input type="email" name="email" formControlName="email"  />
+
+            <label for="">Phone</label>
+            <input type="text" name="phone" formControlName="phone"/>
+        </div>
+        <div class="address">
+            <h1>Address</h1>
+            <label for="">State</label>
+            <input type="text" name="state" formControlName="state"/>
+
+            <label for="">Country</label>
+            <input type="text" name="country" formControlName="country"/>
+
+            <label for="">City</label>
+            <input type="text" name="city" formControlName="city"/>
+
+            <label for="">Street</label>
+            <input type="text" name="street" formControlName="street"/>
+
+            <label for="">House Number</label>
+            <input type="text" name="houseNumber" formControlName="houseNumber"/>
+
+            <label for="">Zip Code</label>
+            <input type="text" name="zipCode" formControlName="zipCode"/>
+            
+        </div>
+        
+    </div>
+    <input class="submit-btn" type="submit" name="" id="">
+    
+
+    
+
+  </form>
+</div>

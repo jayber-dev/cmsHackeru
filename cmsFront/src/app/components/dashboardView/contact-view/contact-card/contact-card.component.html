@@ -17,4 +17,7 @@
         <p>House Number: {{data.house_number}}</p>
         <p>Zip Code: {{data.zip_code}}</p>
     </div>
+    <div class="edit">
+        <a routerLink="/dashboard/contacts/editContact/" [queryParams]="data">edit</a>
+    </div>
 </div>

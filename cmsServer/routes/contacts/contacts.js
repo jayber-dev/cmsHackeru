@@ -12,6 +12,10 @@ contacts.get('/contact/:id', contactsUtil.getSingleContact,(req,res,next) =>{})
 
 contacts.get('/search/:query',contactsUtil.findcontact, (req,res) => {})
 
+contacts.post('/addContact',contactsUtil.addContact,(req,res) => {})
+
+contacts.post('/editContact',contactsUtil.editContact,(req,res) => {})
+
 contacts.delete('/deleteContact/:id',contactsUtil.deleteContact, (req,res) =>{
         
 })

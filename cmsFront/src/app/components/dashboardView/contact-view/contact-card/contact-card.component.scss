@@ -1,3 +1,7 @@
+$backColor: rgba(235, 11, 56, 0.76);
+$hover: rgba(59, 6, 16, 0.616);
+$textColor: rgba(255, 255, 255);
+
 h1 {
     z-index: 10;
    margin: 0px;
@@ -9,7 +13,8 @@ h1 {
     display: flex;
     flex-direction: row;
     background-color: whitesmoke;
-    width: 100vw;
+    // width: 100vw;
+    height: 75vh;
     .details{
         border-right: 1px dashed grey;
         width: 30vw;
@@ -17,7 +22,18 @@ h1 {
 
     .notes {
         margin-left: 20px;
-        width: 55vw;
+        width: 50vw;
+    }
+
+    .edit {
+        display: flex;
+        align-items: flex-start;
+        // margin-right: 20px;
+        a{
+            padding:10px;
+            text-decoration: none;
+            background-color: $backColor;
+        }
     }
 
 }
@@ -28,16 +44,17 @@ h1 {
         display: flex;
         flex-direction: row;
         background-color: whitesmoke;
+        width: 106%;
         .details{
             border-right: 1px dashed grey;
-            width: 100vw;
+            // width: 100vw;
         }
     
         .notes {
             height: auto;
             // padding: 20px;
-            margin-left: 0px;
-            width: 100vw;
+            margin-left: 20px;
+            // width: 100vw;
         }
     
     }
@@ -49,6 +66,7 @@ h1 {
         display: flex;
         flex-direction: column;
         background-color: whitesmoke;
+        width: 105%;
         .details{
             border-right: 1px dashed grey;
             width: 100vw;

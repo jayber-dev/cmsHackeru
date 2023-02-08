@@ -1,0 +1,117 @@
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // height: 75vh;
+    width: 100%;
+    background-color: whitesmoke;
+    
+    form{
+        min-width: 200px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .form-wrapper{
+
+            h1{
+                margin:0px;
+            }            
+            display: flex;
+            flex-direction: row;
+            
+            .personal-details{
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+
+                textarea {
+                    margin-top: 25px;
+                }
+            }
+
+            .address {
+                display: flex;
+                flex-direction: column;
+                
+                padding: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // height: 75vh;
+        width: 106%;
+        background-color: whitesmoke;
+        
+        form{
+            min-width: 200px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .form-wrapper{
+                
+                display: flex;
+                flex-direction: row;
+                
+                .personal-details{
+                    display: flex;
+                    flex-direction: column;
+                    // margin: 20px;
+                    border-right: 0px;
+                }
+    
+                .address {
+                    display: flex;
+                    flex-direction: column;
+                    // margin: 20px;
+                }
+            }
+        }
+    }
+    
+}
+
+@media screen and (max-width:690px) {
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // height: 75vh;
+        // width: 100%;
+        background-color: whitesmoke;
+        
+        form{
+            min-width: 200px;
+            
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .form-wrapper{
+                
+                display: flex;
+                flex-direction: column;
+                
+                .personal-details{
+                    display: flex;
+                    flex-direction: column;
+                    border-bottom: 1px solid grey;
+                }
+    
+                .address {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+    
+}

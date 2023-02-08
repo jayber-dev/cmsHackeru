@@ -13,6 +13,10 @@ costumers.get('/costumer/:id', costumersUtil.getSingleCostumer,(req,res,next) =>
 
 costumers.get('/search/:query',costumersUtil.findCostumer, (req,res) => {})
 
+costumers.post('/addCostumer',costumersUtil.addCostumer,(req,res) => {})
+
+costumers.post('/editCostumer',costumersUtil.editCostumer,(req,res) => {})
+
 costumers.delete('/deleteCostumer/:id',costumersUtil.deleteCostumer, (req,res) =>{
         
 })

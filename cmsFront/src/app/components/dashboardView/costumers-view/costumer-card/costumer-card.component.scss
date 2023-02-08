@@ -4,6 +4,10 @@ h1 {
    
 }
 
+$backColor: rgba(235, 11, 56, 0.616);
+$hover: rgba(59, 6, 16, 0.616);
+$textColor: rgba(255, 255, 255);
+
 .costumer-card-container{
     padding: 20px;
     display: flex;
@@ -17,7 +21,18 @@ h1 {
 
     .notes {
         margin-left: 20px;
-        width: 55vw;
+        width: 50vw;
+    }
+
+    .edit {
+        display: flex;
+        align-items: flex-start;
+        margin-right: 20px;
+        a{
+            padding:10px;
+            text-decoration: none;
+            background-color: $backColor;
+        }
     }
 
 }
@@ -38,6 +53,17 @@ h1 {
             // padding: 20px;
             margin-left: 0px;
             width: 80vw;
+        }
+
+        .edit {
+            display: flex;
+            align-items: flex-start;
+            margin-right: 20px;
+            a{
+                padding:10px;
+                text-decoration: none;
+                background-color: $backColor;
+            }
         }
     
     }

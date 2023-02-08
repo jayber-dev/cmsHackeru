@@ -1,5 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Form, FormGroup } from "@angular/forms";
+import { Contact } from "src/app/components/dashboardView/addEdit-contacts/contact.interface";
 
 
 @Injectable({
@@ -28,5 +30,13 @@ export class ContactService{
 
     deleteContact(id){
         return this.http.delete(`${this.url}/contacts/deleteContact/${id}`)
+    }
+
+    addContact(contact:Contact){
+        return this.http.post(`${this.url}/contacts/addContact`, contact)
+    }
+
+    editContact(contact:Contact,id:number){
+        return this.http.post(`${this.url}/contacts/editContact`, {data:contact,id:id})
     }
 }

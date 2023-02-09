@@ -1,6 +1,13 @@
 const connect = require('../sqlConnect').connect
 const mysql = require('mysql2/promise');
+const bcrypt = require('bcrypt');
 
+// ------------------ declerations ------------------
+const saltRounds = 10;
+
+async function checkPasswordMatch(plainPass, hashPass) {
+    return await bcrypt.compare(plainPass,hashPass)   
+}
 
 function login (req,res,next){
     // connection to remote db server with connection timeout have to connect for each request
@@ -17,22 +24,45 @@ function login (req,res,next){
         console.log('in login');
         conn.execute('select id,email,password FROM users where email=?',[req.body.email]).then((data) => {
            
-            if(data[0][0]['password'] == req.body.password) {
-                req.session.user = data[0][0]       
-                return res.json({"isLogged":true,})
-                    
-            } else {
-                return res.json({"isLogged":false,"message":"wrong password"})                
-            }
-            
+            checkPasswordMatch(req.body.password, data[0][0]['password']).then(match => {
+                if(match) {
+                        req.session.user = data[0][0]       
+                        return res.json({"isLogged":true,})
+                            
+                    } else {
+                        return res.json({"isLogged":false,"message":"wrong password"})                
+                    }
+            })  
         })
         conn.end()
     })
     
 }
 
-function signup() {
-
+function signup(req,res) {
+    bcrypt.genSalt(saltRounds, (err,salt) => {
+        bcrypt.hash(req.body.password, salt, (err,hash) =>{ 
+            const conn = mysql.createConnection({
+                host: process.env.HOST,
+                user: process.env.USER,
+                database: process.env.DATABASE,
+                password: process.env.PASSWORD,
+            })
+            conn.then((conn) =>{
+            let query = `INSERT INTO users (email,password) values ('${req.body.email}','${hash}')`
+                conn.execute(query).then(data => {
+                    console.log(data);
+                    res.json({message:"registered"})
+                }).catch((err) => {
+                    res.json({message:"Email already exist's"})    
+                })     
+            })
+            conn.then(conn => {
+                conn.end()
+            })
+        })
+    })
+    
 }
 
 function routeGuard(){
@@ -58,6 +88,7 @@ function isAuthenticated (req, res, next) {
         return res.json({"isLogged":true})
     }
 }
+
 
 exports.isAuthenticated = isAuthenticated
 exports.login = login

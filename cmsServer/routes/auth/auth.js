@@ -12,7 +12,7 @@ auth.use((req, res, next) => {
 
 auth.post('/login',util.login,(req,res) => {})
 
-auth.post('/register',util.signup,(req,res) => {})
+auth.post('/signup',util.signup,(req,res) => {})
 
 auth.post('/auth',util.isAuthenticated, (req,res) => {})
 

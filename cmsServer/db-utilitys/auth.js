@@ -33,6 +33,9 @@ function login (req,res,next){
                         return res.json({"isLogged":false,"message":"wrong password"})                
                     }
             })  
+        }).catch(err => {
+            res.json({message:"Email Does Not Exist"})
+            
         })
         conn.end()
     })

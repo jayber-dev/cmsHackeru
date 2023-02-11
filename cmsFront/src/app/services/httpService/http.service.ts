@@ -14,11 +14,19 @@ export class httpService {
 
    
 
-    get<T>(suffixUrl:string,additionalSuffix:string){
-        return this.http.get(`${this.url}`)
+    get<T>(path:string){
+        return this.http.get(`${this.url}${path}`,this.options)
     }
 
-    post<T>(){
-        return this.http.post(`${this.url}`,{})
+    post<T>(path,body){
+        return this.http.post(`${this.url}${path}`,body,this.options)
+    }
+
+    put<T>(path:string,body) {
+        return this.http.put(`${this.url}`,body,this.options)
+    }
+
+    delete<T>(path:string) {
+        return this.http.delete(`${this.url}`, this.options)
     }
 }

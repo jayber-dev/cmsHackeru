@@ -14,8 +14,8 @@ export class httpService {
 
    
 
-    get<T>(path:string){
-        return this.http.get(`${this.url}${path}`,this.options)
+    get<T>(path:string,params:any){
+        return this.http.get(`${this.url}${path}`,{params:{params}})
     }
 
     post<T>(path,body){

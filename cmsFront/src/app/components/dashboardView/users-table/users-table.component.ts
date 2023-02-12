@@ -1,5 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContactService } from 'src/app/services/contactService/contact.service';
 import { CostumerService } from 'src/app/services/costumersService/cosutmers.service';
 
@@ -12,12 +12,14 @@ export class UsersTableComponent implements OnInit {
   constructor(
     private costumers: CostumerService,
     private router: Router,
-    private contacts: ContactService
+    private contacts: ContactService,
+    private activatedRoute: ActivatedRoute
   ) {}
   data: any;
   costumersData: string[];
-  from: number = 0;
+  from: number;
   makeCall: boolean = true;
+  param: number;
 
   perv() {
     if (this.from > 0) {
@@ -33,9 +35,11 @@ export class UsersTableComponent implements OnInit {
   }
 
   serverCall(from) {
-    if (this.router.url == '/dashboard/costumers/table') {
+    if (this.router.url.match('costumers')) {
+      this.router.navigateByUrl(`/dashboard/costumers/table/${this.from}`);
       const retrive = this.costumers.getCostumers(from).subscribe((data) => {
         this.data = data;
+        
         if (this.data.length != 15) {
           this.makeCall = false;
         } else {
@@ -45,7 +49,8 @@ export class UsersTableComponent implements OnInit {
       });
     }
 
-    if (this.router.url == '/dashboard/contacts/table') {
+    if (this.router.url.match('contacts')) {
+      this.router.navigateByUrl(`/dashboard/contacts/table/${this.from}`);
       this.contacts.getContacts(from).subscribe((data) => {
         this.data = data;
 
@@ -58,42 +63,50 @@ export class UsersTableComponent implements OnInit {
     }
   }
 
-  deleteRegistry(id,index){
-    if(confirm('are you sure you want to delete ?')){
+  deleteRegistry(id, index) {
+    if (confirm('are you sure you want to delete ?')) {
       if (this.router.url.match('costumers')) {
         const deleteUser = this.costumers.deleteCostumer(id).subscribe(() => {
-          deleteUser.unsubscribe()
-          
-        })
+          deleteUser.unsubscribe();
+        });
       }
-  
+
       if (this.router.url.match('contacts')) {
         console.log('in contacts delete');
-        
+
         const deleteUser = this.contacts.deleteContact(id).subscribe(() => {
-          delete this.data[index]
-          deleteUser.unsubscribe()
-        })
+          delete this.data[index];
+          deleteUser.unsubscribe();
+        });
       }
-    } 
+    }
   }
 
   ngOnInit(): void {
-    // this.data = this.serverCall(this.from)
-    if (this.router.url == '/dashboard/costumers/table') {
+    this.activatedRoute.params.subscribe((param) => {
+      console.log(param);
+      this.from = Number(param['from']);
+      this.param = param['from'];
+    });
+
+    if (this.router.url.match('costumers')) {
       const retrive = this.costumers
-        .getCostumers(this.from)
+        .getCostumers(this.param)
         .subscribe((data) => {
           this.data = data;
           retrive.unsubscribe();
         });
     }
 
-    if (this.router.url == '/dashboard/contacts/table') {
-      const retrive = this.contacts.getContacts(this.from).subscribe((data) => {
-        this.data = data;
-        retrive.unsubscribe();
-      });
+    if (this.router.url.match('contacts')) {
+      const retrive = this.contacts
+        .getContacts(this.param)
+        .subscribe((data) => {
+          console.log(data);
+
+          this.data = data;
+          retrive.unsubscribe();
+        });
     }
   }
 }

@@ -31,7 +31,7 @@ export class AddEditCostumerComponent implements OnInit {
       notes:[''],
     });
   }
-
+  from:Number
   addCostumer: FormGroup;
   costumerInfo: Costumer;
   paramId: number
@@ -50,14 +50,24 @@ export class AddEditCostumerComponent implements OnInit {
       const http = this.costumerService.editCostumer(this.costumerInfo,this.paramId).subscribe(data => {
         http.unsubscribe()
       })
-      this.router.navigateByUrl(`dashboard/costumers/table/${this.paramId}`)
+      this.activatedRoute.queryParamMap.subscribe(param => {
+        console.log(param);
+        
+      })
+      this.router.navigateByUrl(`dashboard/costumers/table/${this.from}`)
     }
   }
 
   ngOnInit(): void {
-    if(this.router.url.match('editCostumer')) {
+    if(this.router.url.match('editCostumer')) {      
+      this.activatedRoute.params.subscribe(param => {
+        this.from = param['from'];
+        
+      })
       console.log('in edit mode');
       this.activatedRoute.queryParamMap.subscribe(param=> {
+        console.log(param);
+        
         this.paramId = Number(param.get('id'))
         this.addCostumer.patchValue({
           firstName:param.get('first_name'),

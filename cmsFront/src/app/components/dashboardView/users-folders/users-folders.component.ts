@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContactService } from 'src/app/services/contactService/contact.service';
 import { CostumerService } from 'src/app/services/costumersService/cosutmers.service';
 
@@ -12,14 +12,15 @@ export class UsersFoldersComponent implements OnInit {
   constructor(
     private router: Router,
     private costumers: CostumerService,
-    private contacts: ContactService
+    private contacts: ContactService,
+    private activatedRoute:ActivatedRoute
   ) {}
 
   data: any;
   costumersData: string[];
   from: number = 0;
   makeCall: boolean = true;
-
+  param:number
   perv() {
     if (this.from > 0) {
       this.from = this.from - 15;
@@ -34,7 +35,8 @@ export class UsersFoldersComponent implements OnInit {
   }
 
   serverCall(from) {
-    if (this.router.url == '/dashboard/costumers/folders') {
+    if (this.router.url.match('costumers')) {
+      this.router.navigateByUrl(`/dashboard/costumers/folders/${this.from}`)
       this.costumers.getCostumers(from).subscribe((data) => {
         this.data = data;
 
@@ -60,8 +62,7 @@ export class UsersFoldersComponent implements OnInit {
   }
 
   deleteRegistry(id,index){
-    console.log(id);
-    console.log(index)
+    
     if(confirm('are you sure you want to delete ?')){
       if (this.router.url == '/dashboard/costumers/folders') {
         const deleteUser = this.costumers.deleteCostumer(id).subscribe(() => {
@@ -79,19 +80,23 @@ export class UsersFoldersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.data = this.serverCall(this.from)
+    this.activatedRoute.params.subscribe(param => {
+      console.log(param);
+      this.from = Number(param['from'])
+      this.param = param['from']
+    })
 
-    if (this.router.url == '/dashboard/costumers/folders') {
+    if (this.router.url.match('costumers')) {
       const retrive = this.costumers
-        .getCostumers(this.from)
+        .getCostumers(this.param)
         .subscribe((data) => {
           this.data = data;
           retrive.unsubscribe();
         });
     }
 
-    if (this.router.url == '/dashboard/contacts/folders') {
-      const retrive = this.contacts.getContacts(this.from).subscribe((data) => {
+    if (this.router.url.match('contacts')) {
+      const retrive = this.contacts.getContacts(this.param).subscribe((data) => {
         this.data = data;
         retrive.unsubscribe();
       });

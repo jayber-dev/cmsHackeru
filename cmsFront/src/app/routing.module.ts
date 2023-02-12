@@ -18,6 +18,7 @@ import { AddEditCostumerComponent } from './components/dashboardView/addEdit-cos
 import { AddEditContactsComponent } from './components/dashboardView/addEdit-contacts/add-contacts.component'
 
 export const routes:Routes =  [
+    {path: '', component:AppComponent},
     {path: 'login', component: LoginComponent},
     {path: 'signup', component: SignupComponent},
     {path: 'about', component:AboutCardComponent},
@@ -25,23 +26,23 @@ export const routes:Routes =  [
         children:[
             {path: 'costumers', component:CostumersViewComponent,
                 children:[
-                    {path:'table', component:UsersTableComponent},
-                    {path:'folders', component:UsersFoldersComponent},
-                    {path:'folders/:id', component:CostumerCardComponent},            
-                    {path:'table/:id', component:CostumerCardComponent},
-                    {path:'searchResults/:type/:query', component:SearchResultsComponent} ,
+                    {path:'table/:from', component:UsersTableComponent},
+                    {path:'folders/:from', component:UsersFoldersComponent},
+                    {path:'folders/:from/:id', component:CostumerCardComponent},            
+                    {path:'table/:from/:id', component:CostumerCardComponent},
+                    {path:'searchResults/:from/:type/:query', component:SearchResultsComponent} ,
                     {path:'addCostumer', component:AddEditCostumerComponent},  
-                    {path:'editCostumer', component:AddEditCostumerComponent}       
+                    {path:':from/editCostumer', component:AddEditCostumerComponent}       
                 ]},
             {path: 'contacts', component:ContactViewComponent,
                 children:[
-                    {path:'table',component:UsersTableComponent},
-                    {path:'folders',component:UsersFoldersComponent},
-                    {path:'folders/:id', component:ContactCardComponent},            
-                    {path:'table/:id', component:ContactCardComponent},
+                    {path:'table/:from',component:UsersTableComponent},
+                    {path:'folders/:from',component:UsersFoldersComponent},
+                    {path:'folders/:from/:id', component:ContactCardComponent},            
+                    {path:'table/:from/:id', component:ContactCardComponent},
                     {path:'searchResults/:type/:query', component:SearchResultsComponent},
                     {path:'addContact', component:AddEditContactsComponent},
-                    {path: 'editContact', component:AddEditContactsComponent}
+                    {path: ':from/editContact', component:AddEditContactsComponent}
                 ]}
         ]},
     {path: '**', component:NotFoundComponent},

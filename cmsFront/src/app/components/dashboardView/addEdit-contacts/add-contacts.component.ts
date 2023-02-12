@@ -33,7 +33,7 @@ export class AddEditContactsComponent implements OnInit {
   paramId:number
   addContact: FormGroup;
   contactInfo:Contact;
-
+  from:number
   onSubmit() {
     if(this.router.url.match('addContact')){
       this.contactInfo = this.addContact.value
@@ -48,7 +48,7 @@ export class AddEditContactsComponent implements OnInit {
       const http = this.contactsService.editContact(this.contactInfo,this.paramId).subscribe(data => {
         http.unsubscribe()
       })
-      this.router.navigateByUrl(`dashboard/contacts/table/${this.paramId}`)
+      this.router.navigateByUrl(`dashboard/contacts/table/${this.from}`)
     }
     
   }
@@ -56,6 +56,10 @@ export class AddEditContactsComponent implements OnInit {
   ngOnInit(): void {
     if(this.router.url.match('editContact')) {
       console.log('in edit mode');
+      this.activatedRoute.params.subscribe(param => {
+        this.from = param['from'];
+        
+      })
       
       this.activatedRoute.queryParamMap.subscribe(param=> {
         this.paramId = Number(param.get('id'))

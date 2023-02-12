@@ -13,12 +13,13 @@ export class ContactCardComponent {
     private route:ActivatedRoute
   ){}
 
-
+  from:number
   param:string
   data:any
   ngOnInit(): void {
     this.route.params.subscribe(param =>{
       this.param = (param['id']);  
+      this.from = param['from']
     })
 
     this.contacts.getContact(this.param).subscribe(data => {

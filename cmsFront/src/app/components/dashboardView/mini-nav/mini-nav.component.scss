@@ -3,67 +3,66 @@ $hover: rgba(59, 6, 16, 0.616);
 $textColor: rgba(255, 255, 255);
 
 .ham-menu {
-    cursor: pointer;
-    border: 0px;
-    background-color: transparent;
-    
-        img{
-           height: 70px; 
-        }
-    
+  cursor: pointer;
+  border: 0px;
+  background-color: transparent;
+
+  img {
+    height: 70px;
+  }
 }
 
-.modal{
+.modal {
+  position: absolute;
+  left: 20px;
+  margin: 0px;
+  padding: 0px;
+  top: 60px;
+
+  .over-layer {
+    z-index: 10;
+    background-color: whitesmoke;
+    height: 100%;
+    width: 90px;
+    bottom: 0;
     position: absolute;
+    animation-name: open;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+  }
+  ul {
+    background-color: whitesmoke;
+    border: 1px solid grey;
     margin: 0px;
+    height: 100%;
     padding: 0px;
-    top: 60px;
-    
-    .over-layer {
-        z-index: 10;
-        background-color: whitesmoke;
-        height: 100%;
-        width: 120px;
-        position: absolute;
-        animation-name: open;
-        animation-duration: 0.3s;
-        animation-fill-mode: forwards;
-    }
-    ul{
-        
-        // position: absolute;
-        // overflow: hidden;
-        margin: 0px;
-        height: 100%;
-        padding: 0px;
-        
-        li{ 
-            list-style: none;      
-            margin: 0px;
-            padding: 2px;
-            left: 20px;
-            font-size: calc(10px + 0.5423vw);
-            margin-left: 25px;
 
-            a{
-                text-decoration: none;
-            }
+    li {
+      list-style: none;
+      margin: 0px;
+      padding: 2px;
+      left: 20px;
+      font-size: calc(10px + 0.5423vw);
+      a {
+        text-decoration: none;
+      }
 
-            a:visited {
-                color: black;
-            }
-        }
+      a:visited {
+        color: black;
+      }
     }
-    
-    
-    
+  }
 }
 
 @keyframes open {
-    0% { height: 100%;}
-    100% {height: 0%;}
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
 }
 
 .chosen-container {
-    border:1px solid $backColor;
+  border: 1px solid $backColor;
 }

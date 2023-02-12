@@ -53,7 +53,6 @@ export class SearchResultsComponent implements OnInit {
       this.query = param['query'];
       this.type = (param['type']);
       
-      console.log(this.router.url);
       if(this.type == 'costumers'){
         this.costumers.searchCostumer(this.query, this.from).subscribe((data) => {
           this.data = data;

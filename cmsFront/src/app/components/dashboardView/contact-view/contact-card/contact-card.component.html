@@ -18,6 +18,6 @@
         <p>Zip Code: {{data.zip_code}}</p>
     </div>
     <div class="edit">
-        <a routerLink="/dashboard/contacts/editContact/" [queryParams]="data">edit</a>
+        <a routerLink="/dashboard/contacts/{{from}}/editContact/" [queryParams]="data">edit</a>
     </div>
 </div>

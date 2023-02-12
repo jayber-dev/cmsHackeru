@@ -3,11 +3,13 @@
     
 </button>
 <div class="modal" *ngIf="show">
-    <div class="over-layer">
-        
+    <div class="over-layer">     
     </div>
     <ul>
-        <li routerLinkActive="chosen-container"><a routerLink="/dashboard/costumers/table">Costumers</a> </li>
-        <li routerLinkActive="chosen-container"><a routerLink="/dashboard/contacts/table">Contacts</a> </li>
+        <li routerLinkActive="chosen-container"><a routerLink="/dashboard/costumers/table/0">Costumers</a> </li>
+        <li routerLinkActive="chosen-container"><a routerLink="/dashboard/contacts/table/0">Contacts</a> </li>
+        <li routerLinkActive="chosen-container">
+            <a class="add-registry" routerLink="add{{category}}">Add {{category}}</a>
+        </li>
     </ul>
 </div>

@@ -12,12 +12,15 @@ export class CostumerCardComponent implements OnInit{
     private costumers:CostumerService,
     private route:ActivatedRoute
   ){}
-
+  from:number
   param:string
   data:any
   ngOnInit(): void {
     this.route.params.subscribe(param =>{
+      console.log(param);
+      
       this.param = (param['id']);  
+      this.from = param['from']
     })
 
     this.costumers.getCostumer(this.param).subscribe(data => {

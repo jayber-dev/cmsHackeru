@@ -1,9 +1,11 @@
 <div class="signup-form">
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
         <h1>Sign-Up</h1>
-        <input autocomplete="email" type="email" placeholder="Email">
-        <input autocomplete="current-password" type="password" placeholder="Password">
-        <input autocomplete="current-password" type="password" placeholder="Repeat Password">
-        <button > Signup</button>
+        <input autocomplete="email" type="email" placeholder="Email" formControlName="email" name="email">
+        <input autocomplete="current-password" type="password" placeholder="Password" formControlName="password">
+        <input autocomplete="current-password" type="password" placeholder="Repeat Password" formControlName="repeatedPassword" name="repeatedPassword">
+        <p>{{message}}</p>
+        <p>{{signupForm.valid}}</p>
+        <button [disabled]="!signupForm.valid"> Signup</button>
     </form>
 </div>

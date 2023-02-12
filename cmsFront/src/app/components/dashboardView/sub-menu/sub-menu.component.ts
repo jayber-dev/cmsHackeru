@@ -15,11 +15,11 @@ export class SubMenuComponent implements OnInit {
 
   search(e){
     if (this.router.url.match('costumers')) {
-      this.router.navigateByUrl(`dashboard/costumers/searchResults/costumers/${e.target.value}`)
+      this.router.navigateByUrl(`dashboard/costumers/searchResults/0/costumers/${e.target.value}`)
     }
 
     if (this.router.url.match('contacts')){
-      this.router.navigateByUrl(`dashboard/costumers/searchResults/contacts/${e.target.value}`)
+      this.router.navigateByUrl(`dashboard/costumers/searchResults/0/contacts/${e.target.value}`)
       
     }
     // console.log(this.router.url)

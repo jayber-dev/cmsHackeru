@@ -1,5 +1,18 @@
 .main-content {
+    background-image: url('../assets/images/background/map-of-the-world-2401458_1920.jpg');
+    background-position: center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
-    
+    position: relative;
+    min-height: 100vh;
+
+    app-footer{
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+    }
 }
+
+
+

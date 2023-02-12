@@ -15,6 +15,7 @@ $textColor: rgba(255, 255, 255);
     flex-wrap: wrap;
     flex-shrink: 1;
     font-size: calc(6px + 00.5433vw);
+    margin-bottom: 100px;
     table {
         flex-wrap: wrap;
         
@@ -116,6 +117,7 @@ $textColor: rgba(255, 255, 255);
 @media screen and (max-width: 1000px) {
     .costumers-container{
         width: 100vw;
+        margin-bottom: 100px;
         align-items: center;
         font-size: calc(10px + 00.5433vw);
     }

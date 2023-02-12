@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup,FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/authService/auth.service';
+import { httpService } from 'src/app/services/httpService/http.service';
 import { UtilService } from 'src/app/services/utilService/util.service';
 
 @Component({
@@ -13,8 +14,9 @@ export class LoginFormComponent {
   constructor(
     private fb:FormBuilder,
     private util:UtilService,
-    private auth:AuthService,
+    // private auth:AuthService,
     private router:Router,
+    private http:httpService,
     ) {
     this.loginForm = fb.group({
       email:[''],
@@ -31,7 +33,7 @@ export class LoginFormComponent {
   onSubmit(){
     console.log(this.loginForm.get('email').value);
     console.log(this.loginForm.get('password').value);
-    const login = this.auth.login(this.loginForm.get('email').value,this.loginForm.get('password').value).subscribe(data => {
+    const login = this.http.post('auth/login',this.loginForm.value).subscribe(data => {
       console.log(data['isLogged']);
       if(data['isLogged']){
         this.util.setLoggedTrue()

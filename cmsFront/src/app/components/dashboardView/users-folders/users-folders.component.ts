@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContactService } from 'src/app/services/contactService/contact.service';
 import { CostumerService } from 'src/app/services/costumersService/cosutmers.service';
+import { httpService } from 'src/app/services/httpService/http.service';
 
 @Component({
   selector: 'app-users-folders',
@@ -13,7 +14,8 @@ export class UsersFoldersComponent implements OnInit {
     private router: Router,
     private costumers: CostumerService,
     private contacts: ContactService,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private http:httpService
   ) {}
 
   data: any;

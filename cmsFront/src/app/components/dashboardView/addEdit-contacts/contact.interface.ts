@@ -10,4 +10,5 @@ export interface Contact {
     street:string
     houseNumber:string
     zipCode:string
+    paramId:number
 }

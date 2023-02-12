@@ -93,8 +93,7 @@ function deleteCostumer(req,res) {
 }
 
 function editCostumer(req,res){
-    const data = req.body.data
-    let id = req.body.id
+    const data = req.body
     console.log(req.body)
     const conn = mysql.createConnection({
         host: process.env.HOST,
@@ -103,11 +102,10 @@ function editCostumer(req,res){
         password: process.env.PASSWORD,
     })
 
-    let query = `UPDATE costumers SET first_name='${data.firstName}', last_name='${data.lastName}', email='${data.email}', phone='${data.phone}', state='${data.state}', country='${data.country}', city = '${data.city}', street = '${data.street}', house_number = '${data.houseNumber}', zip_code = '${data.zipCode}', notes = '${data.notes}' WHERE id= ${id}`
+    let query = `UPDATE costumers SET first_name='${data.firstName}', last_name='${data.lastName}', email='${data.email}', phone='${data.phone}', state='${data.state}', country='${data.country}', city = '${data.city}', street = '${data.street}', house_number = '${data.houseNumber}', zip_code = '${data.zipCode}', notes = '${data.notes}' WHERE id= ${data.paramId}`
     conn.execute(query, (err,row,fields) => {
         if (err) throw err
         console.log(row);
-        
     })
 
     conn.end()

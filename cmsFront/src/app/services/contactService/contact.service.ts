@@ -32,11 +32,11 @@ export class ContactService{
         return this.http.delete(`${this.url}/contacts/deleteContact/${id}`)
     }
 
-    addContact(contact:Contact){
-        return this.http.post(`${this.url}/contacts/addContact`, contact)
-    }
+    // addContact(contact:Contact){
+    //     return this.http.post(`${this.url}/contacts/addContact`, contact)
+    // }
 
-    editContact(contact:Contact,id:number){
-        return this.http.post(`${this.url}/contacts/editContact`, {data:contact,id:id})
-    }
+    // editContact(contact:Contact,id:number){
+    //     return this.http.post(`${this.url}/contacts/editContact`, {data:contact,id:id})
+    // }
 }

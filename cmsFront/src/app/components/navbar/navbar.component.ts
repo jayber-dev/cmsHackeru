@@ -1,6 +1,7 @@
 import { Component,Input,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/authService/auth.service';
+
+import { httpService } from 'src/app/services/httpService/http.service';
 import { UtilService } from 'src/app/services/utilService/util.service';
 
 @Component({
@@ -11,9 +12,9 @@ import { UtilService } from 'src/app/services/utilService/util.service';
 export class NavbarComponent implements OnInit {
   @Input() isLogged:boolean
   constructor(
-    private auth:AuthService,
     private util:UtilService,
     private router:Router,
+    private http:httpService,
     ){
     
   }
@@ -22,7 +23,7 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     console.log('logout');
-    this.auth.logout().subscribe()
+    this.http.post('auth/logout',{}).subscribe()
     this.util.setLoggedFalse()
     this.router.navigateByUrl('login')
   }

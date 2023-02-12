@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup,FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/authService/auth.service';
 import { httpService } from 'src/app/services/httpService/http.service';
 import { UtilService } from 'src/app/services/utilService/util.service';
 
@@ -14,7 +13,6 @@ export class LoginFormComponent {
   constructor(
     private fb:FormBuilder,
     private util:UtilService,
-    // private auth:AuthService,
     private router:Router,
     private http:httpService,
     ) {

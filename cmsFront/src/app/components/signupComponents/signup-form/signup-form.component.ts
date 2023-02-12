@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/authService/auth.service';
 import { UtilService } from 'src/app/services/utilService/util.service';
 import { passwordsMatch } from 'src/app/directives/passwordMatch.directive';
+import { httpService } from 'src/app/services/httpService/http.service';
 
 @Component({
   selector: 'app-signup-form',
@@ -13,9 +13,10 @@ import { passwordsMatch } from 'src/app/directives/passwordMatch.directive';
 export class SignupFormComponent {
   constructor(
     private fb: FormBuilder,
-    private auth: AuthService,
+   
     private util: UtilService,
     private router:Router,
+    private http: httpService,
     ){
     this.signupForm = fb.group({
       email:["",Validators.required],
@@ -30,7 +31,7 @@ export class SignupFormComponent {
 
   onSubmit(){
     console.log('in signup');
-    const http = this.auth.register(this.signupForm.value).subscribe(data => {
+    const http = this.http.post('auth/signup',this.signupForm.value).subscribe(data => {
       console.log(data);
       this.message = data['message']
       if(this.message == 'registered'){

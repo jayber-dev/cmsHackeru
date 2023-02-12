@@ -11,7 +11,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './components/signupComponents/signup.component';
 import { SignupFormComponent } from './components/signupComponents/signup-form/signup-form.component';
-import { AuthService } from './services/authService/auth.service';
 import { UtilService } from './services/utilService/util.service';
 import { AboutCardComponent } from './components/about-card/about-card.component';
 import { SidenavComponent } from './components/dashboardView/sidenav/sidenav.component';
@@ -66,7 +65,7 @@ import { AddEditContactsComponent } from './components/dashboardView/addEdit-con
     HttpClientModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [AuthService,UtilService,CostumerService,ContactService],
+  providers: [UtilService,CostumerService,ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

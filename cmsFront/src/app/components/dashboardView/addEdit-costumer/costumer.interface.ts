@@ -10,4 +10,5 @@ export interface Costumer {
     houseNumber:string
     zipCode:string
     notes:string
+    paramId:number
 }

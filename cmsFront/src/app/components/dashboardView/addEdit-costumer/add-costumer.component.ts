@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Costumer } from './costumer.interface';
-import { CostumerService } from 'src/app/services/costumersService/cosutmers.service';
+
+import { httpService } from 'src/app/services/httpService/http.service';
 
 @Component({
   selector: 'app-add-costumer',
@@ -14,7 +15,7 @@ export class AddEditCostumerComponent implements OnInit {
     private fb: FormBuilder,
     private router:Router,
     private activatedRoute:ActivatedRoute,
-    private costumerService:CostumerService,
+    private http: httpService,
     
     ) {
     this.addCostumer = fb.group({
@@ -38,16 +39,17 @@ export class AddEditCostumerComponent implements OnInit {
   onSubmit() {
     if(this.router.url.match('addCostumer')){
       this.costumerInfo = this.addCostumer.value
-      const http = this.costumerService.addCostumer(this.costumerInfo).subscribe(data => {
+      const http = this.http.post('costumers/addCostumer',this.costumerInfo).subscribe(data => {
         http.unsubscribe()
       })
-      this.router.navigateByUrl('dashboard/costumers/table')
+      this.router.navigateByUrl('dashboard/costumers/table/0')
     }
 
     if(this.router.url.match('editCostumer')) {
       console.log('in edit mode submit');
       this.costumerInfo = this.addCostumer.value
-      const http = this.costumerService.editCostumer(this.costumerInfo,this.paramId).subscribe(data => {
+      this.costumerInfo.paramId = this.paramId
+      const http = this.http.post('costumers/editCostumer',this.costumerInfo).subscribe(data => {
         http.unsubscribe()
       })
       this.activatedRoute.queryParamMap.subscribe(param => {

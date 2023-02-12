@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute,Router } from '@angular/router';
-import { ContactService } from 'src/app/services/contactService/contact.service';
 import { Contact } from './contact.interface';
+import { httpService } from 'src/app/services/httpService/http.service';
 
 @Component({
   selector: 'app-add-contacts',
@@ -14,7 +14,7 @@ export class AddEditContactsComponent implements OnInit {
     private fb: FormBuilder,
     private activatedRoute:ActivatedRoute,
     private router:Router,
-    private contactsService:ContactService,
+    private http: httpService
     ) {
     this.addContact = fb.group({
       firstName: [''],
@@ -37,15 +37,15 @@ export class AddEditContactsComponent implements OnInit {
   onSubmit() {
     if(this.router.url.match('addContact')){
       this.contactInfo = this.addContact.value
-      this.contactsService.addContact(this.contactInfo).subscribe(data => {
+      this.http.post('contacts/addContact',this.contactInfo).subscribe(data => {
       }).unsubscribe()
-      this.router.navigateByUrl('dashboard/contacts/table')
+      this.router.navigateByUrl('dashboard/contacts/table/0')
     }
 
     if(this.router.url.match('editContact')) {
-      console.log('in edit mode submit');
       this.contactInfo = this.addContact.value
-      const http = this.contactsService.editContact(this.contactInfo,this.paramId).subscribe(data => {
+      this.contactInfo.paramId = this.paramId
+      const http = this.http.post('contacts/editContact',this.contactInfo).subscribe(data => {
         http.unsubscribe()
       })
       this.router.navigateByUrl(`dashboard/contacts/table/${this.from}`)
@@ -74,9 +74,13 @@ export class AddEditContactsComponent implements OnInit {
           city:param.get('city'),
           street:param.get('street'),
           houseNumber:param.get('house_number'),
-          zipCode:param.get('zip_code')
+          zipCode:param.get('zip_code'),
+          paramId:this.paramId
         })
-        })
+
+        
+        console.log(this.addContact.value);
+      })
     }
     
   }

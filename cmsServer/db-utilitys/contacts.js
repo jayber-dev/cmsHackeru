@@ -98,9 +98,9 @@ function addContact(req,res){
 }
 
 function editContact(req,res){
-    const data = req.body.data
-    let id = req.body.id
+    const data = req.body
     console.log(req.body)
+    console.log('im the Data \n', data)
     const conn = mysql.createConnection({
         host: process.env.HOST,
         user: process.env.USER,
@@ -108,7 +108,7 @@ function editContact(req,res){
         password: process.env.PASSWORD,
     })
 
-    let query = `UPDATE contacts set first_name='${data.firstName}', last_name='${data.lastName}', email='${data.email}', phone='${data.phone}', birthday='${data.birthday}', state='${data.state}', country='${data.country}', city = '${data.city}', street = '${data.street}', house_number = '${data.houseNumber}', zip_code = '${data.zipCode}' WHERE id= ${id}`
+    let query = `UPDATE contacts set first_name='${data.firstName}', last_name='${data.lastName}', email='${data.email}', phone='${data.phone}', birthday='${data.birthday}', state='${data.state}', country='${data.country}', city = '${data.city}', street = '${data.street}', house_number = '${data.houseNumber}', zip_code = '${data.zipCode}' WHERE id= ${data.paramId}`
     conn.execute(query, (err,row,fields) => {
         if (err) throw err
         console.log(row);

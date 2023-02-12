@@ -1,7 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ContactService } from 'src/app/services/contactService/contact.service';
-import { CostumerService } from 'src/app/services/costumersService/cosutmers.service';
+import { httpService } from 'src/app/services/httpService/http.service';
 
 @Component({
   selector: 'app-users-table',
@@ -10,10 +9,9 @@ import { CostumerService } from 'src/app/services/costumersService/cosutmers.ser
 })
 export class UsersTableComponent implements OnInit {
   constructor(
-    private costumers: CostumerService,
     private router: Router,
-    private contacts: ContactService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private http:httpService,
   ) {}
   data: any;
   costumersData: string[];
@@ -37,7 +35,7 @@ export class UsersTableComponent implements OnInit {
   serverCall(from) {
     if (this.router.url.match('costumers')) {
       this.router.navigateByUrl(`/dashboard/costumers/table/${this.from}`);
-      const retrive = this.costumers.getCostumers(from).subscribe((data) => {
+      const retrive = this.http.get('costumers/',from).subscribe((data) => {
         this.data = data;
         
         if (this.data.length != 15) {
@@ -51,7 +49,7 @@ export class UsersTableComponent implements OnInit {
 
     if (this.router.url.match('contacts')) {
       this.router.navigateByUrl(`/dashboard/contacts/table/${this.from}`);
-      this.contacts.getContacts(from).subscribe((data) => {
+      this.http.get('contacts/',from).subscribe((data) => {
         this.data = data;
 
         if (this.data.length != 15) {
@@ -66,7 +64,7 @@ export class UsersTableComponent implements OnInit {
   deleteRegistry(id, index) {
     if (confirm('are you sure you want to delete ?')) {
       if (this.router.url.match('costumers')) {
-        const deleteUser = this.costumers.deleteCostumer(id).subscribe(() => {
+        const deleteUser = this.http.delete(`costumers/deleteCostumer/${id}`).subscribe(() => {
           deleteUser.unsubscribe();
         });
       }
@@ -74,7 +72,7 @@ export class UsersTableComponent implements OnInit {
       if (this.router.url.match('contacts')) {
         console.log('in contacts delete');
 
-        const deleteUser = this.contacts.deleteContact(id).subscribe(() => {
+        const deleteUser = this.http.delete(`contacts/deleteContact/${id}`).subscribe(() => {
           delete this.data[index];
           deleteUser.unsubscribe();
         });
@@ -84,24 +82,20 @@ export class UsersTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((param) => {
-      console.log(param);
       this.from = Number(param['from']);
       this.param = param['from'];
     });
 
     if (this.router.url.match('costumers')) {
-      const retrive = this.costumers
-        .getCostumers(this.param)
-        .subscribe((data) => {
-          this.data = data;
-          retrive.unsubscribe();
+      console.log(this.param);
+      const retrive = this.http.get('costumers/',this.param).subscribe((data) => {
+        this.data = data;
+        retrive.unsubscribe();
         });
     }
 
     if (this.router.url.match('contacts')) {
-      const retrive = this.contacts
-        .getContacts(this.param)
-        .subscribe((data) => {
+      const retrive = this.http.get('contacts',this.param).subscribe((data) => {
           console.log(data);
 
           this.data = data;

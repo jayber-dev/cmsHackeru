@@ -14,9 +14,9 @@ export class ContactService{
 
     url:string = 'http://127.0.0.1:3000'
 
-    getContacts(from){
-        return this.http.get(`${this.url}/contacts/`,{params:{"from":from}})
-    }
+    // getContacts(from){
+    //     return this.http.get(`${this.url}/contacts/`,{params:{"from":from}})
+    // }
 
     getContact(id){
         console.log(id);
@@ -28,9 +28,9 @@ export class ContactService{
         return this.http.get(`${this.url}/contacts/search/${query}`,{params:{"from":from}})
     }
 
-    deleteContact(id){
-        return this.http.delete(`${this.url}/contacts/deleteContact/${id}`)
-    }
+    // deleteContact(id){
+    //     return this.http.delete(`${this.url}/contacts/deleteContact/${id}`)
+    // }
 
     // addContact(contact:Contact){
     //     return this.http.post(`${this.url}/contacts/addContact`, contact)

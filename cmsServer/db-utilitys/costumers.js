@@ -9,7 +9,8 @@ function getCostumers(req,res){
         password: process.env.PASSWORD,
     })
 
-    let query = `select * FROM costumers ORDER BY first_name LIMIT 15 OFFSET ${req.query.from}`
+    console.log(req.query);
+    let query = `select * FROM costumers ORDER BY first_name LIMIT 15 OFFSET ${req.query.params}`
     conn.execute(query, (err,row,fields) => {      
         if (err) console.log(err);       
         res.json(row)   

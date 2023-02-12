@@ -24,12 +24,14 @@ export class UsersFoldersComponent implements OnInit {
   makeCall: boolean = true;
   param:number
   perv() {
+    console.log('in perv');
     if (this.from > 0) {
       this.from = this.from - 15;
       this.serverCall(this.from);
     }
   }
   next() {
+    console.log('in next');
     if (this.makeCall) {
       this.from = this.from + 15;
       this.serverCall(this.from);
@@ -39,7 +41,7 @@ export class UsersFoldersComponent implements OnInit {
   serverCall(from) {
     if (this.router.url.match('costumers')) {
       this.router.navigateByUrl(`/dashboard/costumers/folders/${this.from}`)
-      this.costumers.getCostumers(from).subscribe((data) => {
+      this.http.get('costumers/', from).subscribe((data) => {
         this.data = data;
 
         if (this.data.length != 15) {
@@ -50,8 +52,8 @@ export class UsersFoldersComponent implements OnInit {
       });
     }
 
-    if (this.router.url == '/dashboard/contacts/folders') {
-      this.contacts.getContacts(from).subscribe((data) => {
+    if (this.router.url.match('contacts')) {
+      this.http.get('contacts/', from).subscribe((data) => {
         this.data = data;
 
         if (this.data.length != 15) {
@@ -66,15 +68,15 @@ export class UsersFoldersComponent implements OnInit {
   deleteRegistry(id,index){
     
     if(confirm('are you sure you want to delete ?')){
-      if (this.router.url == '/dashboard/costumers/folders') {
-        const deleteUser = this.costumers.deleteCostumer(id).subscribe(() => {
+      if (this.router.url.match('costumers')) {
+        const deleteUser = this.http.delete(`costumers/deleteCostumer/${id}`).subscribe(() => {
           deleteUser.unsubscribe()
           delete this.data[index]
         })
       }
   
-      if (this.router.url == '/dashboard/contacts/folders') {
-        const deleteUser = this.costumers.deleteCostumer(id).subscribe(() => {
+      if (this.router.url.match('contacts')) {
+        const deleteUser = this.http.delete(`contacts/deleteContact/${id}`).subscribe(() => {
           deleteUser.unsubscribe()
         })
       }
@@ -83,22 +85,20 @@ export class UsersFoldersComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(param => {
-      console.log(param);
       this.from = Number(param['from'])
       this.param = param['from']
     })
 
     if (this.router.url.match('costumers')) {
-      const retrive = this.costumers
-        .getCostumers(this.param)
-        .subscribe((data) => {
+      console.log(this.param);
+      const retrive = this.http.get('costumers/',this.param).subscribe((data) => {
           this.data = data;
           retrive.unsubscribe();
         });
     }
 
     if (this.router.url.match('contacts')) {
-      const retrive = this.contacts.getContacts(this.param).subscribe((data) => {
+      const retrive = this.http.get('contacts/',this.param).subscribe((data) => {
         this.data = data;
         retrive.unsubscribe();
       });

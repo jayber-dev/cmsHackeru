@@ -76,8 +76,7 @@ export class SearchResultsComponent implements OnInit {
             this.makeCall = true;
           }
         });
-      }
-      
+      }  
     });
   }
 }

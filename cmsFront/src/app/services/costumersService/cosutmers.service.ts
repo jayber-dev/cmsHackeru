@@ -13,9 +13,9 @@ export class CostumerService {
 
     url:string = 'http://127.0.0.1:3000'
 
-    getCostumers(from){
-        return this.http.get(`${this.url}/costumers/`,{params:{"from":from}})
-    }
+    // getCostumers(from){
+    //     return this.http.get(`${this.url}/costumers/`,{params:{"from":from}})
+    // }
 
     getCostumer(id){
         console.log(id);
@@ -27,17 +27,17 @@ export class CostumerService {
         return this.http.get(`${this.url}/costumers/search/${query}`,{params:{"from":from}})
     }
 
-    addCostumer(costumer:Costumer){
-        console.log(costumer);
+    // addCostumer(costumer:Costumer){
+    //     console.log(costumer);
         
-        return this.http.post(`${this.url}/costumers/addcostumer`, costumer)
-    }
+    //     return this.http.post(`${this.url}/costumers/addcostumer`, costumer)
+    // }
 
-    editCostumer(contact:Costumer,id:number){
-        return this.http.post(`${this.url}/costumers/editCostumer`, {data:contact,id:id})
-    }
+    // editCostumer(contact:Costumer,id:number){
+    //     return this.http.post(`${this.url}/costumers/editCostumer`, {data:contact,id:id})
+    // }
 
-    deleteCostumer(id){
-        return this.http.delete(`${this.url}/costumers/deleteCostumer/${id}`)
-    }
+    // deleteCostumer(id){
+    //     return this.http.delete(`${this.url}/costumers/deleteCostumer/${id}`)
+    // }
 }

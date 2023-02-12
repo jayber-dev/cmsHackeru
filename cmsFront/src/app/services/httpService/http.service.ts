@@ -27,6 +27,7 @@ export class httpService {
     }
 
     delete<T>(path:string) {
-        return this.http.delete(`${this.url}/`, this.options)
+        console.log(path);
+        return this.http.delete(`${this.url}/${path}`, this.options)
     }
 }

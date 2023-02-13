@@ -11,10 +11,10 @@ $textColor: rgba(255, 255, 255);
     justify-content: center;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
     flex-shrink: 1;
-    font-size: calc(4px + 00.5433vw);
+    font-size: calc(10px + 00.5433vw);
     // width: 90vw;
     table {
         flex-wrap: wrap;
@@ -100,7 +100,7 @@ $textColor: rgba(255, 255, 255);
 @media screen and (max-width:650px){
     table {
         flex-wrap: wrap;
-        
+        align-items: center;
         border: 1px solid grey;
         border-collapse: collapse;
         background-color: whitesmoke;
@@ -169,6 +169,7 @@ $textColor: rgba(255, 255, 255);
         border-collapse: collapse;
         background-color: whitesmoke;
         text-align: center;
+        align-items: center;
         tr:first-child{
             
             background-color: $backColor;

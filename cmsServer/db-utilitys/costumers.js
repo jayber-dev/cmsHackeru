@@ -42,13 +42,13 @@ function findCostumer(req,res){
         database: process.env.DATABASE,
         password: process.env.PASSWORD,
     })
-    console.log(req.params.query);
-    console.log(req.query.from);
-    let query = `select * FROM costumers WHERE first_name LIKE '%${req.params.query}%' ORDER BY first_name LIMIT 15 OFFSET ${req.query.from}`
+    // console.log(req.params.query);
+    console.log(req.query);
+    console.log(req.params);
+    let query = `select * FROM costumers WHERE ${req.params.searchParam} LIKE '%${req.params.query}%' ORDER BY first_name LIMIT 15 OFFSET ${req.query.params}`
     conn.execute(query, (err,row,fields) => {      
         if (err) console.log(err);       
-        console.log(row);
-        
+                
         res.json(row)   
     })
     conn.end() 

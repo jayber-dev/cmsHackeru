@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
-import { CostumerService } from 'src/app/services/costumersService/cosutmers.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { httpService } from 'src/app/services/httpService/http.service';
 
 @Component({
   selector: 'app-costumer-card',
@@ -9,7 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class CostumerCardComponent implements OnInit{
   constructor(
-    private costumers:CostumerService,
+    private http:httpService,
     private route:ActivatedRoute
   ){}
   from:number
@@ -23,7 +23,7 @@ export class CostumerCardComponent implements OnInit{
       this.from = param['from']
     })
 
-    this.costumers.getCostumer(this.param).subscribe(data => {
+    this.http.get(`costumers/costumer/${this.param}`,{}).subscribe(data => {
       this.data = (data);   
     })
   }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContactService } from 'src/app/services/contactService/contact.service';
+import { httpService } from 'src/app/services/httpService/http.service';
 
 @Component({
   selector: 'app-contact-card',
@@ -9,7 +9,7 @@ import { ContactService } from 'src/app/services/contactService/contact.service'
 })
 export class ContactCardComponent {
   constructor(
-    private contacts:ContactService,
+    private http: httpService,
     private route:ActivatedRoute
   ){}
 
@@ -22,7 +22,7 @@ export class ContactCardComponent {
       this.from = param['from']
     })
 
-    this.contacts.getContact(this.param).subscribe(data => {
+    this.http.get(`contacts/contact/${this.param}`,{}).subscribe(data => {
       this.data = (data);
     })
   }

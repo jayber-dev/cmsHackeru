@@ -1,8 +1,7 @@
 import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ContactService } from 'src/app/services/contactService/contact.service';
-import { CostumerService } from 'src/app/services/costumersService/cosutmers.service';
+import { httpService } from 'src/app/services/httpService/http.service';
 
 @Component({
   selector: 'app-search-results',
@@ -11,9 +10,9 @@ import { CostumerService } from 'src/app/services/costumersService/cosutmers.ser
 })
 export class SearchResultsComponent implements OnInit {
   constructor(
-    private router: ActivatedRoute,
-    private costumers: CostumerService,
-    private contacts: ContactService
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private http: httpService,
   ) {}
 
   data: any;
@@ -22,6 +21,7 @@ export class SearchResultsComponent implements OnInit {
   makeCall: boolean = true;
   query: string;
   type:string
+  searchParam:string
 
   perv() {
     if (this.from > 0) {
@@ -37,24 +37,25 @@ export class SearchResultsComponent implements OnInit {
   }
 
   serverCall(from) {
-    this.costumers.searchCostumer(this.query, from).subscribe((data) => {
-      this.data = data;
+    
+    if (this.router.url.match('costumers')) {
+      this.router.navigateByUrl(`dashboard/costumers/searchResults/${from}/costumers/${this.query}`)
+    }
 
-      if (this.data.length != 15) {
-        this.makeCall = false;
-      } else {
-        this.makeCall = true;
-      }
-    });
+    if (this.router.url.match('contacts')) {
+      this.router.navigateByUrl(`dashboard/contacts/searchResults/${from}/contacts/${this.query}`)
+    }
   }
 
   ngOnInit(): void {
-    this.router.params.subscribe((param) => {
+    this.activatedRoute.params.subscribe((param) => {
       this.query = param['query'];
-      this.type = (param['type']);
+      this.type = param['type'];
+      this.searchParam = param['value']
+      console.log(param);
       
       if(this.type == 'costumers'){
-        this.costumers.searchCostumer(this.query, this.from).subscribe((data) => {
+        this.http.get(`costumers/search/${this.query}/${this.searchParam}`,this.from).subscribe((data) => {
           this.data = data;
   
           if (this.data.length != 15) {
@@ -67,10 +68,10 @@ export class SearchResultsComponent implements OnInit {
 
       if(this.type == 'contacts'){
         console.log('contacts search');
-        this.contacts.searchContacts(this.query, this.from).subscribe((data) => {
+        this.http.get(`contacts/search/${this.query}/${this.searchParam}`,this.from).subscribe((data) => {
           this.data = data;
   
-          if (this.data.length != 15) {
+          if (this.data.length < 15) {
             this.makeCall = false;
           } else {
             this.makeCall = true;

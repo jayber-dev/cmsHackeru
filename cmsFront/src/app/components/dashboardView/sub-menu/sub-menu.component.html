@@ -7,7 +7,16 @@
         
     </div>
     <div class="search ">
-            <label for="">Search in {{category}}</label>
-            <input (keydown.enter)="search($event)" type="text">
+            <label for="">Search {{category}}</label>
+            <input  type="text" [(ngModel)]="query">
+            by
+            <select name="" id="" [(ngModel)]="val">
+                <option value="first_name">First Name</option>
+                <option value="Last_name">Last Name</option>
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+                <option value="notes">Notes</option>
+            </select>
+            <button (click)="search($event)">Go</button>
     </div>
 </div>

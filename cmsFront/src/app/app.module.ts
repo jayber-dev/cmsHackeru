@@ -15,7 +15,6 @@ import { UtilService } from './services/utilService/util.service';
 import { AboutCardComponent } from './components/about-card/about-card.component';
 import { SidenavComponent } from './components/dashboardView/sidenav/sidenav.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { CostumerService } from './services/costumersService/cosutmers.service';
 import { DashboardComponent } from './components/dashboardView/dashboard.component';
 import { ContactViewComponent } from './components/dashboardView/contact-view/contact-view.component';
 import { CostumersViewComponent } from './components/dashboardView/costumers-view/costumers-view.component';
@@ -25,11 +24,11 @@ import { CostumerCardComponent } from './components/dashboardView/costumers-view
 import { SearchResultsComponent } from './components/dashboardView/search-results/search-results.component';
 import { MiniNavComponent } from './components/dashboardView/mini-nav/mini-nav.component';
 import { SubMenuComponent } from './components/dashboardView/sub-menu/sub-menu.component';
-import { ContactService } from './services/contactService/contact.service';
 import { ContactCardComponent } from './components/dashboardView/contact-view/contact-card/contact-card.component';
 import { AgeCalc } from './pipes/ageCalc.pipe';
 import { AddEditCostumerComponent } from './components/dashboardView/addEdit-costumer/add-costumer.component';
 import { AddEditContactsComponent } from './components/dashboardView/addEdit-contacts/add-contacts.component';
+import { httpService } from './services/httpService/http.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +64,7 @@ import { AddEditContactsComponent } from './components/dashboardView/addEdit-con
     HttpClientModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [UtilService,CostumerService,ContactService],
+  providers: [UtilService,httpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

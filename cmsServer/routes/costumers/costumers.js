@@ -11,7 +11,7 @@ costumers.get('/',costumersUtil.getCostumers, (req,res) => {
 
 costumers.get('/costumer/:id', costumersUtil.getSingleCostumer,(req,res,next) =>{})
 
-costumers.get('/search/:query',costumersUtil.findCostumer, (req,res) => {})
+costumers.get('/search/:query/:searchParam',costumersUtil.findCostumer, (req,res) => {})
 
 costumers.post('/addCostumer',costumersUtil.addCostumer,(req,res) => {})
 

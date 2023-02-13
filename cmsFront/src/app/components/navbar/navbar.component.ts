@@ -1,6 +1,5 @@
 import { Component,Input,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { httpService } from 'src/app/services/httpService/http.service';
 import { UtilService } from 'src/app/services/utilService/util.service';
 
@@ -29,10 +28,10 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.util.getIsLogged());
     
     this.util.updateIsLogged.subscribe((data) => {
       this.isLogged = data
-    }
-    )
+    })
   }
 }

@@ -16,13 +16,14 @@ import { SearchResultsComponent } from './components/dashboardView/search-result
 import { ContactCardComponent } from './components/dashboardView/contact-view/contact-card/contact-card.component'
 import { AddEditCostumerComponent } from './components/dashboardView/addEdit-costumer/add-costumer.component'
 import { AddEditContactsComponent } from './components/dashboardView/addEdit-contacts/add-contacts.component'
+import { authGuard } from './gurads/auth.guard'
 
 export const routes:Routes =  [
     {path: '', component:AppComponent},
     {path: 'login', component: LoginComponent},
     {path: 'signup', component: SignupComponent},
     {path: 'about', component:AboutCardComponent},
-    {path: 'dashboard', component:DashboardComponent,
+    {path: 'dashboard', component:DashboardComponent,canActivate:[authGuard],
         children:[
             {path: 'costumers', component:CostumersViewComponent,
                 children:[
@@ -30,9 +31,9 @@ export const routes:Routes =  [
                     {path:'folders/:from', component:UsersFoldersComponent},
                     {path:'folders/:from/:id', component:CostumerCardComponent},            
                     {path:'table/:from/:id', component:CostumerCardComponent},
-                    {path:'searchResults/:from/:type/:query', component:SearchResultsComponent} ,
+                    {path:'searchResults/:from/:type/:query/:value', component:SearchResultsComponent} ,
                     {path:'addCostumer', component:AddEditCostumerComponent},  
-                    {path:':from/editCostumer', component:AddEditCostumerComponent}       
+                    {path:':from/editCostumer', component:AddEditCostumerComponent, }       
                 ]},
             {path: 'contacts', component:ContactViewComponent,
                 children:[
@@ -40,7 +41,7 @@ export const routes:Routes =  [
                     {path:'folders/:from',component:UsersFoldersComponent},
                     {path:'folders/:from/:id', component:ContactCardComponent},            
                     {path:'table/:from/:id', component:ContactCardComponent},
-                    {path:'searchResults/:type/:query', component:SearchResultsComponent},
+                    {path:'searchResults/:from/:type/:query/:value', component:SearchResultsComponent},
                     {path:'addContact', component:AddEditContactsComponent},
                     {path: ':from/editContact', component:AddEditContactsComponent}
                 ]}

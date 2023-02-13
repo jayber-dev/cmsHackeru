@@ -7,9 +7,9 @@
         
     </div>
     <div class="search ">
-            <label for="">Search {{category}}</label>
+            <label for="">{{category}}</label>
             <input  type="text" [(ngModel)]="query">
-            by
+            <p>by</p> 
             <select name="" id="" [(ngModel)]="val">
                 <option value="first_name">First Name</option>
                 <option value="Last_name">Last Name</option>
@@ -17,6 +17,6 @@
                 <option value="phone">Phone</option>
                 <option value="notes">Notes</option>
             </select>
-            <button (click)="search($event)">Go</button>
+            <button (click)="search($event)"><img src="../../../../assets/images/icons/magnifying-glass-svgrepo-com.svg" alt=""></button>
     </div>
 </div>

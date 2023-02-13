@@ -33,16 +33,31 @@
         
     }
     .search {
-        
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            // flex-wrap: wrap;
             label{
                 margin-left: 20px;
                 font-size: larger;
                 text-align: center;
             }
             input {
-    
                 height: 25px;
                 margin-left: 20px;
+            }
+            p{
+                margin:2px
+            }
+            button{
+                // font-size: small;
+                background-color: transparent;
+                border: 0px ;
+                margin-left: 20px;
+                img{
+                    
+                    height: 20px;
+                }
             }
         
     }
@@ -88,7 +103,13 @@
         .search{
             display: flex;
             flex-direction: column;
-            margin-bottom: 20px
+            margin-bottom: 20px;
+
+            button {
+                margin:0px;
+                margin-top:15px ;
+
+            }
         }
     }
 }

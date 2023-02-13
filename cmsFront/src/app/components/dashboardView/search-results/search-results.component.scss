@@ -15,7 +15,12 @@ $textColor: rgba(255, 255, 255);
     flex-wrap: wrap;
     flex-shrink: 1;
     font-size: calc(10px + 00.5433vw);
+    margin-bottom: 150px;
     // width: 90vw;
+    h1 {
+        background-color: rgba(245, 245, 245, 0.548);
+        border-radius: 3px;
+    }
     table {
         flex-wrap: wrap;
         

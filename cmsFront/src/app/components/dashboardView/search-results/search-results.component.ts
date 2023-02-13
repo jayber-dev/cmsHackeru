@@ -39,11 +39,11 @@ export class SearchResultsComponent implements OnInit {
   serverCall(from) {
     
     if (this.router.url.match('costumers')) {
-      this.router.navigateByUrl(`dashboard/costumers/searchResults/${from}/costumers/${this.query}`)
+      this.router.navigateByUrl(`dashboard/costumers/searchResults/${from}/costumers/${this.query}/${this.searchParam}`)
     }
 
     if (this.router.url.match('contacts')) {
-      this.router.navigateByUrl(`dashboard/contacts/searchResults/${from}/contacts/${this.query}`)
+      this.router.navigateByUrl(`dashboard/contacts/searchResults/${from}/contacts/${this.query}/${this.searchParam}`)
     }
   }
 

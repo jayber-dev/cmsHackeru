@@ -23,8 +23,6 @@ export class AppComponent implements OnInit, OnDestroy{
     console.log('in app component');
     
     this.http.post('auth/auth',{}).subscribe(data => {
-      // console.log(data);
-      // console.log(data['isLogged']);
       if(!data['isLogged']) {
         this.router.navigateByUrl('about')
       }

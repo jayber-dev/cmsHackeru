@@ -9,7 +9,7 @@ import { UtilService } from 'src/app/services/utilService/util.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  @Input() isLogged:boolean
+  
   constructor(
     private util:UtilService,
     private router:Router,
@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
     ){
     
   }
-  
+  @Input() isLogged:boolean
   
 
   logout(){
@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.util.getIsLogged());
+    // console.log(this.util.getIsLogged());
     
     this.util.updateIsLogged.subscribe((data) => {
       this.isLogged = data

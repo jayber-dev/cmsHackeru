@@ -1,0 +1,101 @@
+$backColor: rgba(235, 11, 56, 0.616);
+$hover: rgba(59, 6, 16, 0.616);
+$textColor: rgba(255, 255, 255);
+
+.folder-container {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // display: inline;
+    margin-bottom: 15vh;
+    .costumers-folders-container{
+        display: grid;
+        grid: auto-flow / 1fr 1fr 1fr 1fr 1fr;
+        background-color: whitesmoke;
+        border: 1px solid rgba(128, 128, 128, 0.377);
+        
+        .wrapper {
+            border: 1px solid rgba(128, 128, 128, 0.295);
+            .folder{   
+                padding: 10px;
+                .name-tag {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    button{
+                        background-color: transparent;
+                        border: 0px;
+                        img{
+                            height: 20px;
+                        }
+                    }
+                } 
+                a{
+                    color: black;
+                    text-decoration: none;
+                }
+    
+                a:visited{
+                    color: black;
+                }
+                img {
+                    margin: 0px;
+                    height: 100px;
+                    
+                }
+                p {
+                    margin: 0px;
+                }
+        
+            }
+        }
+        
+        
+    }
+    
+    .pagination {
+        button {
+            cursor: pointer;
+            margin-top: 20px;
+            padding:10px;
+            background-color: $backColor;
+            color: $textColor;
+            border: 0px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: $hover;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .folder-container{
+      
+        .costumers-folders-container{
+            display: grid;
+            grid: auto-flow / 1fr 1fr 1fr ;
+            background-color: whitesmoke;
+            border: 1px solid rgba(128, 128, 128, 0.377);
+            width: 100vw;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+    .folder-container{
+        width: 100%;
+        .costumers-folders-container{
+            display: grid;
+            grid: auto-flow / 1fr 1fr ;
+            background-color: whitesmoke;
+            border: 1px solid rgba(128, 128, 128, 0.377);
+        }
+    }
+    
+}
+
+

@@ -16,6 +16,8 @@ auth.post('/signup',util.signup,(req,res) => {})
 
 auth.post('/auth',util.isAuthenticated, (req,res) => {})
 
+auth.post('/auth/google/callback')
+
 auth.post('/logout',util.logout,(req,res) => {})
 
 module.exports = auth;

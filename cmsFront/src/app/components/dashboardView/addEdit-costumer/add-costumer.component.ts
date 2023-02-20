@@ -47,7 +47,6 @@ export class AddEditCostumerComponent implements OnInit {
     }
 
     if (this.router.url.match('editCostumer')) {
-      console.log('in edit mode submit');
       this.costumerInfo = this.addCostumer.value;
       this.costumerInfo.paramId = this.paramId;
       const http = this.http
@@ -55,9 +54,7 @@ export class AddEditCostumerComponent implements OnInit {
         .subscribe((data) => {
           http.unsubscribe();
         });
-      this.activatedRoute.queryParamMap.subscribe((param) => {
-        console.log(param);
-      });
+      this.activatedRoute.queryParamMap.subscribe((param) => {});
       this.router.navigateByUrl(`dashboard/costumers/table/${this.from}`);
     }
   }
@@ -67,9 +64,8 @@ export class AddEditCostumerComponent implements OnInit {
       this.activatedRoute.params.subscribe((param) => {
         this.from = param['from'];
       });
-      console.log('in edit mode');
+  
       this.activatedRoute.queryParamMap.subscribe((param) => {
-        console.log(param);
 
         this.paramId = Number(param.get('id'));
         this.addCostumer.patchValue({

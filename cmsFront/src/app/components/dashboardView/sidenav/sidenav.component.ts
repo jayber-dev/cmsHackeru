@@ -16,9 +16,7 @@ export class SidenavComponent {
   category:string = 'Costumer'
   
   setCategory(e){
-    console.log(e);
     this.category = e.target.innerHTML.slice(0,e.target.innerHTML.length - 1)
-
   }
 
 }

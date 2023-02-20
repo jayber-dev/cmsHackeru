@@ -55,7 +55,6 @@ export class AddEditContactsComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.router.url.match('editContact')) {
-      console.log('in edit mode');
       this.activatedRoute.params.subscribe(param => {
         this.from = param['from'];
         
@@ -77,9 +76,6 @@ export class AddEditContactsComponent implements OnInit {
           zipCode:param.get('zip_code'),
           paramId:this.paramId
         })
-
-        
-        console.log(this.addContact.value);
       })
     }
     

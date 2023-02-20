@@ -13,20 +13,19 @@ export class SubMenuComponent implements OnInit {
   val:string = 'first_name'
   category:string
   query:string
+  formData:any
 
   search(e){
-    console.log(this.val);
     if (this.router.url.match('costumers')) {
       this.router.navigateByUrl(`dashboard/costumers/searchResults/0/costumers/${this.query}/${this.val}`)
     }
 
     if (this.router.url.match('contacts')){
-      this.router.navigateByUrl(`dashboard/costumers/searchResults/0/contacts/${this.query}/${this.val}`)
+      this.router.navigateByUrl(`dashboard/contacts/searchResults/0/contacts/${this.query}/${this.val}`)
     }
-    // console.log(this.router.url)
   }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
     if(this.router.url.match('contacts')){
       this.category = 'contacts'
     }   

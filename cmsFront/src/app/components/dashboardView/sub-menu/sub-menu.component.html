@@ -3,13 +3,18 @@
     <div class="options">
         <app-mini-nav></app-mini-nav>
         <a routerLink="table/0"><img src="../../../../assets/images/icons/table.svg" alt=""></a>
-        <a routerLink="folders/0"><img src="../../../../assets/images/icons/folder.svg" alt=""></a>
+        <a routerLink="folders/0"><img src="../../../../assets/images/icons/folder.svg" alt=""></a>       
+        <a routerLink="connections" ><img class="connections" src="../../../../assets/images/icons/connect-people-icon.svg" alt=""></a>
+        
+        
+
         
     </div>
     <div class="search ">
             <label for="">{{category}}</label>
             <input  type="text" [(ngModel)]="query">
             <p>by</p> 
+            <div class="query-wrapper">
             <select name="" id="" [(ngModel)]="val">
                 <option value="first_name">First Name</option>
                 <option value="Last_name">Last Name</option>
@@ -18,5 +23,6 @@
                 <option value="notes">Notes</option>
             </select>
             <button (click)="search($event)"><img src="../../../../assets/images/icons/magnifying-glass-svgrepo-com.svg" alt=""></button>
+        </div>
     </div>
 </div>

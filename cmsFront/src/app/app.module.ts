@@ -29,6 +29,11 @@ import { AgeCalc } from './pipes/ageCalc.pipe';
 import { AddEditCostumerComponent } from './components/dashboardView/addEdit-costumer/add-costumer.component';
 import { AddEditContactsComponent } from './components/dashboardView/addEdit-contacts/add-contacts.component';
 import { httpService } from './services/httpService/http.service';
+import { UsersConnectionsComponent } from './components/dashboardView/users-connections/connections.component';
+import { GoogleLoginComponent } from './components/loginComponents/google-login/google-login.component';
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from '@abacritt/angularx-social-login';
+
 
 @NgModule({
   declarations: [
@@ -55,16 +60,35 @@ import { httpService } from './services/httpService/http.service';
     AgeCalc,
     AddEditCostumerComponent,
     AddEditContactsComponent,
+    UsersConnectionsComponent,
+    GoogleLoginComponent,
     
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
+    SocialLoginModule,
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [UtilService,httpService],
+  providers: [UtilService,httpService,{
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: false,
+      providers: [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider(
+            '837830033253-jv5armk323iht7dlj4i20120vbfkiudt.apps.googleusercontent.com',
+          )
+        },
+      ],
+      onError: (err) => {
+        console.error(err);
+      }
+    } as SocialAuthServiceConfig,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

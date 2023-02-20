@@ -30,9 +30,7 @@ export class SignupFormComponent {
   message:string
 
   onSubmit(){
-    console.log('in signup');
     const http = this.http.post('auth/signup',this.signupForm.value).subscribe(data => {
-      console.log(data);
       this.message = data['message']
       if(this.message == 'registered'){
         this.util.setLoggedTrue()

@@ -27,11 +27,4 @@ export class UtilService {
         return this.isLogged
     }
 
-    currPath(){
-        console.log(this.router.url)
-        console.log(this.router.getCurrentNavigation())
-    }
-
-
-
 }

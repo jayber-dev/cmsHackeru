@@ -36,15 +36,11 @@ app.use('/auth', auth)
 app.use('/costumers', costumers)
 app.use('/contacts', contacts)
 
-// console.log(conn);
 
 app.get('/', (req, res) => {
-  req.session.
-  console.log('hello from login');
-  res.send('Hello World!')
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`listening on port ${port}`)
 })
 

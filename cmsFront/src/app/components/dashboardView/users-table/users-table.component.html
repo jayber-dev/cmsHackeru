@@ -16,8 +16,14 @@
                 <td ><a routerLink="{{i.id}}"><img src="../../../../../assets/images/icons/overview-icon.svg" alt=""></a></td>  
                 <td>{{i.first_name}}</td>
                 <td>{{i.last_name}}</td>
-                <td>{{i.email}}</td>
-                <td>{{i.phone}}</td> 
+                <td><a href="mailto:{{i.email}}">{{i.email}}</a></td>
+                <td><p>
+                    {{i.phone}}
+                    <span class="modal">    
+                        <a href="https://wa.me/{{i.phone}}" target="_blank">w</a>
+                        <a href="tel:{{i.phone}}">ph</a>
+                    </span>
+                </p></td> 
                 <td ><button (click)="deleteRegistry(i.id,index)"><img src="../../../../assets/images/icons/trash.svg" alt=""></button></td>
                     
             </tr>

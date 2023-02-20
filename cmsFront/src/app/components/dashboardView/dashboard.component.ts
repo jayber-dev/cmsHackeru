@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UtilService } from 'src/app/services/utilService/util.service';
 
 @Component({
@@ -11,10 +11,11 @@ export class DashboardComponent implements OnInit{
     private util:UtilService
   ){}
 
-  isLogged:boolean
+  // @Input() isLogged:boolean
   ngOnInit(): void {
-    this.util.updateIsLogged.subscribe(data => {     
-      this.isLogged = data
-    })
+    
+    // this.util.updateIsLogged.subscribe(data => {     
+    //   this.isLogged = data
+    // })
   }
 }

@@ -52,12 +52,11 @@ export class SearchResultsComponent implements OnInit {
       this.query = param['query'];
       this.type = param['type'];
       this.searchParam = param['value']
-      console.log(param);
+      
       
       if(this.type == 'costumers'){
         this.http.get(`costumers/search/${this.query}/${this.searchParam}`,this.from).subscribe((data) => {
           this.data = data;
-  
           if (this.data.length != 15) {
             this.makeCall = false;
           } else {
@@ -67,7 +66,6 @@ export class SearchResultsComponent implements OnInit {
       }
 
       if(this.type == 'contacts'){
-        console.log('contacts search');
         this.http.get(`contacts/search/${this.query}/${this.searchParam}`,this.from).subscribe((data) => {
           this.data = data;
   
@@ -82,4 +80,4 @@ export class SearchResultsComponent implements OnInit {
   }
 }
 
-// TODO: fix the search Results
+

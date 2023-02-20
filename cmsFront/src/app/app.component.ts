@@ -1,4 +1,4 @@
-import { Component,OnInit,OnDestroy } from '@angular/core';
+import { Component,OnInit,OnDestroy, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilService } from './services/utilService/util.service';
 import { httpService } from './services/httpService/http.service';
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit, OnDestroy{
     private http:httpService,
   ){}
   title = 'CRM-HackerU';
-  isLogged:boolean
+  @Input() isLogged:boolean
 
   
   ngOnInit(): void {
@@ -28,12 +28,13 @@ export class AppComponent implements OnInit, OnDestroy{
       }
       if(data['isLogged']) {
         this.util.setLoggedTrue()
+        this.router.navigateByUrl('dashboard/costumers')
       }
     })
 
-    this.util.updateIsLogged.subscribe((data) => {
-      this.isLogged = data
-    })
+    // this.util.updateIsLogged.subscribe((data) => {
+    //   this.isLogged = data
+    // })
   }
 
   ngOnDestroy(): void {

@@ -24,6 +24,25 @@ $textColor: rgba(255, 255, 255);
         // margin-top: 20px;
         padding: 20px;
         // width: 80vw;
+        .connections{
+            height: calc(40px + 2.5324vw);
+            
+        }
+
+        .modal{
+            display: none;
+        }
+
+        div:hover{
+            position: relative;
+            .modal  {
+                display: flex;
+                flex-direction: row;
+                position: absolute;
+                
+                background-color: red;
+            }
+        }
         
         // border-top-left-radius: 8px;
         // border-top-right-radius: 8px;
@@ -41,7 +60,7 @@ $textColor: rgba(255, 255, 255);
             display: flex;
             align-items: center;
             margin-right: 20px;
-            // flex-wrap: wrap;
+            // width: 100%;
             label{
                 margin-left: 20px;
                 font-size: larger;
@@ -54,29 +73,31 @@ $textColor: rgba(255, 255, 255);
             p{
                 margin:2px
             }
-
-            select{
-                height: 25px;
-            }
-
-            button{
-                // font-size: small;
-                background-color: transparent;
-                border: 0px ;
-                margin-left: 5px;
-                img{
-                    
-                    height: 20px;
+            .query-wrapper{
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                select{
+                    height: 25px;
                 }
-
+    
+                button{
+                    background-color: transparent;
+                    border: 0px ;
+                    margin-left: 5px;
+                    img{
+                        
+                        height: 20px;
+                    }
+       
+                }
+    
+                button:hover {
+                    border-radius: 2px;
+                    background-color: $backColor;
+                }
+            }
                 
-            }
-
-            button:hover {
-                border-radius: 2px;
-                background-color: $backColor;
-            }
-        
     }
     
 }
@@ -99,12 +120,18 @@ $textColor: rgba(255, 255, 255);
         .options{
             margin-left: 100px;
         }
+
+        .search{
+            input{
+                margin-left: 0px;
+            }
+        }
     }
 }
 
 
 
-@media screen and (max-width: 690px) {
+@media screen and (max-width: 940px) {
     .submenu-container{
         display: flex;
         width: 100vw;
@@ -124,7 +151,40 @@ $textColor: rgba(255, 255, 255);
 
             button {
                 margin:0px;
-                margin-top:15px ;
+                margin-top:0px ;
+
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 320px) {
+    .submenu-container{
+        display: flex;
+        width: 100vw;
+        flex-direction: column;
+        background-color: whitesmoke;
+        border:1px solid rgba(128, 128, 128, 0.568);
+        align-items: center;
+
+        .options{
+            margin-left: 60px;
+            a{
+                img{
+                    height:35px;
+                }
+            }
+        }
+
+        .search{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+
+            button {
+                margin:0px;
+                margin-top:0px ;
 
             }
         }

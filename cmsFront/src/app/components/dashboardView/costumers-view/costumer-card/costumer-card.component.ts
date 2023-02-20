@@ -16,9 +16,7 @@ export class CostumerCardComponent implements OnInit{
   param:string
   data:any
   ngOnInit(): void {
-    this.route.params.subscribe(param =>{
-      console.log(param);
-      
+    this.route.params.subscribe(param =>{      
       this.param = (param['id']);  
       this.from = param['from']
     })

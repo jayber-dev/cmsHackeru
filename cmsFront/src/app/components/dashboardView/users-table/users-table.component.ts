@@ -70,8 +70,6 @@ export class UsersTableComponent implements OnInit {
       }
 
       if (this.router.url.match('contacts')) {
-        console.log('in contacts delete');
-
         const deleteUser = this.http.delete(`contacts/deleteContact/${id}`).subscribe(() => {
           delete this.data[index];
           deleteUser.unsubscribe();
@@ -87,7 +85,6 @@ export class UsersTableComponent implements OnInit {
     });
 
     if (this.router.url.match('costumers')) {
-      console.log(this.param);
       const retrive = this.http.get('costumers/',this.param).subscribe((data) => {
         this.data = data;
         retrive.unsubscribe();
@@ -96,8 +93,6 @@ export class UsersTableComponent implements OnInit {
 
     if (this.router.url.match('contacts')) {
       const retrive = this.http.get('contacts',this.param).subscribe((data) => {
-          console.log(data);
-
           this.data = data;
           retrive.unsubscribe();
         });

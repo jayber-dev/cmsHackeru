@@ -17,18 +17,16 @@ export class NavbarComponent implements OnInit {
     ){
     
   }
-  @Input() isLogged:boolean
+  isLogged:boolean
   
 
   logout(){
-    console.log('logout');
     this.http.post('auth/logout',{}).subscribe()
     this.util.setLoggedFalse()
     this.router.navigateByUrl('login')
   }
 
-  ngOnInit(): void {
-    // console.log(this.util.getIsLogged());
+  ngOnInit(): void {   
     
     this.util.updateIsLogged.subscribe((data) => {
       this.isLogged = data

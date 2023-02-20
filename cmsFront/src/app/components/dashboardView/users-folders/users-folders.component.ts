@@ -20,14 +20,12 @@ export class UsersFoldersComponent implements OnInit {
   makeCall: boolean = true;
   param:number
   perv() {
-    console.log('in perv');
     if (this.from > 0) {
       this.from = this.from - 15;
       this.serverCall(this.from);
     }
   }
   next() {
-    console.log('in next');
     if (this.makeCall) {
       this.from = this.from + 15;
       this.serverCall(this.from);
@@ -86,7 +84,6 @@ export class UsersFoldersComponent implements OnInit {
     })
 
     if (this.router.url.match('costumers')) {
-      console.log(this.param);
       const retrive = this.http.get('costumers/',this.param).subscribe((data) => {
           this.data = data;
           retrive.unsubscribe();

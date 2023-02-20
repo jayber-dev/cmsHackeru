@@ -17,6 +17,10 @@ $textColor: rgba(255, 255, 255);
     font-size: calc(6px + 00.5433vw);
     margin-bottom: 100px;
     table {
+
+        a{
+            text-decoration: none;
+        }
         flex-wrap: wrap;
         
         border: 1px solid grey;
@@ -36,7 +40,9 @@ $textColor: rgba(255, 255, 255);
             }
             
             tr:first-child{
-            
+                
+
+                            
                 background-color: $backColor;
                 td {
                     padding:10px;
@@ -66,12 +72,36 @@ $textColor: rgba(255, 255, 255);
                         height: 20px;
                     }
                 }
+
+                .modal{
+                    display: none;
+                }
+
+                
                 td:first-child{
                     width: 20px;
                 }
                 td:nth-child(5){
+                    flex-wrap: nowrap;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    // width: 150px;
+                    border: 0px;
+                    p{
+                        margin: 0px;
+                       width: 100%; 
+                    }
                     
-                    width: 150px;
+                }
+                td:nth-child(5):hover .modal{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    a{
+                        margin-left: 10px;
+                    }
+                    
                 }
                 td:last-child{
                     width: 40px;

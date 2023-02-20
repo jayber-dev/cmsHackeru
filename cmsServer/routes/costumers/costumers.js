@@ -5,9 +5,9 @@ const costumers = express.Router()
 costumers.use((req, res, next) => {
     next()
 })
-costumers.get('/',costumersUtil.getCostumers, (req,res) => {  
-    // return res.json(req.body)
-})
+costumers.get('/',costumersUtil.getCostumers, (req,res) => {})
+
+costumers.get('/getAll',costumersUtil.getAllCostumers, (req,res) => {})
 
 costumers.get('/costumer/:id', costumersUtil.getSingleCostumer,(req,res,next) =>{})
 

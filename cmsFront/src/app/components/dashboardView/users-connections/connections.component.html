@@ -1,29 +1,36 @@
-<div class="folder-container">
-    <div class="costumers-folders-container">
-        <div *ngFor="let i of data; index as index" class="wrapper">
-            <div *ngIf="i?.id" class="folder">
-                <div class="name-tag">
-                    <p>{{i.first_name}} {{ i.last_name}}</p>
-                    <button (click)="deleteRegistry(i.id,index)">
-                        <img src="../../../../assets/images/icons/trash.svg" alt="">
-                    </button>
-                </div>
-                
-                <a [routerLink]="i.id" >
-                    
-                    <img src="../../../../assets/images/icons/folder.svg" alt="">
-                </a>
-                
-                
+<div class="connections-container">
+    <div class="waiting-container" *ngIf="!data" >
+         
+        <h1> just a moment </h1>
+
+    </div>
+    <div class="connections-view-container">
+        <div *ngFor="let x of showBy; index as index" class="wrapper">
+            <div class="country" >
+                {{x}}
             </div>
+            <div *ngFor="let i of data; index as index">
             
+                <div *ngIf="i.country == x || i.city == x">
+                    <div class="details">
+                        <p><span>Full Name:</span> {{i.first_name}} {{i.last_name}}</p>
+                        <p><span>Email: </span><a href="mailto:{{i.email}}">{{i.email}}</a></p>
+                        <p>
+                            <span>Phone: </span>{{i.phone}}
+                            <span class="modal">    
+                                <a href="https://wa.me/{{i.phone}}" target="_blank">w</a>
+                                <a href="tel:{{i.phone}}">ph</a>
+                            </span>
+                        </p>
+                        <button (click)="deleteRegistry(i.id,index)"><img src="../../../../assets/images/icons/trash.svg" alt=""></button>
+                    </div>               
+                </div>
+            </div>
+                      
         </div>
         
     </div>
-    <div class="pagination">
-        <button (click)="perv()">perv</button>
-        <button (click)="next()">next</button>
-    </div>
+    
 </div>
 
 <router-outlet></router-outlet>

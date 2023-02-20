@@ -18,6 +18,10 @@ $textColor: rgba(255, 255, 255);
     .details{
         border-right: 1px dashed grey;
         width: 30vw;
+        a{
+            margin-left: 20px;
+            text-decoration: none;
+        }
     }
 
     .notes {

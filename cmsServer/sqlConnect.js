@@ -1,9 +1,6 @@
 const mysql = require('mysql2/promise');
 
-// require('dotenv').config();
-
-// console.log('im in models');
-
+require('dotenv').config();
 
 conn = mysql.createConnection({
         host: process.env.HOST,
@@ -13,6 +10,14 @@ conn = mysql.createConnection({
         
         // insecureAuth: true,
     })
+
+// conn = mysql.createConnection({
+//         host: '127.0.0.1',
+//         user: 'root',
+//         database: 'cmsHackeru',
+//         password: '',
+//         // insecureAuth: true,
+//     })
     
 
 exports.connect = conn

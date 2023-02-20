@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { count } from 'rxjs';
 import { httpService } from 'src/app/services/httpService/http.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { httpService } from 'src/app/services/httpService/http.service';
   templateUrl: './connections.component.html',
   styleUrls: ['./connections.component.scss']
 })
-export class UsersConnectionsComponent {
+export class UsersConnectionsComponent implements OnChanges {
   constructor(
     private router: Router,
     private activatedRoute:ActivatedRoute,
@@ -15,50 +16,12 @@ export class UsersConnectionsComponent {
   ) {}
 
   data: any;
-  costumersData: string[];
-  from: number = 0;
   makeCall: boolean = true;
-  param:number
-  perv() {
-    if (this.from > 0) {
-      this.from = this.from - 15;
-      this.serverCall(this.from);
-    }
-  }
-  next() {
-    if (this.makeCall) {
-      this.from = this.from + 15;
-      this.serverCall(this.from);
-    }
-  }
+  param:string
+  showBy = new Set<string>()
 
-  serverCall(from) {
-    if (this.router.url.match('costumers')) {
-      this.router.navigateByUrl(`/dashboard/costumers/folders/${this.from}`)
-      this.http.get('costumers/', from).subscribe((data) => {
-        this.data = data;
-
-        if (this.data.length != 15) {
-          this.makeCall = false;
-        } else {
-          this.makeCall = true;
-        }
-      });
-    }
-
-    if (this.router.url.match('contacts')) {
-      this.http.get('contacts/', from).subscribe((data) => {
-        this.data = data;
-
-        if (this.data.length != 15) {
-          this.makeCall = false;
-        } else {
-          this.makeCall = true;
-        }
-      });
-    }
-  }
-
+  @Input() someData
+    
   deleteRegistry(id,index){
     
     if(confirm('are you sure you want to delete ?')){
@@ -77,22 +40,39 @@ export class UsersConnectionsComponent {
     } 
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    this.activatedRoute.params.subscribe(param => {
+      console.log(param);
+      this.param = param['showBy']
+    })
+    console.log('im changed');
+    
+  }
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(param => {
-      this.from = Number(param['from'])
-      this.param = param['from']
+      // console.log(param);
+      this.param = param['showBy']
     })
 
     if (this.router.url.match('costumers')) {
-      const retrive = this.http.get('costumers/',this.param).subscribe((data) => {
+      const retrive = this.http.get(`costumers/getAll`,{}).subscribe((data) => {
           this.data = data;
+
+          for(let i of this.data) {
+            this.showBy.add(i.country);  
+          }          
           retrive.unsubscribe();
         });
     }
 
     if (this.router.url.match('contacts')) {
-      const retrive = this.http.get('contacts/',this.param).subscribe((data) => {
+      const retrive = this.http.get(`contacts/getAll`,{}).subscribe((data) => {
         this.data = data;
+        for(let i of this.data) {
+          this.showBy.add(i.country);  
+        }
+        console.log(this.showBy);
         retrive.unsubscribe();
       });
     }

@@ -23,7 +23,7 @@ app.use(session({
 }))
 
 app.use(cors({
-  origin: 'http://127.0.0.1:4200',
+  origin: true,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
   optionsSuccessStatus: 204,
@@ -38,6 +38,7 @@ app.use('/contacts', contacts)
 
 
 app.get('/', (req, res) => {
+  res.send('hello')
 })
 
 app.listen(port, () => {

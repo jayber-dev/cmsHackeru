@@ -8,10 +8,12 @@ import { FacebookLoginProvider } from "@abacritt/angularx-social-login";
   styleUrls: ['./google-login.component.scss']
 })
 export class GoogleLoginComponent implements OnInit{
-  constructor(private authService: SocialAuthService) { }
+  
 
-  user: any;
+  user: SocialUser;
   loggedIn: any;
+
+  constructor(private authService: SocialAuthService) { }
 
   ngOnInit() {
     this.authService.authState.subscribe((user) => {

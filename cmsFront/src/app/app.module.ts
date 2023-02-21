@@ -32,7 +32,7 @@ import { httpService } from './services/httpService/http.service';
 import { UsersConnectionsComponent } from './components/dashboardView/users-connections/connections.component';
 import { GoogleLoginComponent } from './components/loginComponents/google-login/google-login.component';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
-import { GoogleLoginProvider, FacebookLoginProvider } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 
 
 @NgModule({
@@ -80,7 +80,7 @@ import { GoogleLoginProvider, FacebookLoginProvider } from '@abacritt/angularx-s
         {
           id: GoogleLoginProvider.PROVIDER_ID,
           provider: new GoogleLoginProvider(
-            '837830033253-jv5armk323iht7dlj4i20120vbfkiudt.apps.googleusercontent.com',
+            '837830033253-b14a2dce14ts6fsb6hjk305in7kqoqb3.apps.googleusercontent.com',
           )
         },
       ],

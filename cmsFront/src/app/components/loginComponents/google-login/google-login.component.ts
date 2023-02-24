@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class GoogleLoginComponent implements OnInit{
   
-
+  text = "wow";
   user: SocialUser;
   loggedIn: any;
 

@@ -37,9 +37,9 @@ app.use('/costumers', costumers)
 app.use('/contacts', contacts)
 
 
-// app.get('/', (req, res) => {
-//   res.send('hello')
-// })
+app.get('/', (req, res) => {
+  res.send('hello')
+})
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`)

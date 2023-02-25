@@ -11,16 +11,6 @@ function makeConnection(){
     return conn
 }
 
-// function makeConnection(){
-//     const conn = mysql.createConnection({
-//         host: '127.0.0.1',
-//         user: 'root',
-//         database: 'cmsHackeru',
-//         password: '',
-//     })
-
-//     return conn
-// }
 
 function getCostumers(req,res){
     const conn = makeConnection()

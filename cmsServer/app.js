@@ -25,10 +25,11 @@ app.use(session({
   name: 'cms',
   resave: false,
   saveUninitialized: false,
+  
 }))
 
 app.use(cors({
-  origin: true,
+  origin: process.env.FRONTEND_APP_URL,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
   optionsSuccessStatus: 204,

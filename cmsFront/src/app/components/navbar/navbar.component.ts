@@ -1,3 +1,4 @@
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Component,Input,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { httpService } from 'src/app/services/httpService/http.service';
@@ -14,6 +15,7 @@ export class NavbarComponent implements OnInit {
     private util:UtilService,
     private router:Router,
     private http:httpService,
+    private authService:SocialAuthService
     ){
     
   }
@@ -24,6 +26,8 @@ export class NavbarComponent implements OnInit {
     this.http.post('auth/logout',{}).subscribe()
     this.util.setLoggedFalse()
     this.router.navigateByUrl('login')
+    this.authService.signOut();
+    
   }
 
   ngOnInit(): void {   

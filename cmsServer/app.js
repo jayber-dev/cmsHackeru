@@ -8,7 +8,7 @@ const contacts = require('./routes/contacts/contacts')
 require('./sqlConnect');
 const session = require('express-session')
 const MemoryStore = require('memorystore')(session)
-const port = 3000
+const port = process.env.PORT | 3000
 
 app.use(session({
   cookie: { maxAge: 86400000 },

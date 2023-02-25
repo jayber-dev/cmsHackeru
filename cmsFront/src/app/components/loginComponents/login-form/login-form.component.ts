@@ -24,9 +24,6 @@ export class LoginFormComponent {
 
   loginForm: FormGroup;
   message:string
-  googleLogin(){
-    console.log('will be logged with google');
-  }
 
   onSubmit(){
     const login = this.http.post('auth/login',this.loginForm.value).subscribe(data => {

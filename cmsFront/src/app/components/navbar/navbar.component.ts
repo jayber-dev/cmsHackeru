@@ -24,7 +24,8 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     const logOut = this.http.post('auth/logout',{}).subscribe(data =>{
-      
+      this.util.setLoggedFalse()
+      this.router.navigateByUrl('about')
     })
     this.authService.signOut().then(data => {
       this.util.setLoggedFalse()

@@ -20,7 +20,7 @@ export class AppComponent implements OnInit, OnDestroy{
 
   
   ngOnInit(): void {
-    console.log('in app component');
+  
     
     this.http.post('auth/auth',{}).subscribe(data => {
       if(!data['isLogged']) {
@@ -31,10 +31,6 @@ export class AppComponent implements OnInit, OnDestroy{
         this.router.navigateByUrl('dashboard/costumers')
       }
     })
-
-    // this.util.updateIsLogged.subscribe((data) => {
-    //   this.isLogged = data
-    // })
   }
 
   ngOnDestroy(): void {

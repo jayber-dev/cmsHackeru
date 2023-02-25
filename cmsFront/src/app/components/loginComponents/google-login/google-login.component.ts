@@ -29,11 +29,9 @@ export class GoogleLoginComponent implements OnInit{
       this.loggedIn = (user != null);
       this.util.setLoggedTrue()
       const http = this.http.post('auth/googleLogin', this.user).subscribe(data =>{
-        console.log(data);
         http.unsubscribe();
       })
       this.router.navigateByUrl('dashboard/costumers/table/0')
-      console.log(this.user);
     });
   }
 }

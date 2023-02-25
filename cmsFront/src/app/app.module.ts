@@ -33,6 +33,7 @@ import { UsersConnectionsComponent } from './components/dashboardView/users-conn
 import { GoogleLoginComponent } from './components/loginComponents/google-login/google-login.component';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -72,7 +73,7 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
     HttpClientModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [UtilService,httpService,{
+  providers: [UtilService,httpService,CookieService,{
     provide: 'SocialAuthServiceConfig',
     useValue: {
       autoLogin: false,

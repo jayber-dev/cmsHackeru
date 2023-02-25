@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup,FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { httpService } from 'src/app/services/httpService/http.service';
 import { UtilService } from 'src/app/services/utilService/util.service';
 
@@ -15,6 +16,7 @@ export class LoginFormComponent {
     private util:UtilService,
     private router:Router,
     private http:httpService,
+    private cookieService:CookieService
     ) {
     this.loginForm = fb.group({
       email:[''],
@@ -29,6 +31,7 @@ export class LoginFormComponent {
     const login = this.http.post('auth/login',this.loginForm.value).subscribe(data => {
       if(data['isLogged']){
         this.util.setLoggedTrue()
+        this.cookieService.set('ses',data['session'])
         this.router.navigateByUrl('dashboard/costumers/table/0')
       } else {
         this.message = data['message'] 

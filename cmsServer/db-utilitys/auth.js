@@ -69,7 +69,7 @@ function signup(req,res) {
 
 function logout(req,res,next){ 
    req.session.destroy()   
-   res.send({"isLogged":true,})
+   res.send({"isLogged":false,})
 }
 
 function isAuthenticated (req, res, next) {

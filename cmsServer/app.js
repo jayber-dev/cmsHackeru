@@ -23,7 +23,7 @@ app.use(session({
 }))
 
 app.use(cors({
-  origin: 'http://localhost:4200',
+  origin: 'https://cmshackeru.netlify.app/',
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
   optionsSuccessStatus: 204,

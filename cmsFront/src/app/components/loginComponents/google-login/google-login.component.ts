@@ -24,17 +24,6 @@ export class GoogleLoginComponent implements OnInit{
     ) { }
 
   ngOnInit() {
-<<<<<<< HEAD
-    // this.authService.authState.subscribe((user) => {
-    //   this.user = user;
-    //   this.loggedIn = (user != null);
-    //   this.util.setLoggedTrue()
-    //   const http = this.http.post('auth/googleLogin', this.user).subscribe(data =>{
-    //     http.unsubscribe();
-    //   })
-    //   this.router.navigateByUrl('dashboard/costumers/table/0')
-    // });
-=======
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
@@ -44,6 +33,5 @@ export class GoogleLoginComponent implements OnInit{
       })
       this.router.navigateByUrl('dashboard/costumers/table/0')
     });
->>>>>>> c41ae346e1340012a6d270c0a2f2dc84efd33067
   }
 }

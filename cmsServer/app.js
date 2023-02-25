@@ -10,16 +10,21 @@ const session = require('express-session')
 const MemoryStore = require('memorystore')(session)
 const port = process.env.PORT || 3000
 
+
+
 app.use(session({
-  cookie: { maxAge: 86400000 },
+  cookie: { 
+    maxAge: 86400000,
+    sameSite:"none",
+    secure:true },
+
     store: new MemoryStore({
       checkPeriod: 86400000 // prune expired entries every 24h
   }),
-  secret: 'some-key',
+  secret: process.env.SECRET_KEY,
   name: 'cms',
   resave: false,
   saveUninitialized: false,
-  
 }))
 
 app.use(cors({

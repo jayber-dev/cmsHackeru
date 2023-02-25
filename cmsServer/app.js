@@ -46,6 +46,8 @@ app.use('/contacts', contacts)
 
 app.get('/', (req, res) => {
   res.send('hello')
+  console.log(req.sessionID)
+  console.log(req.sessionStore)
 })
 
 app.listen(port, () => {

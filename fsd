@@ -1,0 +1,324 @@
+[33mcommit c41ae346e1340012a6d270c0a2f2dc84efd33067[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sat Feb 25 17:45:30 2023 +0200
+
+    server fix
+
+[33mcommit bf2a661837777451592b4808b3647c7b64b6af59[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sat Feb 25 17:44:02 2023 +0200
+
+    server fix
+
+[33mcommit 2b87421ae9d6d0e6d18567a003aa40564c589d7b[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sat Feb 25 17:37:41 2023 +0200
+
+    btn fix
+
+[33mcommit bda06ea0fec938faa38850147ed5a204f379e36c[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sat Feb 25 17:33:48 2023 +0200
+
+    fix
+
+[33mcommit 55fb3ef93e91f8e3bef8eab665ac38f92975163b[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sat Feb 25 17:15:14 2023 +0200
+
+    fix
+
+[33mcommit 1db52b3fc07a4930ea2ee652182ff20ea4ee94d1[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sat Feb 25 17:05:51 2023 +0200
+
+    fix
+
+[33mcommit 2a315ee1fcb768b7d75161a49e599c125d38f638[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sat Feb 25 16:44:00 2023 +0200
+
+    fix
+
+[33mcommit e1670d54877293e9f974870ec215e4c637d3d561[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sat Feb 25 16:41:28 2023 +0200
+
+    fix
+
+[33mcommit d311a2b189bf996cfeb99fecdba1e2dd0a9f767e[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sat Feb 25 16:20:39 2023 +0200
+
+    env
+
+[33mcommit e5f9e692d99fe1c92ad6f628aff9df9c0d1ed6a2[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sat Feb 25 11:30:15 2023 +0200
+
+    env
+
+[33mcommit 710ab8c8768b32e651151da35383b5368d26b794[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Fri Feb 24 19:07:01 2023 +0200
+
+    whats app and phone connections finished and responsve
+
+[33mcommit 4f33cd97fe75dc9dd237752dc2537801f0a761ed[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Tue Feb 21 22:34:01 2023 +0200
+
+    google auth working
+
+[33mcommit 58724423aa109ad638ecf5a71fb206512abbd30f[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Tue Feb 21 18:22:36 2023 +0200
+
+    with googleauth
+
+[33mcommit 9f6f45019df6083cfd859aa1360ff385b1542130[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Mon Feb 20 19:31:03 2023 +0200
+
+    hope
+
+[33mcommit 5293462e3fffb5024a8bf099d0f03e6e26504ffd[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Tue Feb 14 21:35:48 2023 +0200
+
+    fix
+
+[33mcommit 5c7d760881164e7c8bddad954fbfed392cbb45fb[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Mon Feb 13 23:57:01 2023 +0200
+
+    final touches
+
+[33mcommit aee0762ecd730250eea1412ad0726c6ece72bde4[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Mon Feb 13 19:28:28 2023 +0200
+
+    last fixes
+
+[33mcommit 741f0ae51689ed1afa5dd6ba768b4cf1eb76a0ce[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Mon Feb 13 19:00:29 2023 +0200
+
+    httpservice finished and search refined and button added
+
+[33mcommit df6490721a5d2f3738f11a408908b065d30be75d[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sun Feb 12 18:32:54 2023 +0200
+
+    hhtp fixes
+
+[33mcommit 8b966bed109062ae81fc7d9e874af4a53f776eaf[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sun Feb 12 17:27:48 2023 +0200
+
+    httpservice and costumers add and edit
+
+[33mcommit e9e8bb25e37d23da2ea2d6a237247a831a42bb0d[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sun Feb 12 16:56:49 2023 +0200
+
+    httpservice
+
+[33mcommit 159792720814c449b73c18b6d29b71a622bc5209[m
+Merge: 140eeaf e60ab75
+Author: jayber <jayber1@gmail.com>
+Date:   Sun Feb 12 07:47:46 2023 +0200
+
+    Merge branch 'main' of https://github.com/jayber-dev/cmsHackeruFront
+
+[33mcommit 140eeafc21147214459184759fd2e6430942cb8e[m
+Author: jayber <jayber1@gmail.com>
+Date:   Sun Feb 12 07:47:29 2023 +0200
+
+    routing fixes
+
+[33mcommit e60ab75a25872117ae1ad9381c202f7467f71fc9[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sat Feb 11 20:09:52 2023 +0200
+
+    tttp service
+
+[33mcommit 5f23cd04db8eceba470c95cbb0af062565a11d2f[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sat Feb 11 19:42:28 2023 +0200
+
+    working on ttp
+
+[33mcommit 52fd7cf79e5d55adb409bc41b2c1c6df716b5f4c[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sat Feb 11 19:37:14 2023 +0200
+
+    working on ttp
+
+[33mcommit 39f61d1c3ecf86345ec2d8f9e220886ba547cd92[m
+Author: jayber <jayber1@gmail.com>
+Date:   Thu Feb 9 15:47:28 2023 +0200
+
+    password validation match on signup added
+
+[33mcommit 320fd2a60750087b655ff213dcb3277c2909de44[m
+Author: jayber <jayber1@gmail.com>
+Date:   Thu Feb 9 13:12:09 2023 +0200
+
+    signup works pagination refined and many little ux fixed
+
+[33mcommit b15b35446039c5a0955036502423240db5242428[m
+Author: jayber <jayber1@gmail.com>
+Date:   Wed Feb 8 15:25:15 2023 +0200
+
+    edit costumers and contacts added need sign up and guard and validators
+
+[33mcommit 727ed2301afe57c4dc9d040a6fb3f8e68ae9b592[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Tue Feb 7 18:19:27 2023 +0200
+
+    more fixes
+
+[33mcommit 235e827bd63e302050f17e8bd97e3772510409d4[m
+Author: jayber <jayber1@gmail.com>
+Date:   Tue Feb 7 15:53:39 2023 +0200
+
+    responsivity fixes
+
+[33mcommit 6beb5a2a3913d617356ae9cf1b67a93bbcab848e[m
+Author: jayber <jayber1@gmail.com>
+Date:   Tue Feb 7 15:35:02 2023 +0200
+
+    add Registry begining
+
+[33mcommit ac9a1e02d939313e7a1106947f468d5e0fac3db1[m
+Author: jayber <jayber1@gmail.com>
+Date:   Tue Feb 7 13:08:12 2023 +0200
+
+    responsivity fixes
+
+[33mcommit cb14a53b86482adc1395026039d266dd8e3566d7[m
+Author: jayber <jayber1@gmail.com>
+Date:   Tue Feb 7 12:50:42 2023 +0200
+
+    resposivity added delete added for all tables and folders
+
+[33mcommit 8b42e1787185244a65a79699959ae5f9018341e5[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Mon Feb 6 19:31:04 2023 +0200
+
+    need to fix results and add edit and add costumer and contact
+
+[33mcommit b9e18b71bc9021ad8aa6e221fac802abbb4cc800[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Mon Feb 6 19:28:05 2023 +0200
+
+    contacts and cotumers working
+
+[33mcommit 7da8464b5a38a6405bb2bdcf19cc4d82ffe78b8a[m
+Author: jayber <jayber1@gmail.com>
+Date:   Mon Feb 6 15:35:29 2023 +0200
+
+    contacts almost working
+
+[33mcommit d8e9bb9053d7277acbbcb898fb5800aadcf40e3a[m
+Author: jayber <jayber1@gmail.com>
+Date:   Mon Feb 6 14:01:30 2023 +0200
+
+    contact routes adding
+
+[33mcommit b0ba5eb9d9d204a42e173c4ec530589569a122bc[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sun Feb 5 18:52:14 2023 +0200
+
+    responsive work
+
+[33mcommit eff2056250913f9bc5472646db6926d0150c7b3e[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Sun Feb 5 18:36:30 2023 +0200
+
+    search works and finished
+
+[33mcommit b1a6ae49da16355c7d3f4b7a40bf0c065a8b2308[m
+Author: jayber <jayber1@gmail.com>
+Date:   Sun Feb 5 15:56:46 2023 +0200
+
+    search almost done
+
+[33mcommit 18967fefdc68c7da939b93a7857f40d8b2d3f1bc[m
+Author: jayber <jayber1@gmail.com>
+Date:   Sun Feb 5 15:42:46 2023 +0200
+
+    search preapre
+
+[33mcommit 6644f57b15bc6497a5c2aa6c11ca5191cc5bdedb[m
+Author: jayber <jayber1@gmail.com>
+Date:   Sun Feb 5 14:46:47 2023 +0200
+
+    done working a bit on responsive
+
+[33mcommit 1663d26562532ae08f464607735144846b52dd84[m
+Author: jayber <jayber1@gmail.com>
+Date:   Sun Feb 5 13:59:14 2023 +0200
+
+    folders done
+
+[33mcommit 8fe9d3c7c64d5b62a1125dbe65263cdf482a45db[m
+Author: jayber <jayber1@gmail.com>
+Date:   Thu Feb 2 15:37:15 2023 +0200
+
+    problem with next perv
+
+[33mcommit 5ff20f9ea552d4d3a3421173d216c5abff55de5d[m
+Author: jayber <jayber1@gmail.com>
+Date:   Thu Feb 2 15:21:47 2023 +0200
+
+    table finished
+
+[33mcommit 38027c6d47eb209b68a4e680fd8f04162cdcf2ff[m
+Author: jayber <jayber1@gmail.com>
+Date:   Thu Feb 2 10:23:24 2023 +0200
+
+    dashboard
+
+[33mcommit 84acafe99f388eff1a8163c9535fc183bb776739[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Wed Feb 1 18:43:51 2023 +0200
+
+    db works
+
+[33mcommit 5e843bed589f378014aca3dee29df015b349b29d[m
+Author: jayber <jayber1@gmail.com>
+Date:   Wed Feb 1 15:44:42 2023 +0200
+
+    costumers data
+
+[33mcommit 785d950f7204e5506ee5ad3b9b3a8eff2d77e793[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Tue Jan 31 20:17:52 2023 +0200
+
+    session works
+
+[33mcommit 5eddc8c427dad912ea14ea390110331e7a27acbb[m
+Author: jayber <jayber1@gmail.com>
+Date:   Tue Jan 31 15:47:01 2023 +0200
+
+    cookie crap
+
+[33mcommit 19710458d80147ba03d137e797efb8e9c8baf00c[m
+Author: jayber <jayber1@gmail.com>
+Date:   Tue Jan 31 15:36:37 2023 +0200
+
+    my sql con working
+
+[33mcommit ca317b215efd70ecb8ca0dd1c56a64001a635cff[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Mon Jan 30 22:53:39 2023 +0200
+
+    work on models
+
+[33mcommit e06afd953040ea18c4ba67ecfc6611f0079bbf24[m
+Author: Evgeny Bershdsky <79035534+jayber-dev@users.noreply.github.com>
+Date:   Mon Jan 30 20:40:01 2023 +0200
+
+    init

@@ -23,25 +23,17 @@ function makeConnection(){
     return conn
 }
 
-// function makeConnection(){
-//     const conn = mysql.createConnection({
-//         host: '127.0.0.1',
-//         user: 'root',
-//         database: 'cmsHackeru',
-//         password: '',
-//     })
-
-//     return conn
-// }
 
 function login (req,res,next){
-
+    console.log('im here');
     const conn = makeConnection()
     conn.then((conn) => {
         conn.execute('select id,email,password FROM users where email=?',[req.body.email]).then((data) => {     
             checkPasswordMatch(req.body.password, data[0][0]['password']).then(match => {
                 if(match) {
-                        req.session.user = data[0][0]       
+                        // console.log(data[0][0]);
+                        req.session.user = data[0][0] 
+                        console.log('i am session' + req.session.user);      
                         return res.json({"isLogged":true,})
                             
                     } else {
@@ -83,6 +75,7 @@ function logout(req,res,next){
 function isAuthenticated (req, res, next) {
     
     if(!req.session.user){
+        console.log(req.session.user);
         return res.json({"isLogged":false})
     }
     if(req.session.user){

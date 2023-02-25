@@ -8,7 +8,7 @@ import { httpService } from './services/httpService/http.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy{
+export class AppComponent implements OnInit {
   constructor(
     private util:UtilService,
     
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit, OnDestroy{
 
   
   ngOnInit(): void {
-    console.log('in app component');
+  
     
     this.http.post('auth/auth',{}).subscribe(data => {
       if(!data['isLogged']) {
@@ -31,15 +31,11 @@ export class AppComponent implements OnInit, OnDestroy{
         this.router.navigateByUrl('dashboard/costumers')
       }
     })
-
-    // this.util.updateIsLogged.subscribe((data) => {
-    //   this.isLogged = data
-    // })
   }
 
-  ngOnDestroy(): void {
-    this.isLogged
-  }
+  // ngOnDestroy(): void {
+  //   this.isLogged
+  // }
 
   
 }

@@ -42,16 +42,12 @@ export class UsersConnectionsComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.activatedRoute.params.subscribe(param => {
-      console.log(param);
       this.param = param['showBy']
-    })
-    console.log('im changed');
-    
+    })    
   }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(param => {
-      // console.log(param);
       this.param = param['showBy']
     })
 
@@ -72,7 +68,6 @@ export class UsersConnectionsComponent implements OnChanges {
         for(let i of this.data) {
           this.showBy.add(i.country);  
         }
-        console.log(this.showBy);
         retrive.unsubscribe();
       });
     }

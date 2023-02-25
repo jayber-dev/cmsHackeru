@@ -29,7 +29,8 @@ app.use(session({
 }))
 
 app.use(cors({
-  origin: process.env.FRONTEND_APP_URL,
+  origin:[process.env.FRONTEND_APP_URL,"wow"],
+  
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
   optionsSuccessStatus: 204,

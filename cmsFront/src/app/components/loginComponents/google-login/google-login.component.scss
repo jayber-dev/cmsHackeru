@@ -1,8 +1,14 @@
+$backColor: rgba(255, 67, 105, 0.993);
+$textColor: rgba(255, 255, 255);
+
 .google-btn {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
- 
+    background-color: $backColor;
+    border-radius: 8px;
+    margin-top:20px ;
+    color: $textColor;
 }
 

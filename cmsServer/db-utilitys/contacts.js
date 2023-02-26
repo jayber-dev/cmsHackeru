@@ -85,7 +85,7 @@ function addContact(req,res){
     })
 
     conn.end()
-    res.sendStatus(200)
+    // res.sendStatus(200)
 }
 
 function editContact(req,res){

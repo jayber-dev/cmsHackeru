@@ -12,16 +12,16 @@ auth.use((req, res, next) => {
 
 auth.post('/login',util.login,(req,res) => {})
 
-// auth.post('/googleLogin',(req,res)=> {
+auth.post('/googleLogin',(req,res)=> {
     
-//     const user = {
-//         id:req.body.id,
-//         email:req.body.email
-//     }
-//     req.session.user = user
+    const user = {
+        id:req.body.id,
+        email:req.body.email
+    }
+    req.session.user = user
     
-//     res.json({"isLogged":true,})
-// })
+    res.json({"isLogged":true,})
+})
 
 auth.post('/signup',util.signup,(req,res) => {})
 

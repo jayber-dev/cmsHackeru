@@ -66,8 +66,11 @@ function signup(req,res) {
 }
 
 function logout(req,res,next){ 
-   req.session.destroy()   
-   res.send({"isLogged":false,})
+    console.log("in logout");
+    console.log(req.session.user);
+    req.session.destroy()   
+    console.log(req.session.user)
+    res.send({"isLogged":false,})
 }
 
 function isAuthenticated (req, res, next) {

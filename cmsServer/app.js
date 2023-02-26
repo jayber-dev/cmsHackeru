@@ -33,7 +33,11 @@ app.use(session({
 }))
 
 app.use(cors({
-  origin: 'https://cmshackeru.netlify.app',
+  origin: [
+    true,
+    'https://cmshackeru.netlify.app',
+    'https://cmshackeru.onrender.com/contacts/addContact'
+  ],
   allowedHeaders:'',
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,

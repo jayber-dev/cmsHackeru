@@ -10,7 +10,7 @@ const session = require('express-session')
 const MemoryStore = require('memorystore')(session)
 const port = process.env.PORT || 3000
 
-app.enable('trust proxy')
+app.set('trust proxy', 1)
 
 app.use(session({
   cookie: { 
@@ -51,8 +51,6 @@ app.use('/contacts', contacts)
 
 app.get('/', (req, res) => {
   res.send('hello')
-  console.log(req.sessionID)
-  console.log(req.sessionStore)
 })
 
 app.listen(port, () => {

@@ -31,10 +31,8 @@ function login (req,res,next){
         conn.execute('select id,email,password FROM users where email=?',[req.body.email]).then((data) => {     
             checkPasswordMatch(req.body.password, data[0][0]['password']).then(match => {
                 if(match) {
-                        // console.log(data[0][0]);
-                        req.session.user = data[0][0] 
-                        console.log('i am session' + req.session.user);      
-                        return res.json({"isLogged":true, "session":req.session})
+                        req.session.user = data[0][0]
+                        return res.json({"isLogged":true})
                             
                     } else {
                         return res.json({"isLogged":false,"message":"wrong password"})                
@@ -73,9 +71,8 @@ function logout(req,res,next){
 }
 
 function isAuthenticated (req, res, next) {
-    
+    console.log(req.session.user)
     if(!req.session.user){
-        console.log(req.session.user);
         return res.json({"isLogged":false})
     }
     if(req.session.user){

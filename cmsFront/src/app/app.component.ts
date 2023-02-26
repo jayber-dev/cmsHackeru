@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
   ){}
   title = 'CMS-HackerU';
   @Input() isLogged:boolean
-  hasData:boolean = false
   
   ngOnInit(): void {
   
@@ -30,7 +29,7 @@ export class AppComponent implements OnInit {
         this.util.setLoggedTrue()
         this.router.navigateByUrl('dashboard/costumers')
       }
-      this.hasData = true
+      
     })
   }
 

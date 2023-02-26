@@ -13,11 +13,14 @@ auth.use((req, res, next) => {
 auth.post('/login',util.login,(req,res) => {})
 
 auth.post('/googleLogin',(req,res)=> {
-    
+   
     const user = {
         id:req.body.id,
         email:req.body.email
     }
+
+    console.log(user);
+    
     req.session.user = user
     
     res.json({"isLogged":true,})

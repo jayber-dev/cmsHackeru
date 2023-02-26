@@ -68,13 +68,13 @@ function signup(req,res) {
 function logout(req,res,next){ 
     console.log("in logout");
     console.log(req.session.user);
-    req.session.user = ""  
+    req.session.destroy()   
     console.log(req.session.user)
     res.send({"isLogged":false,})
 }
 
 function isAuthenticated (req, res, next) {
-    console.log(req.session.user)
+    // console.log(req.session.user)
     if(!req.session.user){
         return res.json({"isLogged":false})
     }

@@ -34,7 +34,7 @@ function login (req,res,next){
                         // console.log(data[0][0]);
                         req.session.user = data[0][0] 
                         console.log('i am session' + req.session.user);      
-                        return res.json({"isLogged":true, "session":req.session.user})
+                        return res.json({"isLogged":true, "session":req.session})
                             
                     } else {
                         return res.json({"isLogged":false,"message":"wrong password"})                

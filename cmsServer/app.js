@@ -10,13 +10,16 @@ const session = require('express-session')
 const MemoryStore = require('memorystore')(session)
 const port = process.env.PORT || 3000
 
-
+app.enable('trust proxy')
 
 app.use(session({
   cookie: { 
     maxAge: 86400000,
     sameSite:"none",
-    secure:true },
+    secure:true, 
+    httpOnly:true,
+    path:"/" 
+  },
 
     store: new MemoryStore({
       checkPeriod: 86400000 // prune expired entries every 24h
@@ -25,16 +28,18 @@ app.use(session({
   name: 'cms',
   resave: false,
   saveUninitialized: false,
+
   
 }))
 
 app.use(cors({
-  origin:[process.env.FRONTEND_APP_URL,"wow"],
-  
+  origin: 'https://cmshackeru.netlify.app',
+  allowedHeaders:'',
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
   optionsSuccessStatus: 204,
-  credentials:true
+  credentials:true,
+  
 }))
 
 app.use(express.json())

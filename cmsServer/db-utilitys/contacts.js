@@ -1,5 +1,3 @@
-const { query } = require('express');
-const { json } = require('express/lib/response');
 const mysql = require('mysql2');
 
 function makeConnection(){

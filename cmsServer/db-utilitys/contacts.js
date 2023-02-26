@@ -85,7 +85,7 @@ function addContact(req,res){
     })
 
     conn.end()
-    // res.sendStatus(200)
+    res.json({"log":"userUpdated"})
 }
 
 function editContact(req,res){

@@ -31,7 +31,6 @@ export class LoginFormComponent {
     const login = this.http.post('auth/login',this.loginForm.value).subscribe(data => {
       if(data['isLogged']){
         this.util.setLoggedTrue()
-        this.cookieService.set('ses',data['session'])
         this.router.navigateByUrl('dashboard/costumers/table/0')
       } else {
         this.message = data['message'] 

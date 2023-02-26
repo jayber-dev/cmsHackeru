@@ -76,10 +76,12 @@ function deleteContact(req,res) {
 function addContact(req,res){
     const data = req.body
     const conn = makeConnection()
-
+    console.log("in add contact");
     let query = `INSERT INTO contacts (first_name,last_name,email,phone,birthday,state,country,city,street,house_number,zip_code) values ('${data.firstName}','${data.lastName}','${data.email}','${data.phone}','${data.birthday}','${data.state}','${data.country}','${data.city}','${data.street}','${data.houseNumber}','${data.zipCode}')`
     conn.execute(query, (err,row,fields)=>{
         if (err) throw err
+        console.log(row);
+        console.log(fields);
     })
 
     conn.end()

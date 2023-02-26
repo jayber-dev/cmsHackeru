@@ -27,6 +27,8 @@ export class NavbarComponent implements OnInit {
       console.log(data);
       this.util.setLoggedFalse()
       this.router.navigateByUrl('about')
+
+      logOut.unsubscribe()
     })
     this.authService.signOut().then(data => {
       this.util.setLoggedFalse()
@@ -34,7 +36,7 @@ export class NavbarComponent implements OnInit {
     });
     this.util.setLoggedFalse()
     this.router.navigateByUrl('about')
-    logOut.unsubscribe()
+    
   }
 
   ngOnInit(): void {   

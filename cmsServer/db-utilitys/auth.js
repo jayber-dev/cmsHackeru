@@ -69,7 +69,7 @@ function logout(req,res,next){
     console.log("in logout");
     console.log(req.session.user);
     req.session.destroy()   
-    console.log(req.session.user)
+    console.log(req.session?.user)
     res.send({"isLogged":false,})
 }
 

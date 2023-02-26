@@ -37,7 +37,7 @@ export class AddEditContactsComponent implements OnInit {
   onSubmit() {
     if(this.router.url.match('addContact')){
       this.contactInfo = this.addContact.value
-      this.http.post('contacts/addContact',this.contactInfo).subscribe(data => {
+      this.http.post('contacts/addContact', this.contactInfo).subscribe(data => {
         console.log(data);
       }).unsubscribe()
       this.router.navigateByUrl('dashboard/contacts/table/0')

@@ -82,10 +82,11 @@ function addContact(req,res){
         if (err) throw err
         console.log(row);
         console.log(fields);
+        res.json({"log":"userUpdated"})
     })
 
     conn.end()
-    res.json({"log":"userUpdated"})
+    
 }
 
 function editContact(req,res){

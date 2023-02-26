@@ -38,7 +38,7 @@ app.use(cors({
     'https://cmshackeru.netlify.app/dashboard/contacts/addContact',
     'https://cmshackeru.netlify.app/',
   ],
-  allowedHeaders:'',
+  allowedHeaders:['Accept','Content-Type','x-requested-with'],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
   optionsSuccessStatus: 204,

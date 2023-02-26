@@ -32,9 +32,9 @@ export class NavbarComponent implements OnInit {
       this.util.setLoggedFalse()
       this.router.navigateByUrl('about')
     });
-    // this.util.setLoggedFalse()
-    // this.router.navigateByUrl('about')
-    // logOut.unsubscribe()
+    this.util.setLoggedFalse()
+    this.router.navigateByUrl('about')
+    logOut.unsubscribe()
   }
 
   ngOnInit(): void {   

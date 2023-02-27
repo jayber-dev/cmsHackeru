@@ -17,7 +17,7 @@ app.use(session({
     maxAge: 86400000,
     sameSite:"none",
     secure:true, 
-    // httpOnly:true,
+    httpOnly:true,
     path:"/" 
   },
 
@@ -35,7 +35,7 @@ app.use(session({
 app.use(cors({
   origin:'https://cmshackeru.com',
   allowedHeaders:['Accept','Content-Type','x-requested-with','application/json','text/plain','*/*'],
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   // preflightContinue: false,
   // optionsSuccessStatus: 204,
   credentials:true,

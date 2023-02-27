@@ -1,4 +1,4 @@
-/index.html*  
+/dist/cmsFront/index.html 
     Access-Control-Allow-Origin: "https://cmshackeru.onrender.com"
     Access-Control-Allow-Credentials: true
-
+    Access-Control-Request-Headers: X-PINGOTHER, Content-Type

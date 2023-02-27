@@ -33,7 +33,7 @@ app.use(session({
 }))
 
 app.use(cors({
-  origin:'https://cmshackeru.netlify.app',
+  origin:'https://cmshackeru.com',
   allowedHeaders:['Accept','Content-Type','x-requested-with'],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,

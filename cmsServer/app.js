@@ -10,14 +10,14 @@ const session = require('express-session')
 const MemoryStore = require('memorystore')(session)
 const port = process.env.PORT || 3000
 
-app.set('trust proxy', 1)
+app.enable('trust proxy')
 
 app.use(session({
   cookie: { 
     maxAge: 86400000,
     sameSite:"none",
     secure:true, 
-    httpOnly:true,
+    // httpOnly:true,
     path:"/" 
   },
 
@@ -28,17 +28,18 @@ app.use(session({
   name: 'cms',
   resave: false,
   saveUninitialized: false,
-
+  
   
 }))
 
 app.use(cors({
   origin:'https://cmshackeru.com',
-  allowedHeaders:['Accept','Content-Type','x-requested-with'],
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
+  allowedHeaders:['Accept','Content-Type','x-requested-with','application/json','text/plain','*/*'],
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+  // preflightContinue: false,
+  // optionsSuccessStatus: 204,
   credentials:true,
+
   
 }))
 

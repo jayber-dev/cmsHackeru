@@ -17,8 +17,8 @@ app.use(session({
     maxAge: 86400000,
     sameSite:"none",
     secure:true, 
-    httpOnly:true,
-    path:"/" 
+    // httpOnly:true,
+    // path:"/" 
   },
 
     store: new MemoryStore({
@@ -34,8 +34,8 @@ app.use(session({
 
 app.use(cors({
   origin:'https://cmshackeru.com',
-  allowedHeaders:['Accept','Content-Type','x-requested-with','application/json','text/plain','*/*'],
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders:['Accept','Content-Type','x-requested-with'],
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
   preflightContinue: false,
   optionsSuccessStatus: 204,
   credentials:true,

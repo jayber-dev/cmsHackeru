@@ -1,1 +1,1 @@
-cmsFront/dist/cms-front/*  Access-Control-Allow-Origin: true 
+cmsFront/dist/cms-front/*  Access-Control-Allow-Origin: "https://cmshackeru.onrender.com/" 

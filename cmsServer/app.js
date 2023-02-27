@@ -38,7 +38,7 @@ app.use(cors({
   allowedHeaders:['Accept','Content-Type','x-requested-with'],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
   preflightContinue: false,
-  optionsSuccessStatus: 204,
+  // optionsSuccessStatus: 204,
   credentials:true,
   
   

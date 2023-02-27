@@ -19,7 +19,7 @@ app.use(session({
     secure:true, 
     httpOnly:true,
     path:"/",
-    domain:"cmshackeru.com" 
+    
   },
 
     store: new MemoryStore({

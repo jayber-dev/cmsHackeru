@@ -36,8 +36,8 @@ app.use(cors({
   origin:'https://cmshackeru.com',
   allowedHeaders:['Accept','Content-Type','x-requested-with','application/json','text/plain','*/*'],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  // preflightContinue: false,
-  // optionsSuccessStatus: 204,
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
   credentials:true,
   
   

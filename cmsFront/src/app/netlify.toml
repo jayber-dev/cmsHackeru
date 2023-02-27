@@ -3,5 +3,5 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Access-Control-Allow-Origin = "https://cmshackeru.onrender.com/",
+    Access-Control-Allow-Origin = "true"
 ...

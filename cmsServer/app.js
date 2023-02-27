@@ -17,8 +17,9 @@ app.use(session({
     maxAge: 86400000,
     sameSite:"none",
     secure:true, 
-    // httpOnly:true,
-    // path:"/" 
+    httpOnly:true,
+    path:"/",
+    domain:"cmshackeru.com" 
   },
 
     store: new MemoryStore({

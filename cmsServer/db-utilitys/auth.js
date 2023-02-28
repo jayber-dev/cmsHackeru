@@ -25,16 +25,16 @@ function makeConnection(){
     return conn
 }
 
-function authGuard(req, res, next) {
-    console.log("in auth guard");
-    console.log(req.session.user);
-    if(!req.session.user) {
-        res.sendStatus(401);
-    } else{
-        next();
-    }
+// function authGuard(req, res, next) {
+//     console.log("in auth guard");
+//     console.log(req.session.user);
+//     if(!req.session.user) {
+//         res.sendStatus(401);
+//     } else{
+//         next();
+//     }
    
-}
+// }
 
 
 function login (req,res,next){

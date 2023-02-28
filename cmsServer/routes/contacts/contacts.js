@@ -7,7 +7,7 @@ contacts.use((req, res, next) => {
     next()
 })
 
-contacts.get('/', contactsUtil.getContacts, auth.authGuard, (req, res) => { })
+contacts.get('/',auth.authGuard, contactsUtil.getContacts, (req, res) => { })
 
 contacts.get('/getAll', auth.authGuard, contactsUtil.getAllContacts, (req, res) => { })
 

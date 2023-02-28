@@ -31,7 +31,7 @@ function authGuard(req, res, next) {
     if(req.session.user) {
         next()
     } else {
-        res.sendStatus(503)
+        res.sendStatus(401)
     }
 }
 

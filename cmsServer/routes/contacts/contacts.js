@@ -9,7 +9,7 @@ contacts.use((req, res, next) => {
 
 contacts.get('/',contactsUtil.getContacts,auth.authGuard, (req,res) => {})
 
-contacts.get('/getAll',contactsUtil.getAllContacts, (req,res) => {})
+contacts.get('/getAll',auth.authGuard,contactsUtil.getAllContacts, (req,res) => {})
 
 contacts.get('/contact/:id', contactsUtil.getSingleContact,(req,res,next) =>{})
 

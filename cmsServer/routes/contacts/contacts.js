@@ -1,12 +1,13 @@
 const express = require('express');
 const contactsUtil = require('../../db-utilitys/contacts')
+const auth = require('../../db-utilitys/auth')
 const contacts = express.Router()
 
 contacts.use((req, res, next) => {
     next()
 })
 
-contacts.get('/',contactsUtil.getContacts, (req,res) => {})
+contacts.get('/',contactsUtil.getContacts,auth.authGuard, (req,res) => {})
 
 contacts.get('/getAll',contactsUtil.getAllContacts, (req,res) => {})
 

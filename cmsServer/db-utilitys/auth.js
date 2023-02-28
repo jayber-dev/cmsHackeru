@@ -9,6 +9,8 @@ async function checkPasswordMatch(plainPass, hashPass) {
     return await bcrypt.compare(plainPass,hashPass)   
 }
 
+
+
 function makeConnection(){
     // connection to remote db server with connection timeout have to connect for each request
     // will use pooling in the future
@@ -21,6 +23,14 @@ function makeConnection(){
     })
 
     return conn
+}
+
+function authGuard(req, res, next) {
+    if(req.session.user) {
+        next()
+    } else {
+        res.send(503)
+    }
 }
 
 
@@ -83,7 +93,7 @@ function isAuthenticated (req, res, next) {
     }
 }
 
-
+exports.authGuard = authGuard
 exports.isAuthenticated = isAuthenticated
 exports.login = login
 exports.logout = logout

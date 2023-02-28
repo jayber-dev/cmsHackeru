@@ -26,6 +26,8 @@ function makeConnection(){
 }
 
 function authGuard(req, res, next) {
+    console.log("in auth guard");
+    console.log(req.session.user);
     if(req.session.user) {
         next()
     } else {
@@ -35,7 +37,6 @@ function authGuard(req, res, next) {
 
 
 function login (req,res,next){
-    console.log('im here');
     const conn = makeConnection()
     conn.then((conn) => {
         conn.execute('select id,email,password FROM users where email=?',[req.body.email]).then((data) => {     
@@ -76,15 +77,11 @@ function signup(req,res) {
 }
 
 function logout(req,res,next){ 
-    console.log("in logout");
-    console.log(req.session.user);
     req.session.destroy()   
-    console.log(req.session?.user)
     res.send({"isLogged":false,})
 }
 
 function isAuthenticated (req, res, next) {
-    // console.log(req.session.user)
     if(!req.session.user){
         return res.json({"isLogged":false})
     }

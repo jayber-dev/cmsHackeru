@@ -62,7 +62,7 @@ function addCostumer(req,res){
 
     let query = `INSERT INTO costumers (first_name,last_name,email,phone,state,country,city,street,house_number,zip_code,notes) values ('${data.firstName}','${data.lastName}','${data.email}','${data.phone}','${data.state}','${data.country}','${data.city}','${data.street}','${data.houseNumber}','${data.zipCode}','${data.notes}')`
     conn.execute(query, (err,row,fields)=>{
-        if (err) throw err
+        if (err) console.log(err)
     })
 
     conn.end()

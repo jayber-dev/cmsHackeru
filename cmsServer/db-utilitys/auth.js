@@ -28,11 +28,10 @@ function makeConnection(){
 function authGuard(req, res, next) {
     console.log("in auth guard");
     console.log(req.session.user);
-    if(req.session.user) {
-        next()
-    } else {
-        res.sendStatus(401)
-    }
+    if(!req.session.user) {
+        res.sendStatus(401);
+    } 
+    next();
 }
 
 

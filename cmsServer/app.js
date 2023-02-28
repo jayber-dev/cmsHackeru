@@ -18,7 +18,7 @@ app.use(session({
     sameSite:"none",
     secure:true, 
     httpOnly:true,
-    path:"/",
+    path:"https://cmshackeru.com",
     
   },
 

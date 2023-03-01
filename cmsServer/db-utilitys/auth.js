@@ -18,12 +18,11 @@ function encryptToken(userData){
         email:userData.email
     }
     return crypto.AES.encrypt(JSON.stringify(userData), process.env.SECRET_KEY).toString()
-    
-    
 }
 
 function decryptToken(cipher){
     bytes  = crypto.AES.decrypt(cipher, process.env.SECRET_KEY);
+    return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 }
 function makeConnection(){
     // connection to remote db server with connection timeout have to connect for each request
@@ -112,6 +111,7 @@ function logout(req,res,next){
 }
 
 function isAuthenticated (req, res, next) {
+    console.log(req.body)
     if(!req.session.user){
         return res.json({"isLogged":false})
     }

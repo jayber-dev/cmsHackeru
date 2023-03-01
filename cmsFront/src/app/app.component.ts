@@ -2,6 +2,7 @@ import { Component,OnInit,OnDestroy, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilService } from './services/utilService/util.service';
 import { httpService } from './services/httpService/http.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { httpService } from './services/httpService/http.service';
 export class AppComponent implements OnInit {
   constructor(
     private util:UtilService,
-    
+    private cookieService:CookieService
     private router:Router,
     private http:httpService,
   ){}
@@ -21,7 +22,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
   
     
-    this.http.post('auth/auth',{}).subscribe(data => {
+    this.http.post('auth/auth',{t:this.cookieService.get('log')}).subscribe(data => {
       if(!data['isLogged']) {
         this.router.navigateByUrl('about')
       }

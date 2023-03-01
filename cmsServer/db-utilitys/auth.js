@@ -109,6 +109,16 @@ function isAuthenticated (req, res, next) {
     
     token = decryptToken(req.body.t)
     console.log(token);
+
+    const conn = makeConnection()
+    conn.then(conn => {
+        const query = `SELECT * FROM users WHERE id=${token['id']}`
+        conn.execute(query, (result) =>{
+            console.log(result);
+        }).catch(err => {
+            console.log(err);
+        })
+    })
     if(!req.session.user){
         return res.json({"isLogged":false})
     }

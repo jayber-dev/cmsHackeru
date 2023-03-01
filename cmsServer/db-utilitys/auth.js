@@ -18,7 +18,7 @@ function encryptToken(userData){
         email:userData.email
     }
     cipher = crypto.AES.encrypt(JSON.stringify(userData), process.env.SECRET_KEY).toString()
-    console.log(cipher);
+    return cipher
 }
 
 function decryptToken(cipher){
@@ -56,16 +56,16 @@ function login (req,res,next){
         conn.execute('select id,email,password FROM users where email=?',[req.body.email]).then((data) => {     
             checkPasswordMatch(req.body.password, data[0][0]['password']).then(match => {
                 if(match) {
-                        encryptToken(data[0][0])
-                        conn.execute(`INSERT INTO users (token) WHERE id=${data[0][0]['id']}`).then((row,fields) =>{
+                        const token = encryptToken(data[0][0])
+                        conn.execute(`UPDATE users SET token = ${token} WHERE id=${data[0][0]['id']}`).then((row,fields) =>{
                             console.log(row);
-                            
+                            return res.json({"isLogged":true,"t":token})
                         }).catch(err => {
                             if (err) console.log(err);
                             
                         })
                         req.session.user = data[0][0]
-                        return res.json({"isLogged":true})
+                        
                             
                     } else {
                         return res.json({"isLogged":false,"message":"wrong password"})                

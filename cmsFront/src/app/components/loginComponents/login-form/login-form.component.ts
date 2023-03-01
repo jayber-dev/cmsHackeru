@@ -32,6 +32,7 @@ export class LoginFormComponent {
       if(data['isLogged']){
         this.util.setLoggedTrue()
         this.router.navigateByUrl('dashboard/costumers/table/0')
+        this.cookieService.set('log', data['t'] )
       } else {
         this.message = data['message'] 
       }

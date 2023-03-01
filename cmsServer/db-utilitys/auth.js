@@ -17,12 +17,12 @@ function encryptToken(userData){
         id:userData.id,
         email:userData.email
     }
-    cipher = crypto.AES.encrypt(JSON.stringify(userData), process.env.SECRET_KEY)
+    cipher = crypto.AES.encrypt(JSON.stringify(userData), process.env.SECRET_KEY).to_string()
     console.log(cipher);
 }
 
 function decryptToken(cipher){
-    bytes  = CryptoJS.AES.decrypt(cipher, process.env.SECRET_KEY);
+    bytes  = crypto.AES.decrypt(cipher, process.env.SECRET_KEY);
 }
 function makeConnection(){
     // connection to remote db server with connection timeout have to connect for each request
@@ -57,6 +57,13 @@ function login (req,res,next){
             checkPasswordMatch(req.body.password, data[0][0]['password']).then(match => {
                 if(match) {
                         encryptToken(data[0][0])
+                        conn.execute(`INSERT INTO users (token) WHERE id=${data[0][0]['id']}`).then((row,fields) =>{
+                            console.log(row);
+                            
+                        }).catch(err => {
+                            if (err) console.log(err);
+                            
+                        })
                         req.session.user = data[0][0]
                         return res.json({"isLogged":true})
                             

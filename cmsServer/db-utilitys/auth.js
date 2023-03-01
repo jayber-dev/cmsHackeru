@@ -57,7 +57,8 @@ function login (req,res,next){
             checkPasswordMatch(req.body.password, data[0][0]['password']).then(match => {
                 if(match) {
                         const token = encryptToken(data[0][0])
-                        conn.execute(`UPDATE users SET token = '${token}' WHERE id=${data[0][0]['id']}`).then((row,fields) =>{
+                        const query = `UPDATE users SET token='${token}' WHERE id=${data[0][0]['id']}`
+                        conn.execute(query).then((row,fields) =>{
                             console.log(row);
                             return res.json({"isLogged":true,"t":token})
                         }).catch(err => {

@@ -34,7 +34,7 @@ export class LoginFormComponent {
         this.router.navigateByUrl('dashboard/costumers/table/0')
         console.log(data);
         
-        this.cookieService.set('log', data['t'] )
+        this.cookieService.set('log', data['t'],{expires:1}  )
       } else {
         this.message = data['message'] 
       }

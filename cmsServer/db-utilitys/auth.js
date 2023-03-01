@@ -113,7 +113,7 @@ function isAuthenticated (req, res, next) {
     const conn = makeConnection()
     conn.then(conn => {
         const query = `SELECT * FROM users WHERE id=${token['id']}`
-        conn.execute(query, (result) =>{
+        conn.execute(query).then(result =>{
             console.log(result);
         }).catch(err => {
             console.log(err);

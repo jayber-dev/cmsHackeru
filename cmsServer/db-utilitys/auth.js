@@ -106,7 +106,9 @@ function logout(req,res,next){
 }
 
 function isAuthenticated (req, res, next) {
-    console.log(req.body)
+    
+    token = decryptToken(req.body.t)
+    console.log(token);
     if(!req.session.user){
         return res.json({"isLogged":false})
     }

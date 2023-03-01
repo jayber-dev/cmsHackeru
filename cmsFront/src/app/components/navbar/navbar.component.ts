@@ -3,7 +3,7 @@ import { Component,Input,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { httpService } from 'src/app/services/httpService/http.service';
 import { UtilService } from 'src/app/services/utilService/util.service';
-
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -15,7 +15,8 @@ export class NavbarComponent implements OnInit {
     private util:UtilService,
     private router:Router,
     private http:httpService,
-    private authService:SocialAuthService
+    private authService:SocialAuthService,
+    private cookieService:CookieService
     ){
     
   }
@@ -23,7 +24,7 @@ export class NavbarComponent implements OnInit {
   
 
   logout(){
-    const logOut = this.http.post('auth/logout',{}).subscribe(data =>{
+    const logOut = this.http.post('auth/logout',{'t':this.cookieService.get('log')}).subscribe(data =>{
       console.log(data);
       this.util.setLoggedFalse()
       this.router.navigateByUrl('about')

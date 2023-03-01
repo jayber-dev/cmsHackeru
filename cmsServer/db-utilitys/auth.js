@@ -2,6 +2,7 @@ const connect = require('../sqlConnect').connect
 const mysql = require('mysql2/promise');
 const bcrypt = require('bcrypt');
 const crypto = require("crypto-js");
+const { query } = require('express');
 
 
 // ------------------ declerations ------------------
@@ -101,7 +102,17 @@ function signup(req,res) {
 }
 
 function logout(req,res,next){ 
-    req.session.destroy()   
+    token = decryptToken(req.body.t)
+    const conn = makeConnection()
+    
+    conn.then(conn =>{
+        query = `UPDATE users SET token = '' WHERE id = ${token['id']}`
+        conn.execute(query).than(res =>{
+            console.log(res);
+        }).catch(err =>{
+            console.log(err);
+        })
+    })
     res.send({"isLogged":false,})
 }
 

@@ -13,11 +13,13 @@ async function checkPasswordMatch(plainPass, hashPass) {
 
 function encryptToken(userData){
     console.log(userData);
-    cipher = crypto.AES.encrypt(userData, process.env.SECRET_KEY)
+    cipher = crypto.AES.encrypt(JSON.stringify(userData), process.env.SECRET_KEY)
     console.log(cipher);
 }
 
-
+function decryptToken(cipher){
+    bytes  = CryptoJS.AES.decrypt(cipher, process.env.SECRET_KEY);
+}
 function makeConnection(){
     // connection to remote db server with connection timeout have to connect for each request
     // will use pooling in the future

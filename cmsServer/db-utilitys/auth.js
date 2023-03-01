@@ -66,7 +66,8 @@ function login (req,res,next){
                     }).catch(err => {
                         if (err) console.log(err);
                         
-                    })        
+                    }) 
+                    conn.end()       
                 } else {
                     res.json({"isLogged":false,"message":"wrong password"})                
                 }
@@ -77,7 +78,7 @@ function login (req,res,next){
         }).catch(err => {
             res.json({message:"Email Does Not Exist"})           
         })
-        conn.end()
+        
     })  
     
 }

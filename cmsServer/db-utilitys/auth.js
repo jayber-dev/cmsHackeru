@@ -1,6 +1,8 @@
 const connect = require('../sqlConnect').connect
 const mysql = require('mysql2/promise');
 const bcrypt = require('bcrypt');
+const crypto = require("crypto-js");
+
 
 // ------------------ declerations ------------------
 const saltRounds = 10;
@@ -9,6 +11,12 @@ async function checkPasswordMatch(plainPass, hashPass) {
     return await bcrypt.compare(plainPass,hashPass)   
 }
 
+function encryptToken(userData){
+    console.log(userData);
+    cipher = crypto.AES.encrypt(userData, process.env.SECRET_KEY)
+    console.log(cipher);
+    
+}
 
 
 function makeConnection(){

@@ -34,7 +34,7 @@ app.use(session({
 }))
 
 app.use(cors({
-  origin:'https://cmshackeru.com',
+  origin:['https://cmshackeru.com',true],
   allowedHeaders:['Accept','Content-Type','x-requested-with'],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
   preflightContinue: false,

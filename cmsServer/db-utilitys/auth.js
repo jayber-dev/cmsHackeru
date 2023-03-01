@@ -91,7 +91,7 @@ function isAuthenticated (req, res, next) {
     }
 }
 
-exports.authGuard = authGuard
+
 exports.isAuthenticated = isAuthenticated
 exports.login = login
 exports.logout = logout

@@ -22,7 +22,7 @@ function encryptToken(userData){
 
 function decryptToken(cipher){
     bytes  = crypto.AES.decrypt(cipher, process.env.SECRET_KEY);
-    return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+    return JSON.parse(bytes.toString(crypto.enc.Utf8));
 }
 function makeConnection(){
     // connection to remote db server with connection timeout have to connect for each request

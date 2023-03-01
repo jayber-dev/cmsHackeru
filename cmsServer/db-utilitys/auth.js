@@ -115,7 +115,7 @@ function isAuthenticated (req, res, next) {
         const query = `SELECT * FROM users WHERE id=${token['id']}`
         conn.execute(query).then(result =>{
             console.log(result[0][0]);
-            if(req.session.user){
+            if(result[0][0]){
                 return res.json({"isLogged":true})
             }
         }).catch(err => {

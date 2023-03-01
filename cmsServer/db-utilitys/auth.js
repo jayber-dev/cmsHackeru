@@ -65,7 +65,7 @@ function login (req,res,next){
                             if (err) console.log(err);
                             
                         })
-                        req.session.user = data[0][0]
+                        // req.session.user = data[0][0]
                         
                             
                     } else {

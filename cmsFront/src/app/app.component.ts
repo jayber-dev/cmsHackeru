@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
   
   ngOnInit(): void {
   
-    
-    this.http.post('auth/auth',{t:this.cookieService.get('log')}).subscribe(data => {
+    console.log(this.cookieService.get('log'));
+    this.http.post('auth/auth',{'t':this.cookieService.get('log')}).subscribe(data => {
       if(!data['isLogged']) {
         this.router.navigateByUrl('about')
       }

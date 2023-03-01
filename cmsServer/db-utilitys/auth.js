@@ -17,8 +17,8 @@ function encryptToken(userData){
         id:userData.id,
         email:userData.email
     }
-    cipher = crypto.AES.encrypt(JSON.stringify(userData), process.env.SECRET_KEY).to_string()
-    console.log(cipher);
+    cipher = crypto.AES.encrypt(JSON.stringify(userData), process.env.SECRET_KEY)
+    console.log(cipher.ciphertext);
 }
 
 function decryptToken(cipher){

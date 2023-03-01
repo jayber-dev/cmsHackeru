@@ -13,6 +13,10 @@ async function checkPasswordMatch(plainPass, hashPass) {
 
 function encryptToken(userData){
     console.log(userData);
+    toEncrypt = {
+        id:userData.id,
+        email:userData.email
+    }
     cipher = crypto.AES.encrypt(JSON.stringify(userData), process.env.SECRET_KEY)
     console.log(cipher);
 }
@@ -59,6 +63,9 @@ function login (req,res,next){
                     } else {
                         return res.json({"isLogged":false,"message":"wrong password"})                
                     }
+            }).catch(err =>{
+                if (err) console.log(err);
+                
             })  
         }).catch(err => {
             res.json({message:"Email Does Not Exist"})           

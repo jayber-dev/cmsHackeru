@@ -11,13 +11,13 @@ async function checkPasswordMatch(plainPass, hashPass) {
     return await bcrypt.compare(plainPass,hashPass)   
 }
 
-function encryptToken(userData){
+async function encryptToken(userData){
     console.log(userData);
     toEncrypt = {
         id:userData.id,
         email:userData.email
     }
-    cipher = crypto.AES.encrypt(JSON.stringify(userData), process.env.SECRET_KEY).toString()
+    cipher = await crypto.AES.encrypt(JSON.stringify(userData), process.env.SECRET_KEY).toString()
     return cipher
 }
 
@@ -56,20 +56,20 @@ function login (req,res,next){
         conn.execute('select id,email,password FROM users where email=?',[req.body.email]).then((data) => {     
             checkPasswordMatch(req.body.password, data[0][0]['password']).then(match => {
                 if(match) {
-                    const token = ""
+                    let token = ""
                     setTimeout(() => {token = encryptToken(data[0][0])},0)
                         
-                        const query = `UPDATE users SET token='${token}' WHERE id=${data[0][0]['id']}`
-                        conn.execute(query).then((row,fields) =>{
-                            console.log(row);
-                            return res.json({"isLogged":true,"t":token})
-                        }).catch(err => {
-                            if (err) console.log(err);
-                            
-                        })        
-                    } else {
-                        return res.json({"isLogged":false,"message":"wrong password"})                
-                    }
+                    const query = `UPDATE users SET token='${token}' WHERE id=${data[0][0]['id']}`
+                    conn.execute(query).then((row,fields) =>{
+                        console.log(row);
+                        res.json({"isLogged":true,"t":token})
+                    }).catch(err => {
+                        if (err) console.log(err);
+                        
+                    })        
+                } else {
+                    res.json({"isLogged":false,"message":"wrong password"})                
+                }
             }).catch(err =>{
                 if (err) console.log(err);
                 

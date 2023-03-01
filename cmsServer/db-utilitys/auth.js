@@ -56,7 +56,9 @@ function login (req,res,next){
         conn.execute('select id,email,password FROM users where email=?',[req.body.email]).then((data) => {     
             checkPasswordMatch(req.body.password, data[0][0]['password']).then(match => {
                 if(match) {
-                        const token = encryptToken(data[0][0])
+                    const token = ""
+                    setTimeout(() => {token = encryptToken(data[0][0])},0)
+                        
                         const query = `UPDATE users SET token='${token}' WHERE id=${data[0][0]['id']}`
                         conn.execute(query).then((row,fields) =>{
                             console.log(row);
@@ -64,10 +66,7 @@ function login (req,res,next){
                         }).catch(err => {
                             if (err) console.log(err);
                             
-                        })
-                        // req.session.user = data[0][0]
-                        
-                            
+                        })        
                     } else {
                         return res.json({"isLogged":false,"message":"wrong password"})                
                     }
@@ -78,9 +77,9 @@ function login (req,res,next){
         }).catch(err => {
             res.json({message:"Email Does Not Exist"})           
         })
-        
+        conn.end()
     })  
-    conn.end()
+    
 }
 
 function signup(req,res) {

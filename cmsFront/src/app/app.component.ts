@@ -12,7 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class AppComponent implements OnInit {
   constructor(
     private util:UtilService,
-    private cookieService:CookieService
+    private cookieService:CookieService,
     private router:Router,
     private http:httpService,
   ){}

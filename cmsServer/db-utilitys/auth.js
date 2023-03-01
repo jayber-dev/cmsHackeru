@@ -11,16 +11,15 @@ async function checkPasswordMatch(plainPass, hashPass) {
     return await bcrypt.compare(plainPass,hashPass)   
 }
 
-async function encryptToken(userData){
+function encryptToken(userData){
     console.log(userData);
     toEncrypt = {
         id:userData.id,
         email:userData.email
     }
-    cipher = await new Promise((resolve,reject) => {
-        resolve(crypto.AES.encrypt(JSON.stringify(userData), process.env.SECRET_KEY).toString())
-    }) 
-    return cipher
+    return crypto.AES.encrypt(JSON.stringify(userData), process.env.SECRET_KEY).toString()
+    
+    
 }
 
 function decryptToken(cipher){

@@ -18,7 +18,6 @@ auth.post('/googleLogin', (req, res) => {
         id: req.body.id,
         email: req.body.email
     }
-    req.session.user = user
     res.json({ "isLogged": true, })
 })
 

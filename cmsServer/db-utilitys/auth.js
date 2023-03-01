@@ -15,7 +15,6 @@ function encryptToken(userData){
     console.log(userData);
     cipher = crypto.AES.encrypt(userData, process.env.SECRET_KEY)
     console.log(cipher);
-    
 }
 
 
@@ -51,6 +50,7 @@ function login (req,res,next){
         conn.execute('select id,email,password FROM users where email=?',[req.body.email]).then((data) => {     
             checkPasswordMatch(req.body.password, data[0][0]['password']).then(match => {
                 if(match) {
+                        encryptToken(data[0][0])
                         req.session.user = data[0][0]
                         return res.json({"isLogged":true})
                             

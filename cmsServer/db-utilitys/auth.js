@@ -17,8 +17,8 @@ function encryptToken(userData){
         id:userData.id,
         email:userData.email
     }
-    cipher = crypto.AES.encrypt(JSON.stringify(userData), process.env.SECRET_KEY)
-    console.log(cipher.ciphertext);
+    cipher = crypto.AES.encrypt(JSON.stringify(userData), process.env.SECRET_KEY).toString()
+    console.log(cipher);
 }
 
 function decryptToken(cipher){
@@ -77,8 +77,9 @@ function login (req,res,next){
         }).catch(err => {
             res.json({message:"Email Does Not Exist"})           
         })
-        conn.end()
+        
     })  
+    conn.end()
 }
 
 function signup(req,res) {

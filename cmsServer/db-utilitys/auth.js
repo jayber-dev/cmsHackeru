@@ -148,3 +148,4 @@ exports.isAuthenticated = isAuthenticated
 exports.login = login
 exports.logout = logout
 exports.signup = signup
+exports.encryptToken = encryptToken

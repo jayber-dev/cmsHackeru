@@ -13,12 +13,9 @@ auth.use((req, res, next) => {
 auth.post('/login', util.login, (req, res) => { })
 
 auth.post('/googleLogin', (req, res) => {
-
-    const user = {
-        id: req.body.id,
-        email: req.body.email
-    }
-    res.json({ "isLogged": true, })
+    const token = util.encryptToken(req.body)
+    
+    res.json({ "isLogged": true,"t":token })
 })
 
 auth.post('/signup', util.signup, (req, res) => { })

@@ -54,7 +54,7 @@ export class UsersConnectionsComponent implements OnChanges {
     })
 
     if (this.router.url.match('costumers')) {
-      const retrive = this.http.get(`costumers/getAll`,{t:this.cookieService.get('log')}).subscribe((data) => {
+      const retrive = this.http.get(`costumers/getAll`,{this.cookieService.get('log')}).subscribe((data) => {
           this.data = data;
 
           for(let i of this.data) {
@@ -65,7 +65,7 @@ export class UsersConnectionsComponent implements OnChanges {
     }
 
     if (this.router.url.match('contacts')) {
-      const retrive = this.http.get(`contacts/getAll`,{t:this.cookieService.get('log')}).subscribe((data) => {
+      const retrive = this.http.get(`contacts/getAll`,{this.cookieService.get('log')}).subscribe((data) => {
         this.data = data;
         for(let i of this.data) {
           this.showBy.add(i.country);  

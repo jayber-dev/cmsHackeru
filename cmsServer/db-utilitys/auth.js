@@ -89,9 +89,18 @@ function login (req,res,next){
 
 
 function googleLogin(req,res) {
-    const token = util.encryptToken(req.body)
+    const token = encryptToken(req.body)
     console.log(req.body);
-    
+    const conn = makeConnection()
+    conn.then(conn => {
+        const query = `INSERT INTO google_users (id,email,token) values ('${req.body.id}','${req.body.email}','${token}')`
+        conn.execute(query).then(res =>{
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
+            
+        })
+    })
     res.json({ "isLogged": true,"t":token })
 }
 

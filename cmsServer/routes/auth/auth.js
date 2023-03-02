@@ -12,9 +12,7 @@ auth.use((req, res, next) => {
 
 auth.post('/login', util.login, (req, res) => { })
 
-auth.post('/googleLogin',util.googleLogin, (req, res) => {
-    
-})
+auth.post('/googleLogin',util.googleLogin, (req, res) => {})
 
 auth.post('/signup', util.signup, (req, res) => { })
 

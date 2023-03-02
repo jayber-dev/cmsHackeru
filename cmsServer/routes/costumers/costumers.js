@@ -9,7 +9,7 @@ costumers.use((req, res, next) => {
 
 costumers.get('/', costumersUtil.getCostumers, (req, res) => { })
 
-costumers.get('/getAll', costumersUtil.getAllCostumers, (req, res) => { })
+costumers.get('/getAll', auth.isAuthorized ,costumersUtil.getAllCostumers, (req, res) => { })
 
 costumers.get('/costumer/:id', costumersUtil.getSingleCostumer, (req, res, next) => { })
 

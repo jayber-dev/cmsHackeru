@@ -15,21 +15,7 @@ async function checkPasswordMatch(plainPass, hashPass) {
     return await bcrypt.compare(plainPass,hashPass)   
 }
 
-async function verify(token) {
-    console.log(token);
-    
-    const ticket = await client.verifyIdToken({
-        idToken: token,
-        audience: process.env.CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
-        // Or, if multiple clients access the backend:
-        //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
-    });
-    const payload = ticket.getPayload();
-    const userid = payload['sub'];
-    // If request specified a G Suite domain:
-    // const domain = payload['hd'];
-  }
-  verify().catch(console.error);
+
 
 function encryptToken(userData){
     
@@ -102,8 +88,26 @@ function login (req,res,next){
     })  
 }
 
+async function verify(token) {
+    console.log(token);
+    
+    const ticket = await client.verifyIdToken({
+        idToken: token,
+        audience: process.env.CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
+        // Or, if multiple clients access the backend:
+        //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+    });
+    const payload = ticket.getPayload();
+    const userid = payload['sub'];
+    // If request specified a G Suite domain:
+    // const domain = payload['hd'];
+  }
+  verify().catch(console.error);
+
 function googleLogin(req,res) {
     // const token = util.encryptToken(req.body)
+    console.log(req.body);
+    
     verify(req.body.idToken)
     res.json({ "isLogged": true,"t":token })
 }

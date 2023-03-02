@@ -136,11 +136,8 @@ function logout(req,res,next){
 }
 
 function isAuthenticated (req, res, next) {
-    try{
-        const token = decryptToken(req.body.t)
-    } catch {
-    }
     
+    const token = decryptToken(req.body.t)
     const conn = makeConnection()
 
     conn.then(conn => {

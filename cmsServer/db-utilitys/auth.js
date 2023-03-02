@@ -7,7 +7,7 @@ const { query } = require('express');
 
 // ------------------ declerations ------------------
 const saltRounds = 10;
-const client = new OAuth2Client(process.env.CLIENT_ID)
+
 
 // ------------------------- encryption decryption functions use functions -------------------------------
 async function checkPasswordMatch(plainPass, hashPass) {

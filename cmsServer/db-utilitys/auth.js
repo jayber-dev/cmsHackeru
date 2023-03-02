@@ -106,7 +106,7 @@ function logout(req,res,next){
     const conn = makeConnection()
     
     conn.then(conn =>{
-        query = `UPDATE users SET token = '' WHERE id = ${token['id']}`
+        const query = `UPDATE users SET token = '' WHERE id = ${token['id']}`
         conn.execute(query).than(res =>{
             console.log(res);
         }).catch(err =>{

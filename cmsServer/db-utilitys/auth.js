@@ -97,7 +97,14 @@ function googleLogin(req,res) {
         conn.execute(query).then(res =>{
             console.log(res);
         }).catch(err => {
-            console.log(err);
+            const query = `UPDATE google_users set token='${token}' WHERE id = ${req.body.id}`
+            conn.execute(query).then(res =>{
+                console.log(res);
+                
+            }).catch(err =>{
+                console.log(err);
+                
+            })
             
         })
     })

@@ -143,21 +143,15 @@ function isAuthenticated (req, res, next) {
     })    
 }
 
-function isAuthorized(req, res, next) {
-    console.log("in auth guard");
-    console.log(req.params)
-    console.log(req.query['log'])
-    console.log(req.query['t'])
-    console.log(req.query['params'])
-    
-    
+// function isAuthorized(req, res, next) {
+     
     // if(!req.session.user) {
     //     res.sendStatus(401);
     // } else{
     //     next();
     // }
    
-}
+// }
 
 
 exports.isAuthenticated = isAuthenticated

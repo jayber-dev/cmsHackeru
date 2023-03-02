@@ -91,10 +91,13 @@ function login (req,res,next){
 function googleLogin(req,res) {
     const token = encryptToken(req.body)
     const conn = makeConnection()
-
+    console.log('in google login:');
+    
     conn.then(conn => {
         const query = `INSERT INTO google_users (id,email,token) values ('${req.body.id}','${req.body.email}','${token}')`
         conn.execute(query).then(res =>{}).catch(err => {
+            console.log('there is duplicate in catch');   
+            console.log(token);
             const query = `UPDATE google_users set token='${token}' WHERE id = ${req.body.id}`
             conn.execute(query).then(res =>{
                 console.log(res);

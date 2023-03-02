@@ -1,2 +1,2 @@
-TODO: add return in login try catch
-TODO: add signup user with bcrypt
+DONE: add return in login try catch
+DONE: add signup user with bcrypt

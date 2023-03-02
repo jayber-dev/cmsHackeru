@@ -3,14 +3,33 @@ const mysql = require('mysql2/promise');
 const bcrypt = require('bcrypt');
 const crypto = require("crypto-js");
 const { query } = require('express');
+const {OAuth2Client} = require('google-auth-library');
 
 
 // ------------------ declerations ------------------
 const saltRounds = 10;
+const client = new OAuth2Client(process.env.CLIENT_ID)
 
+// ------------------------- encryption decryption functions use functions -------------------------------
 async function checkPasswordMatch(plainPass, hashPass) {
     return await bcrypt.compare(plainPass,hashPass)   
 }
+
+async function verify(token) {
+    console.log(token);
+    
+    const ticket = await client.verifyIdToken({
+        idToken: token,
+        audience: process.env.CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
+        // Or, if multiple clients access the backend:
+        //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+    });
+    const payload = ticket.getPayload();
+    const userid = payload['sub'];
+    // If request specified a G Suite domain:
+    // const domain = payload['hd'];
+  }
+  verify().catch(console.error);
 
 function encryptToken(userData){
     
@@ -25,6 +44,9 @@ function decryptToken(cipher){
     bytes  = crypto.AES.decrypt(cipher, process.env.SECRET_KEY);
     return JSON.parse(bytes.toString(crypto.enc.Utf8));
 }
+
+// -------------------------------------- MYSQL connection function------------------------------
+
 function makeConnection(){
     // connection to remote db server with connection timeout have to connect for each request
     // will use pooling in the future
@@ -50,6 +72,7 @@ function makeConnection(){
    
 // }
 
+// ---------------------------------- End points handler functions ---------------------------------------------
 
 function login (req,res,next){
     const conn = makeConnection()
@@ -76,9 +99,13 @@ function login (req,res,next){
         }).catch(err => {
             res.json({message:"Email Does Not Exist"})           
         })
-        
     })  
-    
+}
+
+function googleLogin(req,res) {
+    // const token = util.encryptToken(req.body)
+    verify(req.body.idToken)
+    res.json({ "isLogged": true,"t":token })
 }
 
 function signup(req,res) {
@@ -97,14 +124,12 @@ function signup(req,res) {
                 conn.end()
             })
         })
-    })
-    
+    }) 
 }
 
 function logout(req,res,next){ 
     const token = decryptToken(req.body.t)
     const conn = makeConnection()
-    
 
     conn.then(conn => {
         let query = `UPDATE users SET token = '' WHERE id = ${token['id']}`
@@ -138,9 +163,7 @@ function isAuthenticated (req, res, next) {
                 return res.json({"isLogged":false})
             }
         })
-    })
-    
-    
+    })    
 }
 
 
@@ -148,4 +171,4 @@ exports.isAuthenticated = isAuthenticated
 exports.login = login
 exports.logout = logout
 exports.signup = signup
-exports.encryptToken = encryptToken
+exports.googleLogin = googleLogin

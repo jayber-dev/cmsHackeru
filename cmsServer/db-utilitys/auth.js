@@ -26,8 +26,13 @@ function encryptToken(userData){
 }
 
 function decryptToken(cipher){
-    bytes  = crypto.AES.decrypt(cipher, process.env.SECRET_KEY);
-    return JSON.parse(bytes.toString(crypto.enc.Utf8));
+    try {
+        bytes  = crypto.AES.decrypt(cipher, process.env.SECRET_KEY);
+        return JSON.parse(bytes.toString(crypto.enc.Utf8));
+    } catch {
+        return {id:-1}
+    }
+    
 }
 
 // -------------------------------------- MYSQL connection function------------------------------

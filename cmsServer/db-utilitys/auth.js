@@ -154,7 +154,7 @@ function isAuthenticated (req, res, next) {
 
     const conn = makeConnection()
     conn.then(conn => {
-        const query = `SELECT * FROM users WHERE id=${token['id']}`
+        const query = `SELECT id,email FROM users WHERE id=${token['id']} UNION ALL SELECT id,email FROM google_users WHERE id=${token['id']}`
         conn.execute(query).then(result =>{
             console.log(result[0][0]);
             if(result[0][0]){
@@ -162,9 +162,7 @@ function isAuthenticated (req, res, next) {
             }
         }).catch(err => {
             console.log(err);
-            if(!req.session.user){
                 return res.json({"isLogged":false})
-            }
         })
     })    
 }

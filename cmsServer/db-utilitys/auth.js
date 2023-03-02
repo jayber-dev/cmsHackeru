@@ -105,16 +105,16 @@ function logout(req,res,next){
     const token = decryptToken(req.body.t)
     const conn = makeConnection()
     
-    conn.then(conn =>{
+
+    conn.then(conn => {
         let query = `UPDATE users SET token = '' WHERE id = ${token['id']}`
-        conn.execute(query).than(res =>{
+        conn.execute(query).then(res => {
             console.log(res);
         }).catch(err =>{
             console.log(err);
+            
         })
-    }).catch(err => {
-        console.log(err);
-        
+        conn.end()
     })
     res.send({"isLogged":false,})
 }

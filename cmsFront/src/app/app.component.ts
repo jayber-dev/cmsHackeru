@@ -23,9 +23,6 @@ export class AppComponent implements OnInit {
   
     if(this.cookieService.get('log')){
       this.http.post('auth/auth',{'t':this.cookieService.get('log')}).subscribe(data => {
-        if(!data['isLogged']) {
-          
-        }
         if(data['isLogged']) {
           this.util.setLoggedTrue()
           this.router.navigateByUrl('dashboard/costumers')

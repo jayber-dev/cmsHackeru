@@ -125,8 +125,8 @@ function logout(req,res,next){
     const conn = makeConnection()
 
     conn.then(conn => {
-        let regularQuery = `UPDATE users SET token = '' WHERE id = ${token['id']}`
-        let googleQuery = `UPDATE google_users SET token = '' WHERE id = ${token['id']}`
+        let regularQuery = `UPDATE users SET token = NULL WHERE id = ${token['id']}`
+        let googleQuery = `UPDATE google_users SET token = NULL WHERE id = ${token['id']}`
 
         conn.execute(regularQuery).then(res => {}).catch(err =>{})
         conn.execute(googleQuery).then(res=>{}).catch(err =>{})
@@ -146,7 +146,8 @@ function isAuthenticated (req, res, next) {
                 return res.json({"isLogged":true})
             }
         }).catch(err => {
-                return res.json({"isLogged":false})
+            return res.sendStatus(401)
+                // return res.json({"isLogged":false})
         })
     })    
 }

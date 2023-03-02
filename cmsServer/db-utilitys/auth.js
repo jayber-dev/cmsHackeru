@@ -102,16 +102,19 @@ function signup(req,res) {
 }
 
 function logout(req,res,next){ 
-    token = decryptToken(req.body.t)
+    const token = decryptToken(req.body.t)
     const conn = makeConnection()
     
     conn.then(conn =>{
-        const query = `UPDATE users SET token = '' WHERE id = ${token['id']}`
+        let query = `UPDATE users SET token = '' WHERE id = ${token['id']}`
         conn.execute(query).than(res =>{
             console.log(res);
         }).catch(err =>{
             console.log(err);
         })
+    }).catch(err => {
+        console.log(err);
+        
     })
     res.send({"isLogged":false,})
 }

@@ -146,6 +146,7 @@ function isAuthenticated (req, res, next) {
 function isAuthorized(req, res, next) {
     console.log("in auth guard");
     console.log(req.params)
+    console.log(req.query)
     
     
     // if(!req.session.user) {

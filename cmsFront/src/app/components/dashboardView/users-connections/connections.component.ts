@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { count } from 'rxjs';
 import { httpService } from 'src/app/services/httpService/http.service';
 
@@ -12,7 +13,8 @@ export class UsersConnectionsComponent implements OnChanges {
   constructor(
     private router: Router,
     private activatedRoute:ActivatedRoute,
-    private http:httpService
+    private http:httpService,
+    private cookieService:CookieService,
   ) {}
 
   data: any;
@@ -52,7 +54,7 @@ export class UsersConnectionsComponent implements OnChanges {
     })
 
     if (this.router.url.match('costumers')) {
-      const retrive = this.http.get(`costumers/getAll`,{}).subscribe((data) => {
+      const retrive = this.http.get(`costumers/getAll`,{t:this.cookieService.get('t')}).subscribe((data) => {
           this.data = data;
 
           for(let i of this.data) {
@@ -63,7 +65,7 @@ export class UsersConnectionsComponent implements OnChanges {
     }
 
     if (this.router.url.match('contacts')) {
-      const retrive = this.http.get(`contacts/getAll`,{}).subscribe((data) => {
+      const retrive = this.http.get(`contacts/getAll`,{t:this.cookieService.get('t')}).subscribe((data) => {
         this.data = data;
         for(let i of this.data) {
           this.showBy.add(i.country);  

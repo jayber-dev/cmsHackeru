@@ -46,16 +46,6 @@ function makeConnection(){
     return conn
 }
 
-// function authGuard(req, res, next) {
-//     console.log("in auth guard");
-//     console.log(req.session.user);
-//     if(!req.session.user) {
-//         res.sendStatus(401);
-//     } else{
-//         next();
-//     }
-   
-// }
 
 // ---------------------------------- End points handler functions ---------------------------------------------
 
@@ -153,8 +143,22 @@ function isAuthenticated (req, res, next) {
     })    
 }
 
+function isAuthorized(req, res, next) {
+    console.log("in auth guard");
+    console.log(req.params)
+    
+    
+    // if(!req.session.user) {
+    //     res.sendStatus(401);
+    // } else{
+    //     next();
+    // }
+   
+}
+
 
 exports.isAuthenticated = isAuthenticated
+exports.isAuthorized = isAuthorized
 exports.login = login
 exports.logout = logout
 exports.signup = signup

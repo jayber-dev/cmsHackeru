@@ -90,13 +90,11 @@ function login (req,res,next){
 
 function googleLogin(req,res) {
     const token = encryptToken(req.body)
-    console.log(req.body);
     const conn = makeConnection()
+
     conn.then(conn => {
         const query = `INSERT INTO google_users (id,email,token) values ('${req.body.id}','${req.body.email}','${token}')`
-        conn.execute(query).then(res =>{
-            console.log(res);
-        }).catch(err => {
+        conn.execute(query).then(res =>{}).catch(err => {
             const query = `UPDATE google_users set token='${token}' WHERE id = ${req.body.id}`
             conn.execute(query).then(res =>{
                 console.log(res);
@@ -135,10 +133,12 @@ function logout(req,res,next){
     const conn = makeConnection()
 
     conn.then(conn => {
-        let query = `UPDATE users SET token = '' WHERE id = ${token['id']}`
-        conn.execute(query).then(res => {
-            console.log(res);
-        }).catch(err =>{
+        let regularQuery = `UPDATE users SET token = '' WHERE id = ${token['id']}`
+        let googleQuery = `UPDATE google_users SET token = '' WHERE id = ${token['id']}`
+        conn.execute(regularQuery).then(res => {}).catch(err =>{
+            console.log(err);
+        })
+        conn.execute(googleQuery).then(res=>{}).catch(err =>{
             console.log(err);
             
         })
@@ -148,13 +148,11 @@ function logout(req,res,next){
 }
 
 function isAuthenticated (req, res, next) {
-    
-    token = decryptToken(req.body.t)
-    console.log(token);
-
+    const token = decryptToken(req.body.t)
     const conn = makeConnection()
+
     conn.then(conn => {
-        const query = `SELECT id,email FROM users WHERE id=${token['id']} UNION ALL SELECT id,email FROM google_users WHERE id=${token['id']}`
+        const query = `SELECT id,email,token FROM users WHERE id=${token['id']} UNION ALL SELECT id,email,token FROM google_users WHERE id=${token['id']}`
         conn.execute(query).then(result =>{
             console.log(result[0][0]);
             if(result[0][0]){

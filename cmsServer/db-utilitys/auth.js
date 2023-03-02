@@ -146,15 +146,16 @@ function isAuthenticated (req, res, next) {
 function isAuthorized(req, res, next) {
     console.log("in auth guard");
     // console.log(req.params)
-    console.log(req.query.params)
+    // console.log(req.query.params)
     const token = decryptToken(req.query.params)
     const conn = makeConnection()
-
+    console.log(token);
+    
     conn.then(conn => {
         const query = `SELECT id,email,token FROM users WHERE id=${token['id']} UNION ALL SELECT id,email,token FROM google_users WHERE id=${token['id']}`
         conn.execute(query).then(result =>{
             if(result[0][0]){
-                return res.json({"isLogged":true})
+                next()
             }
         }).catch(err => {
             return res.sendStatus(401)

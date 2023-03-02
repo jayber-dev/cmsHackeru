@@ -21,17 +21,21 @@ export class AppComponent implements OnInit {
   
   ngOnInit(): void {
   
-    console.log(this.cookieService.get('log'));
-    this.http.post('auth/auth',{'t':this.cookieService.get('log')}).subscribe(data => {
-      if(!data['isLogged']) {
-        this.router.navigateByUrl('about')
-      }
-      if(data['isLogged']) {
-        this.util.setLoggedTrue()
-        this.router.navigateByUrl('dashboard/costumers')
-      }
-      
-    })
+    if(this.cookieService.get('log')){
+      this.http.post('auth/auth',{'t':this.cookieService.get('log')}).subscribe(data => {
+        if(!data['isLogged']) {
+          
+        }
+        if(data['isLogged']) {
+          this.util.setLoggedTrue()
+          this.router.navigateByUrl('dashboard/costumers')
+        }
+        
+      })
+    } else {
+      this.router.navigateByUrl('about')
+    }
+    
   }
 
   // ngOnDestroy(): void {

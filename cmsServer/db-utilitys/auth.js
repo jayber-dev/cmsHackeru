@@ -69,18 +69,12 @@ function login (req,res,next){
                     const query = `UPDATE users SET token='${token}' WHERE id=${data[0][0]['id']}`
                     conn.execute(query).then((row,fields) =>{                       
                         res.json({"isLogged":true,"t":token})
-                    }).catch(err => {
-                        if (err) console.log(err);
-                        
-                    }) 
+                    }).catch(err => {}) 
                           
                 } else {
                     res.json({"isLogged":false,"message":"wrong password"})                
                 }
-            }).catch(err =>{
-                if (err) console.log(err);
-                
-            })  
+            }).catch(err =>{})  
         }).catch(err => {
             res.json({message:"Email Does Not Exist"})           
         })
@@ -91,20 +85,15 @@ function login (req,res,next){
 function googleLogin(req,res) {
     const token = encryptToken(req.body)
     const conn = makeConnection()
-    console.log('in google login:');
     
     conn.then(conn => {
         const query = `INSERT INTO google_users (id,email,token) values ('${req.body.id}','${req.body.email}','${token}')`
         conn.execute(query).then(res =>{}).catch(err => {
-            console.log('there is duplicate in catch');   
-            console.log(token);
+            
             const query = `UPDATE google_users set token='${token}' WHERE id = ${req.body.id}`
             conn.execute(query).then(res =>{
-                console.log(res);
-                
-            }).catch(err =>{
-                console.log(err);
-                
+                 
+            }).catch(err =>{                
             })
             
         })
@@ -138,13 +127,9 @@ function logout(req,res,next){
     conn.then(conn => {
         let regularQuery = `UPDATE users SET token = '' WHERE id = ${token['id']}`
         let googleQuery = `UPDATE google_users SET token = '' WHERE id = ${token['id']}`
-        conn.execute(regularQuery).then(res => {}).catch(err =>{
-            console.log(err);
-        })
-        conn.execute(googleQuery).then(res=>{}).catch(err =>{
-            console.log(err);
-            
-        })
+
+        conn.execute(regularQuery).then(res => {}).catch(err =>{})
+        conn.execute(googleQuery).then(res=>{}).catch(err =>{})
         conn.end()
     })
     res.send({"isLogged":false,})
@@ -157,12 +142,10 @@ function isAuthenticated (req, res, next) {
     conn.then(conn => {
         const query = `SELECT id,email,token FROM users WHERE id=${token['id']} UNION ALL SELECT id,email,token FROM google_users WHERE id=${token['id']}`
         conn.execute(query).then(result =>{
-            console.log(result[0][0]);
             if(result[0][0]){
                 return res.json({"isLogged":true})
             }
         }).catch(err => {
-            console.log(err);
                 return res.json({"isLogged":false})
         })
     })    

@@ -1,4 +1,5 @@
 # CMS App
+![#f03c15] important the site deployed on free tier PaaS netlify and render.com  `#f03c15`
 
 The CMS app is a web-based application built using MySQL,
 Node.js, and Angular. The app provides a user interface for managing customer records,
@@ -34,7 +35,11 @@ Create a new file named .env in the cms-backend folder and add the following env
 
 makefileCopy code
 
-DB_HOST=localhost DB_USER=your-mysql-username DB_PASSWORD=your-mysql-password DB_NAME=cms JWT_SECRET=your-jwt-secret 
+<code>DB_HOST=localhost <br>
+  DB_USER=your-mysql-username<br>
+  DB_PASSWORD=your-mysql-password <br>
+  DB_NAME=cms
+</code>
 
 Replace your-mysql-username and your-mysql-password with your MySQL credentials, and replace your-jwt-secret with a secret string of your choice.
 

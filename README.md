@@ -1,5 +1,7 @@
 # CMS App
-![#f03c15] important the site deployed on free tier PaaS netlify and render.com  `#f03c15`
+```diff
++important the site deployed on free tier PaaS netlify and render.com 
+```
 
 The CMS app is a web-based application built using MySQL,
 Node.js, and Angular. The app provides a user interface for managing customer records,

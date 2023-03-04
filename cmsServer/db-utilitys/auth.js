@@ -163,7 +163,7 @@ function isAuthorized(req, res, next) {
                 next()
             }
         }).catch(err => {
-            return res.sendStatus(401)
+            res.sendStatus(401)
                 // return res.json({"isLogged":false})
         })
     })  

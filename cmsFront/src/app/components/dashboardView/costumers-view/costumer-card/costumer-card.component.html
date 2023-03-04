@@ -1,7 +1,6 @@
-<div  class="costumer-card-container" >
-    <!-- *ngIf="costumerData" -->
+<div *ngIf="costumerData" class="costumer-card-container" >
+    
     <div class="details">
-        <p>{{costumerData | json}}</p>
         <h1>Costumer Details</h1>
         <p>First Name: {{costumerData.first_name}}</p>
         <p>Last Name: {{costumerData.last_name}}</p>

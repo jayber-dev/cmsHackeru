@@ -154,7 +154,6 @@ function isAuthorized(req, res, next) {
     // console.log(req.query.params)
     const token = decryptToken(req.query.params)
     const conn = makeConnection()
-    console.log(token);
     if(token['id'] === -1){
         res.sendStatus(403)
     } else {
@@ -165,8 +164,7 @@ function isAuthorized(req, res, next) {
                     next()
                 }
             }).catch(err => {
-                res.sendStatus(401)
-                    // return res.json({"isLogged":false})
+                console.log(err);
             })
         })
     }

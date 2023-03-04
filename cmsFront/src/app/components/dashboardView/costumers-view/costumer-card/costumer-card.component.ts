@@ -22,7 +22,7 @@ export class CostumerCardComponent implements OnInit{
     })
 
     this.http.get(`costumers/costumer/${this.param}`,{}).subscribe(data => {
-      this.costumerData = (data);   
+      this.costumerData = data;   
     })
   }
 }

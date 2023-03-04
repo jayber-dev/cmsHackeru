@@ -1,25 +1,25 @@
-<div *ngIf="data" class="costumer-card-container" >
+<div *ngIf="costumerData" class="costumer-card-container" >
     <div class="details">
         <h1>Costumer Details</h1>
-        <p>First Name: {{data.first_name}}</p>
-        <p>Last Name: {{data.last_name}}</p>
-        <p>Email : <a href="mailto:{{data.email}}">{{data.email}}</a></p>
-        <p>Phone Number: {{data.phone}}
-            <a href="https://wa.me/{{data.phone}}" target="_blank"><img class="whatsapp" src="../../../../../assets/images/icons/WhatsApp.svg.png" alt=""></a>
-            <a href="tel:{{data.phone}}"><img class="phone" src="../../../../../assets/images/icons/molumen_phone_icon.svg" alt=""></a>
+        <p>First Name: {{costumerData.first_name}}</p>
+        <p>Last Name: {{costumerData.last_name}}</p>
+        <p>Email : <a href="mailto:{{costumerData.email}}">{{costumerData.email}}</a></p>
+        <p>Phone Number: {{costumerData.phone}}
+            <a href="https://wa.me/{{costumerData.phone}}" target="_blank"><img class="whatsapp" src="../../../../../assets/images/icons/WhatsApp.svg.png" alt=""></a>
+            <a href="tel:{{costumerData.phone}}"><img class="phone" src="../../../../../assets/images/icons/molumen_phone_icon.svg" alt=""></a>
         </p>
-        <p>State: {{data.state}}</p>
-        <p>Country: {{data.country}}</p>
-        <p>City: {{data.city}}</p>
-        <p>Street: {{data.street}}</p>
-        <p>House Number: {{data.house_number}}</p>
-        <p>Zip Code: {{data.zip_code}}</p>
+        <p>State: {{costumerData.state}}</p>
+        <p>Country: {{costumerData.country}}</p>
+        <p>City: {{costumerData.city}}</p>
+        <p>Street: {{costumerData.street}}</p>
+        <p>House Number: {{costumerData.house_number}}</p>
+        <p>Zip Code: {{costumerData.zip_code}}</p>
     </div>
     <div class="notes">
         <h1>Notes</h1>
-        <p>{{data.notes}}</p>
+        <p>{{costumerData.notes}}</p>
     </div>
     <div class="edit">
-        <a routerLink="/dashboard/costumers/{{from}}/editCostumer/" [queryParams]="data">edit</a>
+        <a routerLink="/dashboard/costumers/{{from}}/editCostumer/" [queryParams]="costumerData">edit</a>
     </div>
 </div>

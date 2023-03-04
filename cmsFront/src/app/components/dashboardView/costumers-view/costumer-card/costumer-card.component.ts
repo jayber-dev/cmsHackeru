@@ -14,7 +14,7 @@ export class CostumerCardComponent implements OnInit{
   ){}
   from:number
   param:string
-  data:any
+  costumerData:any
   ngOnInit(): void {
     this.route.params.subscribe(param =>{      
       this.param = (param['id']);  
@@ -22,7 +22,7 @@ export class CostumerCardComponent implements OnInit{
     })
 
     this.http.get(`costumers/costumer/${this.param}`,{}).subscribe(data => {
-      this.data = (data);   
+      this.costumerData = (data);   
     })
   }
 }

@@ -3,7 +3,7 @@
     <div class="details">
         <p>{{costumerData | json}}</p>
         <h1>Costumer Details</h1>
-        <p>First Name: {{costumerData['data']['first_name']}}</p>
+        <p>First Name: {{costumerData.data.first_name}}</p>
         <p>Last Name: {{costumerData.last_name}}</p>
         <p>Email : <a href="mailto:{{costumerData.email}}">{{costumerData.email}}</a></p>
         <p>Phone Number: {{costumerData.phone}}

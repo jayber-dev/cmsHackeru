@@ -15,7 +15,7 @@ export class ContactCardComponent {
 
   from:number
   param:string
-  data:any
+  contactData:any
   ngOnInit(): void {
     this.route.params.subscribe(param =>{
       this.param = (param['id']);  
@@ -23,7 +23,7 @@ export class ContactCardComponent {
     })
 
     this.http.get(`contacts/contact/${this.param}`,{}).subscribe(data => {
-      this.data = (data);
+      this.contactData = (data);
     })
   }
 }

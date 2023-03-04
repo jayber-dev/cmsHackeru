@@ -40,7 +40,7 @@ function getSingleCostumer(req,res){
     let query = `select * FROM costumers WHERE id=${req.params.id}`
     conn.execute(query, (err,row,fields) => {      
         if (err) console.log(err);       
-        res.json({data:row[0]})   
+        res.json(row[0])   
     })
     conn.end() 
 }

@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { CookieService } from "ngx-cookie-service";
 import { environment } from "src/app/enviroments/enviroment";
 
 @Injectable({
@@ -8,6 +9,7 @@ import { environment } from "src/app/enviroments/enviroment";
 export class httpService {
     constructor(
         private http: HttpClient,
+        private cookieService:CookieService,
     ){}
     private readonly url: string = environment.apiUrl
     private readonly options = { withCredentials: true };
@@ -15,7 +17,7 @@ export class httpService {
    
 
     get<T>(path:string,params:any){
-        return this.http.get(`${this.url}/${path}`,{params:params})
+        return this.http.get(`${this.url}/${path}`,{params:{params:params,t:this.cookieService.get('log')}})
     }
 
     post<T>(path,body){

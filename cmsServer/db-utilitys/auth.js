@@ -152,7 +152,7 @@ function isAuthorized(req, res, next) {
     console.log("in auth guard");
     // console.log(req.params)
     // console.log(req.query.params)
-    const token = decryptToken(req.query.params)
+    const token = decryptToken(req.query.t)
     const conn = makeConnection()
     if(token['id'] === -1){
         res.sendStatus(403)

@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { httpService } from 'src/app/services/httpService/http.service';
 
 @Component({
@@ -12,6 +13,7 @@ export class UsersTableComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private http:httpService,
+    private cookieService:CookieService
   ) {}
   data: any;
   costumersData: string[];
@@ -85,14 +87,14 @@ export class UsersTableComponent implements OnInit {
     });
 
     if (this.router.url.match('costumers')) {
-      const retrive = this.http.get('costumers/',this.param).subscribe((data) => {
+      const retrive = this.http.get('costumers/',{from:this.param,t:this.cookieService.get('log')}).subscribe((data) => {
         this.data = data;
         retrive.unsubscribe();
         });
     }
 
     if (this.router.url.match('contacts')) {
-      const retrive = this.http.get('contacts',this.param).subscribe((data) => {
+      const retrive = this.http.get('contacts',{from:this.param,t:this.cookieService.get('log')}).subscribe((data) => {
           this.data = data;
           retrive.unsubscribe();
         });

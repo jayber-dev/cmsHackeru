@@ -28,7 +28,7 @@ function getContacts(req, res) {
     // const conn = makeConnection()
     console.log(req.params);
         
-    let query = `select * FROM contacts ORDER BY first_name LIMIT 15 OFFSET ${req.query.params.from}`
+    let query = `select * FROM contacts ORDER BY first_name LIMIT 15 OFFSET ${req.query.from}`
     conn.execute(query, (err, row, fields) => {
         if (err) console.log(err);
         res.json(row)

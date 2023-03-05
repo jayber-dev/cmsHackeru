@@ -148,6 +148,23 @@ function isAuthenticated (req, res, next) {
     })    
 }
 
+function isAuthorizedPost(req,res,next){
+    const token = decryptToken(req.body.t)
+    const conn = makeConnection()
+
+    conn.then(conn => {
+        const query = `SELECT id,email,token FROM users WHERE id=${token['id']} UNION ALL SELECT id,email,token FROM google_users WHERE id=${token['id']}`
+        conn.execute(query).then(result =>{
+            if(result[0][0]){
+                next()
+            }
+        }).catch(err => {
+            return res.sendStatus(401)
+                // return res.json({"isLogged":false})
+        })
+    }) 
+}
+
 function isAuthorized(req, res, next) {
     // method to check if authorized to make get request
     console.log("in auth guard");
@@ -172,7 +189,7 @@ function isAuthorized(req, res, next) {
       
 }
 
-
+exports.isAuthorizedPost = isAuthorizedPost
 exports.isAuthenticated = isAuthenticated
 exports.isAuthorized = isAuthorized
 exports.login = login

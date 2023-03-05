@@ -15,9 +15,9 @@ contacts.get('/contact/:id', contactsUtil.getSingleContact, (req, res, next) => 
 
 contacts.get('/search/:query/:searchParam',  contactsUtil.findcontact, (req, res) => { })
 
-contacts.post('/addContact', auth.isAuthenticated, contactsUtil.addContact, (req, res) => { })
+contacts.post('/addContact', auth.isAuthorizedPost, contactsUtil.addContact, (req, res) => { })
 
-contacts.post('/editContact', auth.isAuthenticated, contactsUtil.editContact, (req, res) => { })
+contacts.post('/editContact', auth.isAuthorizedPost, contactsUtil.editContact, (req, res) => { })
 
 contacts.delete('/deleteContact/:id',  contactsUtil.deleteContact, (req, res) => {
 

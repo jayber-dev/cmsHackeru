@@ -15,9 +15,9 @@ costumers.get('/costumer/:id',auth.isAuthorized ,costumersUtil.getSingleCostumer
 
 costumers.get('/search/:query/:searchParam',auth.isAuthorized, costumersUtil.findCostumer, (req, res) => { })
 
-costumers.post('/addCostumer',auth.isAuthenticated, costumersUtil.addCostumer, (req, res) => { })
+costumers.post('/addCostumer',auth.isAuthorizedPost, costumersUtil.addCostumer, (req, res) => { })
 
-costumers.post('/editCostumer',auth.isAuthenticated, costumersUtil.editCostumer, (req, res) => { })
+costumers.post('/editCostumer',auth.isAuthorizedPost, costumersUtil.editCostumer, (req, res) => { })
 
 costumers.delete('/deleteCostumer/:id', costumersUtil.deleteCostumer, (req, res) => {})
 

@@ -14,5 +14,23 @@
     }
 }
 
+.waiting-screen {
+    
+    h1{
+        text-align: center;
+        opacity: 0;
+    }
+}
+
+@keyframes waiting {
+    0%{
+        transform: translateY(-100%);
+        opacity:0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 
 

@@ -21,7 +21,7 @@ export class SignupFormComponent {
     this.signupForm = fb.group({
       email:["",Validators.required],
       password:["",Validators.required],
-      repeatedPassword:["",Validators.required],
+      repeatedPassword:[""],
     },{validators:passwordsMatch})
     
   }

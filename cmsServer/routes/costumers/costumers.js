@@ -7,7 +7,7 @@ costumers.use((req, res, next) => {
     next()
 })
 
-costumers.get('/', costumersUtil.getCostumers, (req, res) => { })
+costumers.get('/',auth.isAuthorized, costumersUtil.getCostumers, (req, res) => { })
 
 costumers.get('/getAll', auth.isAuthorized ,costumersUtil.getAllCostumers, (req, res) => { })
 

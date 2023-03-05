@@ -75,10 +75,10 @@ function deleteCostumer(req,res) {
     let query = `DELETE FROM costumers WHERE id=${req.params.id}`
     conn.execute(query, (err,row,fields) => {      
         if (err) console.log(err);       
-        res.json(row[0])   
+        res.sendStatus(200)   
     })
     conn.end() 
-    res.sendStatus(200)
+    
 }
 
 function editCostumer(req,res){

@@ -17,13 +17,13 @@ export class AddEditContactsComponent implements OnInit {
     private http: httpService
     ) {
     this.addContact = fb.group({
-      firstName: [''],
-      lastName: [''],
-      birthday: [''],
-      email: [''],
-      phone: [''],
-      state: [''],
-      country: [''],
+      firstName: ['',Validators.required],
+      lastName: ['',Validators.required],
+      birthday: ['',Validators.required],
+      email: ['',Validators.required],
+      phone: ['',Validators.required],
+      state: ['',Validators.required],
+      country: ['',Validators.required],
       city: [''],
       street: [''],
       houseNumber: [''],

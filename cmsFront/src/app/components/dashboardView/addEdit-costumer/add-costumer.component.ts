@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Costumer } from './costumer.interface';
 
@@ -18,14 +18,14 @@ export class AddEditCostumerComponent implements OnInit {
     private http: httpService
   ) {
     this.addCostumer = fb.group({
-      firstName: [''],
-      lastName: [''],
-      email: [''],
-      phone: [''],
+      firstName: ['',Validators.required],
+      lastName: ['',Validators.required],
+      email: ['',Validators.required],
+      phone: ['',Validators.required],
       state: [''],
-      country: [''],
-      city: [''],
-      street: [''],
+      country: ['',Validators.required],
+      city: ['',Validators.required],
+      street: ['',Validators.required],
       houseNumber: [''],
       zipCode: [''],
       notes: [''],

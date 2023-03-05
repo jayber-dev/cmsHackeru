@@ -66,6 +66,7 @@ function addCostumer(req,res){
     })
 
     conn.end()
+    res.sendStatus(200)
 }
 
 function deleteCostumer(req,res) {    
@@ -77,6 +78,7 @@ function deleteCostumer(req,res) {
         res.json(row[0])   
     })
     conn.end() 
+    res.sendStatus(200)
 }
 
 function editCostumer(req,res){
@@ -89,6 +91,7 @@ function editCostumer(req,res){
     })
 
     conn.end()
+    res.sendStatus(200)
 }
 
 exports.editCostumer = editCostumer

@@ -68,7 +68,7 @@ function deleteContact(req, res) {
         res.json(row[0])
     })
     conn.end()
-
+    res.sendStatus(200)
 }
 
 function addContact(req, res) {
@@ -80,7 +80,7 @@ function addContact(req, res) {
     })
 
     conn.end()
-
+    res.sendStatus(200)
 }
 
 function editContact(req, res) {
@@ -92,8 +92,9 @@ function editContact(req, res) {
     conn.execute(query, (err, row, fields) => {
         if (err) throw err
     })
-
+    
     conn.end()
+    res.sendStatus(200)
 }
 
 exports.editContact = editContact

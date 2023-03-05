@@ -149,13 +149,14 @@ function isAuthenticated (req, res, next) {
 }
 
 function isAuthorized(req, res, next) {
+    // method to check if authorized to make get request
     console.log("in auth guard");
     // console.log(req.params)
     // console.log(req.query.params)
     const token = decryptToken(req.query.t)
     const conn = makeConnection()
     if(token['id'] === -1){
-        res.sendStatus(403)
+        res.sendStatus(401)
     } else {
         conn.then(conn => {
             const query = `SELECT id,email,token FROM users WHERE id=${token['id']} UNION ALL SELECT id,email,token FROM google_users WHERE id=${token['id']}`

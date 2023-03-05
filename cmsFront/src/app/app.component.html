@@ -1,5 +1,5 @@
 <div class="main-content" >
-    <div>
+    <div *ngIf="dataRecive">
         <app-navbar ></app-navbar>
 
         <router-outlet></router-outlet>
@@ -7,7 +7,7 @@
         <app-footer></app-footer>
     </div>
 
-    <div class="waiting-screen">
+    <div *ngIf="!dataRecive" class="waiting-screen">
         <h1>hold on...</h1>
     </div>
 </div>

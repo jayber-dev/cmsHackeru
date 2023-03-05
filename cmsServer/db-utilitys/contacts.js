@@ -25,22 +25,15 @@ function getAllContacts(req, res) {
 }
 
 function getContacts(req, res) {
-    const conn = makeConnection()
+    // const conn = makeConnection()
     console.log(req.params);
-    console.log(req.query);
-    console.log(req.params.from);
-    console.log(req.query.from)
-    console.log(req.params);
-    
-    
-    
-    
-    // let query = `select * FROM contacts ORDER BY first_name LIMIT 15 OFFSET ${req.query.params.from}`
-    // conn.execute(query, (err, row, fields) => {
-    //     if (err) console.log(err);
-    //     res.json(row)
-    // })
-    // conn.end()
+        
+    let query = `select * FROM contacts ORDER BY first_name LIMIT 15 OFFSET ${req.query.params.from}`
+    conn.execute(query, (err, row, fields) => {
+        if (err) console.log(err);
+        res.json(row)
+    })
+    conn.end()
 }
 
 function getSingleContact(req, res) {

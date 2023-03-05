@@ -5,7 +5,7 @@
         <small *ngIf="!signupForm.controls['email'].valid">Please fill email</small>
         <input autocomplete="current-password" type="password" placeholder="Password" formControlName="password">
         <small *ngIf="!signupForm.controls['password'].valid">Pleaase fill in password</small>
-        <input [disabled]="!signupForm.controls['password'].valid && !signupForm.controls['email'].valid" autocomplete="current-password" type="password" placeholder="Repeat Password" formControlName="repeatedPassword" name="repeatedPassword">
+        <input [disabled]="signupForm.controls['password'].valid && signupForm.controls['email'].valid" autocomplete="current-password" type="password" placeholder="Repeat Password" formControlName="repeatedPassword" name="repeatedPassword">
         <small *ngIf="!signupForm.valid">Passwords does not match</small>
         <p>{{message}}</p>
         <p *ngIf="signupForm.valid">You can signup now</p>

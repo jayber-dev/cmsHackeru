@@ -29,11 +29,6 @@ form {
         color: $textColor;
     }
 
-    input.ng-dirty.ng-invalid::after {
-        content: "invalid";
-        color: red
-      }
-
     button {
         color: $textColor;
         cursor: pointer;

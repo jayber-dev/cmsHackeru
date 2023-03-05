@@ -2,7 +2,9 @@
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
         <h1>Sign-Up</h1>
         <input autocomplete="email" type="email" placeholder="Email" formControlName="email" name="email">
+        <small *ngIf="!signupForm.controls['email'].valid">Please fill email</small>
         <input autocomplete="current-password" type="password" placeholder="Password" formControlName="password">
+        <small *ngIf="!signupForm.controls['password'].valid">Pleaase fill in password</small>
         <input autocomplete="current-password" type="password" placeholder="Repeat Password" formControlName="repeatedPassword" name="repeatedPassword">
         <p>{{message}}</p>
         <p *ngIf="signupForm.valid">You can signup now</p>

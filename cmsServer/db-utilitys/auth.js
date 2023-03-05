@@ -165,11 +165,9 @@ function isAuthorizedPost(req,res,next){
 
 function isAuthorized(req, res, next) {
     // method to check if authorized to make get request
-    console.log("in auth guard");
     const token = decryptToken(req.query.t)
     const conn = makeConnection()
-    console.log(req.query);
-    
+
     if(token['id'] === -1){
         res.sendStatus(401)
     } else {

@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
     private http:httpService,
   ){}
   title = 'CMS-HackerU';
+  dataRecive:boolean = false
   @Input() isLogged:boolean
   
   ngOnInit(): void {
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit {
     if(this.cookieService.get('log')){
       this.http.post('auth/auth',{}).subscribe(data => {
         if(data['isLogged']) {
+          this.dataRecive = true
           this.util.setLoggedTrue()
           this.router.navigateByUrl('dashboard/costumers')
         }

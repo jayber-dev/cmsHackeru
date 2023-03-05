@@ -21,6 +21,7 @@ export class httpService {
     }
 
     post<T>(path,body){
+        body['t'] = this.cookieService.get('log')
         return this.http.post(`${this.url}/${path}`,body,this.options)
     }
 

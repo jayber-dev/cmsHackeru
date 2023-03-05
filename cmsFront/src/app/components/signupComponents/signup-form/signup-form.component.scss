@@ -24,7 +24,7 @@ form {
         background-color: transparent;
         padding:5px;
         margin: 20px;
-        margin-bottom:20px;
+        margin-bottom:0px;
         border: 0px solid;
         border-bottom: 1px solid rgb(0, 0, 0);
         color: $textColor;
@@ -38,7 +38,7 @@ form {
         text-align: center;
     }
     small{
-        margin-left: 20px;
+        margin-left: 25px;
     }
 
     input::placeholder {

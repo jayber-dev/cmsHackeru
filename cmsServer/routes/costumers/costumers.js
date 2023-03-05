@@ -19,6 +19,6 @@ costumers.post('/addCostumer',auth.isAuthorizedPost, costumersUtil.addCostumer, 
 
 costumers.post('/editCostumer',auth.isAuthorizedPost, costumersUtil.editCostumer, (req, res) => { })
 
-costumers.delete('/deleteCostumer/:id', costumersUtil.deleteCostumer, (req, res) => {})
+costumers.delete('/deleteCostumer/:id',auth.isAuthorized, costumersUtil.deleteCostumer, (req, res) => {})
 
 module.exports = costumers;

@@ -19,8 +19,6 @@ contacts.post('/addContact', auth.isAuthorizedPost, contactsUtil.addContact, (re
 
 contacts.post('/editContact', auth.isAuthorizedPost, contactsUtil.editContact, (req, res) => { })
 
-contacts.delete('/deleteContact/:id',  contactsUtil.deleteContact, (req, res) => {
-
-})
+contacts.delete('/deleteContact/:id', auth.isAuthorized, contactsUtil.deleteContact, (req, res) => {})
 
 module.exports = contacts

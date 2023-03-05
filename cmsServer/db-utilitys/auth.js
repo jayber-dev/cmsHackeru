@@ -143,7 +143,6 @@ function isAuthenticated (req, res, next) {
             }
         }).catch(err => {
             return res.sendStatus(401)
-                // return res.json({"isLogged":false})
         })
     })    
 }
@@ -160,7 +159,6 @@ function isAuthorizedPost(req,res,next){
             }
         }).catch(err => {
             return res.sendStatus(401)
-                // return res.json({"isLogged":false})
         })
     }) 
 }
@@ -168,8 +166,6 @@ function isAuthorizedPost(req,res,next){
 function isAuthorized(req, res, next) {
     // method to check if authorized to make get request
     console.log("in auth guard");
-    // console.log(req.params)
-    // console.log(req.query.params)
     const token = decryptToken(req.query.t)
     const conn = makeConnection()
     if(token['id'] === -1){

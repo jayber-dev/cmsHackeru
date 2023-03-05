@@ -30,6 +30,6 @@ export class httpService {
     }
 
     delete<T>(path:string) {
-        return this.http.delete(`${this.url}/${path}`, this.options)
+        return this.http.delete(`${this.url}/${path}`, {params:{t:this.cookieService.get('log')}})
     }
 }

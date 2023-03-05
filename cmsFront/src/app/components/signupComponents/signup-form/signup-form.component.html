@@ -5,6 +5,7 @@
         <input autocomplete="current-password" type="password" placeholder="Password" formControlName="password">
         <input autocomplete="current-password" type="password" placeholder="Repeat Password" formControlName="repeatedPassword" name="repeatedPassword">
         <p>{{message}}</p>
+        <p *ngIf="signupForm.valid">You can signup now</p>
         <button [disabled]="!signupForm.valid"> Signup</button>
     </form>
 </div>

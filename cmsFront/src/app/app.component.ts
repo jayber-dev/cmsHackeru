@@ -28,10 +28,14 @@ export class AppComponent implements OnInit {
           this.dataRecive = true
           this.util.setLoggedTrue()
           this.router.navigateByUrl('dashboard/costumers')
+        } else {
+          this.dataRecive = true
+          this.router.navigateByUrl('about')
         }
         
       })
     } else {
+      this.dataRecive = true
       this.router.navigateByUrl('about')
     }
     

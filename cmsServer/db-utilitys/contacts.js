@@ -77,7 +77,7 @@ function addContact(req, res) {
 	});
 
 	conn.end();
-	res.sendStatus(200);
+	
 }
 
 function editContact(req, res) {
@@ -87,11 +87,12 @@ function editContact(req, res) {
 	let query = `UPDATE contacts set first_name='${data.firstName}', last_name='${data.lastName}', email='${data.email}', phone='${data.phone}', birthday='${data.birthday}', state='${data.state}', country='${data.country}', city = '${data.city}', street = '${data.street}', house_number = '${data.houseNumber}', zip_code = '${data.zipCode}' WHERE id= ${data.paramId}`;
 
 	conn.execute(query, (err, row, fields) => {
-		if (err) throw err;
+		if (err) res.sendStatus(500);
+		res.sendStatus(200)
 	});
 
 	conn.end();
-	res.sendStatus(200);
+	
 }
 
 exports.editContact = editContact;

@@ -62,8 +62,7 @@ function addCostumer(req,res){
 
     let query = `INSERT INTO costumers (first_name,last_name,email,phone,state,country,city,street,house_number,zip_code,notes) values ('${data.firstName}','${data.lastName}','${data.email}','${data.phone}','${data.state}','${data.country}','${data.city}','${data.street}','${data.houseNumber}','${data.zipCode}','${data.notes}')`
     conn.execute(query, (err,row,fields)=>{
-        if (err) res.sendStatus(500);
-        res.sendStatus(200)
+        if (err) console.log(err)
     })
 
     conn.end()
@@ -88,12 +87,11 @@ function editCostumer(req,res){
 
     let query = `UPDATE costumers SET first_name='${data.firstName}', last_name='${data.lastName}', email='${data.email}', phone='${data.phone}', state='${data.state}', country='${data.country}', city = '${data.city}', street = '${data.street}', house_number = '${data.houseNumber}', zip_code = '${data.zipCode}', notes = '${data.notes}' WHERE id= ${data.paramId}`
     conn.execute(query, (err,row,fields) => {
-        if (err) res.sendStatus(200);
-        res.sendStatus(200)
+        if (err) console.log(err);
     })
 
     conn.end()
-    
+    res.sendStatus(200)
 }
 
 exports.editCostumer = editCostumer

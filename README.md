@@ -1,6 +1,8 @@
 # CMS App
 ```diff
-+important the site deployed on free tier PaaS netlify and render.com 
+* important the site deployed on free tier PaaS netlify and render.com 
+* duo to latancy and server side sleep after inactivity it might take some time to make the dyno's to wake up
+
 ```
 
 The CMS app is a web-based application built using MySQL,
